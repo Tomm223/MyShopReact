@@ -18,13 +18,13 @@ function Account() {
 
    const [posNavBlock, setPosNavBlock] = useState('relative')
 
+   const paddingNav = 10
 
-   const [checkRoute, setCheckRoute] = useState('up')
+   const [checkRoute, setCheckRoute] = useState("up")
 
    const cabNav = useRef()
    const navigateBlock = useRef()
    const cab = useRef()
-
    function setPosFixNav() {
       setNavTop(10)
       setNavLeft(navigateBlock.current.getBoundingClientRect().left)
@@ -39,64 +39,57 @@ function Account() {
       setPosNav('absolute')
       setPosNavBlock('relative')
    }
-   function proverkaScroll(route) {
+   const proverkaScroll = (route) => {
       if (route == checkRoute) {
          if (route == "down") {
             //
+            setCheckRoute("up")
             setPosFixNav()
-
-            setCheckRoute('up')
+            console.log("down :" + checkRoute);
 
          }
          else if (route == "up") {
             //
+            setCheckRoute("down")
             setPosDef()
-            setCheckRoute('down')
-
+            console.log("up :" + checkRoute);
          }
       }
 
 
 
    }
-   /*useEffect(() => {
-      window.addEventListener("scroll", function scroll() {
-         const localNavTen = cabNav.current.getBoundingClientRect().top + this.window.scrollY - 10
-         const pageY = this.window.scrollY
-         const minus100 = pageY - localNavTen
-         minus100 > 0 ? setMargTop(minus100) : setMargTop(0)
-      }, true);
-      return () => {
-         window.removeEventListener("scroll", function scroll() {
-            const localNavTen = cabNav.current.getBoundingClientRect().top + this.window.scrollY - 10
-            const pageY = this.window.scrollY
-            const minus100 = pageY - localNavTen
-            minus100 > 0 ? setMargTop(minus100) : setMargTop(0)
+   /* function scrolling() {
+       const scrollY = this.scrollY
+       const localNavTen = cabNav.current.getBoundingClientRect().top + scrollY - 11
+       const minus100 = scrollY - localNavTen
+       console.log(minus100);
+       minus100 > 0 ? proverkaScroll('down') : proverkaScroll('up')
+    }
+    useEffect(() => {
+       window.addEventListener("scroll", scrolling.bind(window), true);
+    }, [])*/
 
-         }, true);
-      }
-   }, [])*/
    useEffect(() => {
       window.addEventListener("scroll", function scroll() {
-         const localNavTen = cabNav.current.getBoundingClientRect().top + this.window.scrollY - 10
+         const localNavTen = navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
          const pageY = this.window.scrollY
          const minus100 = pageY - localNavTen
-         minus100 > 0 ? proverkaScroll('down') : proverkaScroll('up')
+         minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
          console.log(minus100);
+
+
       }, true);
       return () => {
          window.removeEventListener("scroll", function scroll() {
-            const localNavTen = cabNav.current.getBoundingClientRect().top + this.window.scrollY - 10
+            const localNavTen = navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
             const pageY = this.window.scrollY
             const minus100 = pageY - localNavTen
             minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
             console.log(minus100);
-
          }, true);
       }
-   }, [])
-
-
+   }, [checkRoute, proverkaScroll])
 
    const styleNavBlock = {
       position: `${posNavBlock}`
