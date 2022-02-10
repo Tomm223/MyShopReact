@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+import App from './App';
+
+import { BrowserRouter } from 'react-router-dom'
+import "./styles/allhtml.scss"
+import "./styles/cataloge.scss"
+import "./styles/footer.scss"
+import "./styles/gender.scss"
+import "./styles/header.scss"
+import "./styles/index.scss"
+import "./styles/item.scss"
+import "./styles/kabinet.scss"
+import "./styles/registration.scss"
+import "./styles/reset.css"
+import "./styles/vars.scss"
+import ThemeContext from "./components/Context/ThemeContext"
+
+function Main() {
+  const [theme, setTheme] = useState('defaulte')
+  return (
+    <React.StrictMode>
+      <BrowserRouter>
+        <ThemeContext.Provider value={{ theme, setTheme }}>
+          <App />
+        </ThemeContext.Provider>
+      </BrowserRouter>
+    </React.StrictMode >
+  )
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Main />,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+

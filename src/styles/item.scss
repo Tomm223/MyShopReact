@@ -1,0 +1,183 @@
+@import "./reset.css";
+@import "./vars.scss";
+@import url('https://fonts.googleapis.com/css2?family=Jura&family=Lato&display=swap');
+
+.profile{
+   padding-top: 50px;
+   .container{
+      @include container (900px)
+   }
+   &__block{
+      display: flex;
+      width: 100%;
+      height: auto;
+      margin-bottom: 100px;
+   }
+   //img
+
+   &__fotos{
+      width: 50%;
+      position: relative;
+      
+
+      &-supp{
+         width: 100%;
+         padding: 10px 10px;
+         display: flex;
+         justify-content: center;
+         position: relative;
+
+         .profile__img-right,.profile__img-left{
+            width: auto;
+            img{
+               width: 30px;
+               height: 30px;
+            }
+         }
+      }
+      &-block{
+         position: relative;
+         margin: 0 5px;
+         img{
+            width: 70px;
+            
+         }
+      }
+      &-opacity{
+         position: absolute;
+         left: 0;
+         top: 0;
+         bottom: 0;
+         right: 0;
+         &.active,&:hover{
+            background-color: #000;
+            opacity: 0.6;
+            z-index: 1;
+            
+         }
+         &:hover{
+            opacity: 0.3;
+            cursor: pointer;
+               background-color: #000;
+               z-index: 1;
+                &::before{
+                   content: "";
+                   position: absolute;
+                   left: 50%;
+                   top: 50%;
+                   transform: translate(-50%,-50%);
+                   background: url("/img/page-icon/search.svg") no-repeat center;
+                   width: 30px;
+                   height: 30px;
+                }
+            
+         }
+         
+      }
+   }
+   &__img{
+      position: relative;
+      width: 100%;
+      height: auto;
+      &-item{
+         width: 100%;
+         height: auto;
+      }
+      &-left,&-right{
+         position: absolute;
+         top: 0;
+         width: 40%;
+         height: 100%;
+         display: flex;
+         align-items: center;
+         padding: 0 10px;
+         cursor: pointer;
+         img{
+            width: 40px;
+            height: 40px;
+         }
+      }
+      &-left{
+         left: 0;
+         justify-content: start;
+         img{
+            transform: rotate(90deg);
+         }
+      }
+      &-right{
+         right: 0;
+         justify-content: end;
+         img{
+            transform: rotate(-90deg);
+         }
+      }
+   }
+   
+   //buy
+
+   &__buy{
+      width: 50%;
+      color: $black;
+      margin: 0 10px;
+      padding: 10px;
+   }
+   &__list{
+      padding-left: 30px;
+      padding-top: 30px;
+      &-item{
+         margin-bottom: 50px;
+         font-style: normal;
+         font-weight: 400;
+         font-size: 20px;
+      }
+      &-block{
+
+      }
+      &-sizeP{
+         margin-bottom: 10px;
+      }
+      &-sellect{
+         padding: 10px 25px;
+         font-size: 20px;
+      }
+   }
+   &__btn{
+      @include btn-white-black;
+      background-color: green;
+      &:hover{
+         background-color: $rose;
+      }
+   }
+   &__name{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      
+   }
+   
+
+   //info
+
+   &__info{
+      margin-bottom: 50px;
+      &-title{
+         font-size: 25px;
+         font-weight: normal;
+         margin-bottom: 50px;
+      }
+      &-list{
+         display: grid;
+         grid-template-columns: repeat(4,1fr);
+         list-style-type: circle;
+      }
+      &-item{
+         margin-bottom: 30px;
+      }
+      &-text{
+         font-size: 18px;
+         font-weight: lighter;
+      }
+   }
+
+   //
+}
