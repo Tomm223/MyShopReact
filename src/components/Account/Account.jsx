@@ -69,25 +69,19 @@ function Account() {
     useEffect(() => {
        window.addEventListener("scroll", scrolling.bind(window), true);
     }, [])*/
+   function scrolling() {
+      const localNavTen = navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
+      const pageY = this.window.scrollY
+      const minus100 = pageY - localNavTen
+      minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
+      console.log(minus100);
 
+
+   }
    useEffect(() => {
-      window.addEventListener("scroll", function scroll() {
-         const localNavTen = navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
-         const pageY = this.window.scrollY
-         const minus100 = pageY - localNavTen
-         minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
-         console.log(minus100);
-
-
-      }, true);
+      window.addEventListener("scroll", scrolling, true);
       return () => {
-         window.removeEventListener("scroll", function scroll() {
-            const localNavTen = navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
-            const pageY = this.window.scrollY
-            const minus100 = pageY - localNavTen
-            minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
-            console.log(minus100);
-         }, true);
+         window.removeEventListener("scroll", scrolling, true);
       }
    }, [checkRoute, proverkaScroll])
 
