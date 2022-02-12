@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
+//pages
 import Layout from "./components/Layout"
 import Account from "./components/Account/Account"
 import Registration from "./components/Registration"
@@ -7,16 +8,17 @@ import Cataloge from "./components/Cataloge"
 import Gender from "./components/Gender"
 import Product from "./components/Products/Product"
 import Welcome from "./components/Welcome"
-
+//context
 import PagesContext from "./components/Context/PagesContext"
 import ProductsContext from "./components/Context/ProductsContext"
-
+//acc
 import AccountBasket from "./components/Account/AccountBasket"
 import AccountInfo from "./components/Account/AccountInfo"
 import AccountLikes from "./components/Account/AccountLikes"
 import AccountZakaz from "./components/Account//AccountZakaz"
 import AccountZakazMore from "./components/Account//AccountZakazMore"
-
+//hoc
+import RequireAuth from "./hoc/RequireAuth"
 
 function App() {
 
@@ -47,7 +49,11 @@ function App() {
 
 
       <Routes>
-        <Route path="/account/" element={<Account />} >
+        <Route path="/account/" element={
+          <RequireAuth>
+            <Account />
+          </RequireAuth>
+        } >
           <Route path="info" element={<AccountInfo />} />
           <Route path="basket" element={<AccountBasket />} />
           <Route path="likes" element={<AccountLikes />} />
@@ -61,7 +67,8 @@ function App() {
 }
 
 export default App;
-/*import PagesContext from "./components/Context/PagesContext"
+/*<Route path="info" element={<AccountInfo />} />
+import PagesContext from "./components/Context/PagesContext"
 const pageY0 = () => document.documentElement.scrollTop = 0
 
 //pageYo

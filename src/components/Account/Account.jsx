@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { Outlet } from 'react-router-dom'
+import { Outlet, NavLink } from 'react-router-dom'
 import AccountNavigate from "./AccountNavigate";
 import PagesContext from "../Context/PagesContext";
 
@@ -100,8 +100,10 @@ function Account() {
          <div class="registration-body">
             <div ref={cab} style={styleCab} class="cab">
                <div class="cab__block">
-                  <div class="cab__nav-title">
-                     <img src="/img/page-icon/vesh-logo2.png" alt="lojgo" />
+                  <div className="cab__nav-title">
+                     <NavLink to='/' style={{ width: "100%" }}>
+                        <img src="/img/page-icon/vesh-logo2.png" alt="lojgo" />
+                     </NavLink>
                   </div>
                   <div class="cab__supp-title">
                      <h1>Личный кабинет</h1>
