@@ -33,7 +33,7 @@ function App() {
   console.log(products);
   return (
     <div className={`App`}>
-      <ProductsContext.Provider value={products}>
+      <ProductsContext.Provider value={{ products }}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Welcome />} />
