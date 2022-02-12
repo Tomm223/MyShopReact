@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ProductsItem from "./ProductsItem";
 
-function ProductsList(props) {
-   console.log(props.db);
+function ProductsList({ products }) {
+
+
+   /*  {products.map((item) => {
+                     return (<ProductsItem id={item.id} key={item.id} imgLink={item.img_product} name={item.product_name} price={item.price} color={item.color} />)
+
+                  })}*/
    return (
       <div>
          <div class="product">
             <div class="container">
                <div className="product__block">
-                  {props.db.map((item) => {
-                     return (<ProductsItem id={item.id} key={item.id} imgLink={item.img_product} name={item.product_name} price={item.price} color={item.color} />)
 
-                  })}
 
 
                </div>

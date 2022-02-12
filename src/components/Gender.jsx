@@ -3,102 +3,16 @@ import Moda from "./Moda"
 import { Outlet } from "react-router-dom";
 import ProductsList from "./Products/ProductsList";
 import ProductsContext from "./Context/ProductsContext";
+import PagesContext from "./Context/PagesContext";
 function Gender() {
-   /*  <div class="product">
-               <div class="container">
-                  <div class="product__block">
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
+   //pageYo
+   const { pageY0 } = useContext(PagesContext)
+   useEffect(() => {
+      pageY0()
+   }, [pageY0])
 
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div> */
-
-   const [db, setDb] = useState([])
    const { products } = useContext(ProductsContext)
-   setDb(products)
+
    return (
       <>
          <Outlet />
@@ -156,7 +70,7 @@ function Gender() {
                   <span>Обнови гардероб! Покупай товары по нашим рекомендациям</span>
                </div>
             </div>
-            <ProductsList db={db} />
+            <ProductsList products={products} />
 
          </div>
       </>

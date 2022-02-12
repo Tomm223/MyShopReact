@@ -1,10 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ProductsContext from "../Context/ProductsContext"
 import Moda from "../Moda";
 import ProductSuppImg from "./ProductSuppImg";
-
+import PagesContext from "../Context/PagesContext";
 export default function Product() {
+   //pageYo
+   const { pageY0 } = useContext(PagesContext)
+   useEffect(() => {
+      pageY0()
+   }, [pageY0])
+
    const location = useLocation()
    const { products } = useContext(ProductsContext)
    const [numImg, setnumImg] = useState(0)

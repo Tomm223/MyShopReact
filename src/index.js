@@ -15,16 +15,17 @@ import "./styles/kabinet.scss"
 import "./styles/registration.scss"
 import "./styles/reset.css"
 import "./styles/vars.scss"
-import ThemeContext from "./components/Context/ThemeContext"
+import PagesContext from "./components/Context/PagesContext"
 
 function Main() {
-  const [theme, setTheme] = useState('defaulte')
+  const pageY0 = () => document.documentElement.scrollTop = 0
+
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <ThemeContext.Provider value={{ theme, setTheme }}>
+        <PagesContext.Provider value={{ pageY0 }}>
           <App />
-        </ThemeContext.Provider>
+        </PagesContext.Provider>
       </BrowserRouter>
     </React.StrictMode >
   )

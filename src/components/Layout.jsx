@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "./header/Header"
 import Footer from "./Footer"
-
+import PagesContext from "./Context/PagesContext"
 import { Outlet } from 'react-router-dom'
-import ThemeContext from "./Context/ThemeContext";
+
 function Layout() {
-   const { theme, setTheme } = useContext(ThemeContext)
-   setTheme('defaulte')
-   console.log(theme);
+   //pageYo
+   const { pageY0 } = useContext(PagesContext)
+   useEffect(() => {
+      pageY0()
+   }, [])
    return (
       <React.Fragment>
          <Header />

@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
-import ThemeContext from "./Context/ThemeContext";
+import React, { useContext, useEffect } from "react";
+import PagesContext from "./Context/PagesContext";
 
 function Registration() {
-   const { theme, setTheme } = useContext(ThemeContext)
-   setTheme("grey")
-   console.log(theme);
+   //pageYo
+   const { pageY0 } = useContext(PagesContext)
+   useEffect(() => {
+      pageY0()
+   }, [pageY0])
+
    return (
 
       <div class="registration-body">

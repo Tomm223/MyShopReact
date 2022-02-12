@@ -1,6 +1,14 @@
 import React from "react";
+import { useContext, useEffect } from 'react'
+import PagesContext from "./Context/PagesContext";
 
 function Cataloge() {
+   //pageYo
+   const { pageY0 } = useContext(PagesContext)
+   useEffect(() => {
+      pageY0()
+   }, [pageY0])
+
    return (
       <>
          <div class="feture catalog">

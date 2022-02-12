@@ -1,7 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { Outlet } from 'react-router-dom'
 import AccountNavigate from "./AccountNavigate";
+import PagesContext from "../Context/PagesContext";
+
+
 function Account() {
+   //pageYo
+   const { pageY0 } = useContext(PagesContext)
+   useEffect(() => {
+      pageY0()
+   }, [pageY0])
+
+
    const [navigate, setNavigate] = useState([])
 
    useEffect(() => {
@@ -17,8 +27,6 @@ function Account() {
    const [posNav, setPosNav] = useState('absolute')
 
    const [posNavBlock, setPosNavBlock] = useState('relative')
-
-   const paddingNav = 10
 
    const [checkRoute, setCheckRoute] = useState("up")
 
@@ -55,29 +63,17 @@ function Account() {
             console.log("up :" + checkRoute);
          }
       }
-
-
-
    }
-   /* function scrolling() {
-       const scrollY = this.scrollY
-       const localNavTen = cabNav.current.getBoundingClientRect().top + scrollY - 11
-       const minus100 = scrollY - localNavTen
-       console.log(minus100);
-       minus100 > 0 ? proverkaScroll('down') : proverkaScroll('up')
-    }
-    useEffect(() => {
-       window.addEventListener("scroll", scrolling.bind(window), true);
-    }, [])*/
+
    function scrolling() {
       const localNavTen = navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
       const pageY = this.window.scrollY
       const minus100 = pageY - localNavTen
       minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
       console.log(minus100);
-
-
    }
+
+
    useEffect(() => {
       window.addEventListener("scroll", scrolling, true);
       return () => {

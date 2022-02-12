@@ -8,7 +8,7 @@ import Gender from "./components/Gender"
 import Product from "./components/Products/Product"
 import Welcome from "./components/Welcome"
 
-import ThemeContext from "./components/Context/ThemeContext"
+import PagesContext from "./components/Context/PagesContext"
 import ProductsContext from "./components/Context/ProductsContext"
 
 import AccountBasket from "./components/Account/AccountBasket"
@@ -19,9 +19,9 @@ import AccountZakazMore from "./components/Account//AccountZakazMore"
 
 
 function App() {
-  //theme
-  const { theme } = useContext(ThemeContext)
-  console.log(theme);
+
+
+
   //products
   const [products, setProducts] = useState([])
 
@@ -30,9 +30,10 @@ function App() {
       .then(data => data.json())
       .then(data => setProducts(data))
   }, [])
+  console.log(products);
   return (
-    <div className={`App ${theme}`}>
-      <ProductsContext.Provider value={{ products }}>
+    <div className={`App`}>
+      <ProductsContext.Provider value={products}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Welcome />} />
@@ -40,7 +41,6 @@ function App() {
             <Route path="men/" element={<Gender />} />
             <Route path="women/" element={<Gender />} />
             <Route path="cataloge" element={<Cataloge />} />
-            <Route path="gender" element={<Gender />} />
           </Route>
         </Routes>
       </ProductsContext.Provider>
@@ -61,3 +61,18 @@ function App() {
 }
 
 export default App;
+/*import PagesContext from "./components/Context/PagesContext"
+const pageY0 = () => document.documentElement.scrollTop = 0
+
+//pageYo
+const { pageY0 } = useContext(PagesContext)
+useEffect(() => {
+   pageY0()
+}, [pageY0])
+
+return (
+
+   <PagesContext.Provider value={{ pageY0 }}>
+      <App />
+   </PagesContext.Provider>
+) */
