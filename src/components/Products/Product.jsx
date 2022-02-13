@@ -3,13 +3,14 @@ import { useLocation } from "react-router-dom";
 import ProductsContext from "../Context/ProductsContext"
 import Moda from "../Moda";
 import ProductSuppImg from "./ProductSuppImg";
-import PagesContext from "../Context/PagesContext";
+import { PagesContext } from "../Context/PagesProvider";
 export default function Product() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
-   }, [pageY0])
+
+   }, [])
 
    const location = useLocation()
    const { products } = useContext(ProductsContext)

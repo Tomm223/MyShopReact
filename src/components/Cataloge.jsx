@@ -1,13 +1,13 @@
 import React from "react";
 import { useContext, useEffect } from 'react'
-import PagesContext from "./Context/PagesContext";
+import { PagesContext } from "./Context/PagesProvider";
 
 function Cataloge() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
-   }, [pageY0])
+   }, [])
 
    return (
       <>

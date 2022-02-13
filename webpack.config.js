@@ -86,7 +86,8 @@ module.exports = {
       ]
    },
    resolve: {
-      extensions: ['.js', '.jsx', '.scss']
+      extensions: ['.js', '.jsx', '.scss'],
+      fallback: { "path": false }
    },
    devServer: {
       port: 5000,

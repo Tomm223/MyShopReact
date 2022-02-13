@@ -15,18 +15,18 @@ import "./styles/kabinet.scss"
 import "./styles/registration.scss"
 import "./styles/reset.css"
 import "./styles/vars.scss"
-import PagesContext from "./components/Context/PagesContext"
+import PagesProvider from "./components/Context/PagesProvider"
 import { AuthProvider } from './components/Context/AuthProvider'
 function Main() {
-  const pageY0 = () => document.documentElement.scrollTop = 0
+
 
   return (
     <React.StrictMode>
       <BrowserRouter>
         <AuthProvider>
-          <PagesContext.Provider value={{ pageY0 }}>
+          <PagesProvider>
             <App />
-          </PagesContext.Provider>
+          </PagesProvider>
         </AuthProvider>
       </BrowserRouter>
     </React.StrictMode >

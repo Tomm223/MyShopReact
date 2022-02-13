@@ -1,4 +1,4 @@
-import Rreact, { useContext } from "react";
+import React from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../components/Context/AuthProvider";
 import useAuth from "../hook/useAuth";
@@ -6,11 +6,9 @@ import useAuth from "../hook/useAuth";
 function RequireAuth({ children }) {
 
    const location = useLocation()
-   const { value } = useAuth()
-   const user = value.user
-   console.log("user: ", user);
+   const user = true
    if (!user) {
-      return <Navigate to='/registration' state={{ from: location }} ></Navigate>
+      return <Navigate to='/registration/post' state={{ from: location }} ></Navigate>
    }
    return (
       <>

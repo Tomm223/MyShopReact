@@ -1,23 +1,18 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 export const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-   const [user, setUser] = useState(null)
-   const singin = (newUser, callBack) => {
-      setUser(newUser)
-      callBack()
-   }
-   const singout = (callBack) => {
-      setUser(null)
-      callBack()
+   const [user, setUser] = useState(localStorage.getItem("auth"))
 
-   }
+   const AuthOut = () => setUser(null)
 
-   const value = { user, singin, singout }
+   useEffect(() => {
+      localStorage.setItem('auth', user);
+   }, [user])
 
    return (
-      <AuthContext.Provider value={{ value }}>
+      <AuthContext.Provider value={{ user, setUser, AuthOut }}>
          {children}
       </AuthContext.Provider>
    )

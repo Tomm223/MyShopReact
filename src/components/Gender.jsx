@@ -3,13 +3,13 @@ import Moda from "./Moda"
 import { Outlet } from "react-router-dom";
 import ProductsList from "./Products/ProductsList";
 import ProductsContext from "./Context/ProductsContext";
-import PagesContext from "./Context/PagesContext";
+import { PagesContext } from "./Context/PagesProvider";
 function Gender() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
-   }, [pageY0])
+   }, [])
 
    const { products } = useContext(ProductsContext)
 

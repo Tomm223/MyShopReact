@@ -41,6 +41,7 @@
       padding: 0;
       margin-bottom: 50px;
       &-item{
+         cursor: pointer;
          width:50%;
          padding: 6.5% 0%;
          text-align: center;
@@ -48,6 +49,9 @@
          color: #767676;
          &.active{
             border-bottom: 2px solid $rose;
+            color: inherit;
+         }
+         &:hover{
             color: inherit;
          }
          &:last-child{

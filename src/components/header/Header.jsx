@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import HeaderNavList from "./HeaderNavList";
 
@@ -58,10 +58,10 @@ function Header() {
                            </div>
                            <ul class="person-acc__list">
                               <ul class="person-acc__list-reg">
-                                 <NavLink to="registration" className="person-acc__link-reg">
+                                 <NavLink to="registration/post" className="person-acc__link-reg">
                                     Зарегестрироваться
                                  </NavLink>
-                                 <NavLink to="registration" className="person-acc__link-reg">
+                                 <NavLink to="registration/get" className="person-acc__link-reg">
                                     Вход
                                  </NavLink>
                               </ul>
@@ -94,8 +94,6 @@ function Header() {
                         </div>
                      </li>
                   </NavLink>
-
-
                   <NavLink to="/account/basket">
                      <li class="header__person">
                         <img class="header__person-basket person__basket" src="/img/page-icon/basket_white.png"></img>

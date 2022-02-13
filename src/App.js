@@ -1,15 +1,17 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useContext, useEffect, useMemo } from "react"
 import { Routes, Route } from "react-router-dom"
 //pages
 import Layout from "./components/Layout"
 import Account from "./components/Account/Account"
-import Registration from "./components/Registration"
+import Registration from "./components/Registration/Registration"
+import FormGet from "./components/Registration/FormGet"
+import FormPost from "./components/Registration/FormPost"
 import Cataloge from "./components/Cataloge"
 import Gender from "./components/Gender"
 import Product from "./components/Products/Product"
 import Welcome from "./components/Welcome"
 //context
-import PagesContext from "./components/Context/PagesContext"
+import { PagesContext } from "./components/Context/PagesProvider"
 import ProductsContext from "./components/Context/ProductsContext"
 //acc
 import AccountBasket from "./components/Account/AccountBasket"
@@ -26,7 +28,6 @@ function App() {
 
   //products
   const [products, setProducts] = useState([])
-
   useEffect(() => {
     fetch("http://localhost:3000/products")
       .then(data => data.json())
@@ -60,7 +61,10 @@ function App() {
           <Route path="zakaz" element={<AccountZakaz />} />
           <Route path="zakaz/more" element={<AccountZakazMore />} />
         </Route>
-        <Route path="registration" element={<Registration />} />
+        <Route path="/registration/" element={<Registration />} >
+          <Route path="post" element={<FormPost />} />
+          <Route path="get" element={<FormGet />} />
+        </Route>
       </Routes>
     </div>
   );

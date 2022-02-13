@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Moda from "./Moda";
 import { Link } from "react-router-dom"
-import PagesContext from "./Context/PagesContext";
+import { PagesContext } from "./Context/PagesProvider";
 import { useEffect, useContext } from 'react'
 function Welcome() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
-   }, [pageY0])
+   }, [])
 
 
    return (

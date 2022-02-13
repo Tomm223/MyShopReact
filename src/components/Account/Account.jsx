@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { Outlet, NavLink } from 'react-router-dom'
 import AccountNavigate from "./AccountNavigate";
-import PagesContext from "../Context/PagesContext";
+import { PagesContext } from "../Context/PagesProvider";
 
 
 function Account() {
@@ -9,7 +9,7 @@ function Account() {
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
-   }, [pageY0])
+   }, [])
 
 
    const [navigate, setNavigate] = useState([])
