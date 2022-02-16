@@ -1,18 +1,27 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext, useEffect, useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-   const [user, setUser] = useState(localStorage.getItem("auth"))
+   const [user, setUser] = useState(JSON.parse(localStorage.getItem("auth")))
+   const [fromPage, setFromPage] = useState('/')
 
-   const AuthOut = () => setUser(null)
+   const singIn = useCallback((us, Callback) => {
+      setUser(prev => null)
+      localStorage.setItem("auth", JSON.stringify(us))
+      setUser(prev => JSON.parse(localStorage.getItem("auth")))
+      Callback()
 
-   useEffect(() => {
-      localStorage.setItem('auth', user);
-   }, [user])
+   }, [])
+   const AuthOut = useCallback((Callback) => {
+      setUser(prev => null)
+      localStorage.setItem("auth", JSON.stringify(null))
+
+   }, [])
 
    return (
-      <AuthContext.Provider value={{ user, setUser, AuthOut }}>
+      <AuthContext.Provider value={{ user, AuthOut, singIn, fromPage, setFromPage }}>
          {children}
       </AuthContext.Provider>
    )

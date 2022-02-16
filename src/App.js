@@ -20,7 +20,8 @@ import AccountLikes from "./components/Account/AccountLikes"
 import AccountZakaz from "./components/Account//AccountZakaz"
 import AccountZakazMore from "./components/Account//AccountZakazMore"
 //hoc
-import RequireAuth from "./hoc/RequireAuth"
+import { ReqAuthAcc, ReqAuthReg } from "./hoc/ReqAuth"
+
 
 function App() {
 
@@ -51,9 +52,9 @@ function App() {
 
       <Routes>
         <Route path="/account/" element={
-          <RequireAuth>
+          <ReqAuthAcc>
             <Account />
-          </RequireAuth>
+          </ReqAuthAcc>
         } >
           <Route path="info" element={<AccountInfo />} />
           <Route path="basket" element={<AccountBasket />} />
@@ -61,7 +62,11 @@ function App() {
           <Route path="zakaz" element={<AccountZakaz />} />
           <Route path="zakaz/more" element={<AccountZakazMore />} />
         </Route>
-        <Route path="/registration/" element={<Registration />} >
+        <Route path="/registration/" element={
+          <ReqAuthReg>
+            <Registration />
+          </ReqAuthReg>
+        } >
           <Route path="post" element={<FormPost />} />
           <Route path="get" element={<FormGet />} />
         </Route>
@@ -71,19 +76,3 @@ function App() {
 }
 
 export default App;
-/*<Route path="info" element={<AccountInfo />} />
-import PagesContext from "./components/Context/PagesContext"
-const pageY0 = () => document.documentElement.scrollTop = 0
-
-//pageYo
-const { pageY0 } = useContext(PagesContext)
-useEffect(() => {
-   pageY0()
-}, [pageY0])
-
-return (
-
-   <PagesContext.Provider value={{ pageY0 }}>
-      <App />
-   </PagesContext.Provider>
-) */

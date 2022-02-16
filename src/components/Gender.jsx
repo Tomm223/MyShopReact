@@ -13,6 +13,8 @@ function Gender() {
 
    const { products } = useContext(ProductsContext)
 
+
+
    return (
       <>
          <Outlet />
@@ -58,7 +60,7 @@ function Gender() {
                   </div>
                </div>
                <div class="gallery__btn">
-                  <a href="#" class="gallery__link">Купить</a>
+                  <p class="gallery__link">Купить</p>
                </div>
             </div>
          </div>

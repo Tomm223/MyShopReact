@@ -1,18 +1,22 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { useState, useEffect, useContext } from "react";
 import { useRef } from 'react'
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 function FormPost() {
-   const { user, setUser } = useContext(AuthContext)
-
+   const { singIn, fromPage } = useContext(AuthContext)
+   const navigate = useNavigate()
    const form = useRef()
+   const formElem = form.current
    const [users, setUsers] = useState('')
-   const [inputData, setInputData] = useState('')
+   const [inputData, setInputData] = useState(null)
+
    function HandlerButton() {
-      const formElem = form.current
       const email = formElem.email.value
       const password = formElem.password.value
       const firstName = formElem.firstName.value
       const lastName = formElem.lastName.value
+
       setInputData({
          email,
          password,
@@ -20,13 +24,46 @@ function FormPost() {
          lastName,
          id: Math.random() * 11111111
       })
-      formElem.email.value = ''
-      formElem.password.value = ''
-      formElem.firstName.value = ''
-      formElem.lastName.value = ''
+
    }
 
+   console.log("fromPage: ", fromPage);
+
    useEffect(() => {
+      let alike = false
+      fetch("http://localhost:3000/userCard")
+         .then(data => data.json())
+         .then(data => setUsers(data))
+         .then(data => {
+            const arrL = users.filter((item) => item.email == inputData.email)
+            console.log(arrL);
+            if (arrL.length > 0) {
+               alike = true
+            }
+         })
+         .then(data => {
+            if (alike) {
+               alert("Такой Email Уже Зарегестрирован")
+            }
+         })
+         .then(data => {
+            if (inputData.email.length != 0 && alike != true) {
+               fetchPOST()
+            }
+         })
+
+
+      if (inputData) {
+
+      }
+      else {
+         alert("вы Не ввели данные EMAIL")
+      }
+
+
+   }, [inputData])
+
+   function fetchPOST() {
       fetch("http://localhost:3000/userCard", {
          method: "POST",
          body: JSON.stringify(inputData),
@@ -36,9 +73,19 @@ function FormPost() {
 
       })
          .then(data => data.json())
-         .then(data => setUsers(data))
-         .then(setUser(inputData.id))
-   }, [inputData])
+         .then(singIn(inputData.id, NavigateTo))
+         .then(ClearInput)
+   }
+
+   const NavigateTo = () => navigate(fromPage, { replace: true })
+
+   function ClearInput() {
+      formElem.email.value = ''
+      formElem.password.value = ''
+      formElem.firstName.value = ''
+      formElem.lastName.value = ''
+      setInputData(null)
+   }
 
 
 

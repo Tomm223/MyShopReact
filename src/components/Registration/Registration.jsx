@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { PagesContext } from "../Context/PagesProvider";
-import { useLocation, useNavigate, Outlet, NavLink } from 'react-router-dom'
-import useAuth from "../../hook/useAuth"
+import { useLocation, useNavigate, Outlet, NavLink, Navigate } from 'react-router-dom'
+import { AuthContext } from "../Context/AuthProvider";
 function Registration() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
@@ -11,9 +11,14 @@ function Registration() {
 
 
    //navigate
+   const { setFromPage } = useContext(AuthContext)
    const location = useLocation()
    const navigate = useNavigate()
-   const FromPage = location.state?.from?.pathname || "/"
+   const [FromP, setFromP] = useState(location.state?.from?.pathname || "/")
+   setFromPage(FromP)
+
+   // no change location FromPage
+
 
    return (
 

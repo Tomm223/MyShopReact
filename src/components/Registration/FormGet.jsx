@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
-
 function FormGet() {
-   const { user, setUser } = useContext(AuthContext)
-
+   const { singIn, fromPage } = useContext(AuthContext)
+   //navigate
+   const navigate = useNavigate()
+   //form func
    const form = useRef()
    const [users, setUsers] = useState('')
    const [inputData, setInputData] = useState('')
@@ -17,9 +19,7 @@ function FormGet() {
       })
       formElem.email.value = ''
       formElem.password.value = ''
-
    }
-   console.log(user);
    useEffect(() => {
       fetch("http://localhost:3000/userCard")
          .then(data => data.json())
@@ -28,12 +28,28 @@ function FormGet() {
    }, [inputData])
    async function SearchCheck() {
       const searchEmail = await users.filter((item) => item.email == inputData.email)
+      console.log(searchEmail);
       if (searchEmail.length == 1) {
          const Card = searchEmail[0]
          console.log(Card);
-         Card.password == inputData.password ? setUser(Card.id) : alert("false pass")
+         Card.password == inputData.password ? singIn(Card.id, NavigateTo) : alert("false pass")
       }
    }
+
+   const NavigateTo = () => navigate(fromPage, { replace: true })
+
+   /*.then(data => users.filter((item) => item.email == inputData.email))
+         .then(data => {
+            console.log(data)
+            if (data.length == 1) {
+               const Card = data[0]
+               console.log(Card);
+               Card.password == inputData.password ? singIn(Card.id, navigate(fromPage, { repalce: true })) : alert("false pass")
+            }
+         } */
+
+
+
 
 
    return (

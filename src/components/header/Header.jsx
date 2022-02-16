@@ -1,10 +1,12 @@
 import React from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import { useState } from 'react'
 import HeaderNavList from "./HeaderNavList";
 
 
 function Header() {
+   //uselocation for give registration
+   const location = useLocation()
 
    //const [genderLink, setGenderLink] = useState("")
    const [NavBotttom, setNavBottom] = useState("nav")
@@ -58,10 +60,10 @@ function Header() {
                            </div>
                            <ul class="person-acc__list">
                               <ul class="person-acc__list-reg">
-                                 <NavLink to="registration/post" className="person-acc__link-reg">
+                                 <NavLink to="registration/post" state={{ from: location }} className="person-acc__link-reg">
                                     Зарегестрироваться
                                  </NavLink>
-                                 <NavLink to="registration/get" className="person-acc__link-reg">
+                                 <NavLink to="registration/get" state={{ from: location }} className="person-acc__link-reg">
                                     Вход
                                  </NavLink>
                               </ul>
