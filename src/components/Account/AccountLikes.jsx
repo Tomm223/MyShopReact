@@ -1,5 +1,21 @@
 import React from "react";
+import { useContext } from "react";
+import { AccountContext } from "../Context/AccountProvider";
+import ProductsContext from "../Context/ProductsContext";
+import AccountLikesItem from "./AccountLikesItem";
 function AccountLikes() {
+   /* {basket.map((item) => {
+                        const product = products.filter((prod) => prod.id == item.product_id)[0]
+                        return <AccountBasketItem product={product} amount={item.amount} size={item.size} />
+                     })} */
+
+   //
+   const { cabInfo } = useContext(AccountContext)
+   const likes = cabInfo.likes
+   console.log("likes: ", likes);
+   //
+   const { products } = useContext(ProductsContext)
+   console.log(products);
    return (
       <div class="cab__like">
          <div class="cab__like-icon">
@@ -17,147 +33,12 @@ function AccountLikes() {
             </div>
             <div class="basket__block">
                <ul class="basket__list">
-                  <li class="basket__item">
-                     <div class="basket__product">
-                        <div class="basket__product-img">
-                           <img src="/img/sniker/sniker5-1.jpg" alt="" />
-                        </div>
-                        <div class="basket__product-supp">
-                           <div class="basket__product-title">
-                              <p id="product__name">Черные Мужские Кроссивки Nike</p>
-                           </div>
-                           <ul class="basket__product-list">
+                  {likes.map((item) => {
+                     const product = products.filter((prod) => prod.id == item.product_id)[0]
+                     console.log("product: ", product);
+                     return <AccountLikesItem product={product} size={item.size} />
+                  })}
 
-                              <div class="basket__product-item">
-                                 <h4>Цвет: <span id="product__cvet">Хаки</span></h4>
-                              </div>
-                              <div class="basket__product-item">
-                                 <p>
-                                    Цена: <span id="product__price">330</span>$
-                                 </p>
-                              </div>
-                              <div class="basket__product-item">
-                                 <div class="profile__list-block">
-                                    <div class="">
-                                       <h4 class="profile__list-sizeP">Pазмер:</h4>
-                                    </div>
-
-                                    <select name="size" class="profile__list-sellect" id="product__size">
-                                       <option class="profile__list-option" value="default ">Пожалуйста, Выберите
-                                       </option>
-                                       <option class="profile__list-option" value="42">42</option>
-                                       <option class="profile__list-option" value="44">44</option>
-                                       <option class="profile__list-option" value="48">48</option>
-                                       <option class="profile__list-option" value="52">52</option>
-                                    </select>
-                                 </div>
-                              </div>
-                              <div class="basket__product-item">
-                                 <div class="profile__list-block">
-                                    <input id="like__btn" type="button" value="Добавить в Корзину" />
-                                 </div>
-                              </div>
-                           </ul>
-                           <div class="basket__product-delete">
-                              <img src="/img/page-icon/icons8-close-24.png" alt="" />
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="basket__item">
-                     <div class="basket__product">
-                        <div class="basket__product-img">
-                           <img src="/img/sniker/sniker5-1.jpg" alt="" />
-                        </div>
-                        <div class="basket__product-supp">
-                           <div class="basket__product-title">
-                              <p id="product__name">Черные Мужские Кроссивки Nike</p>
-                           </div>
-                           <ul class="basket__product-list">
-
-                              <div class="basket__product-item">
-                                 <h4>Цвет: <span id="product__cvet">Хаки</span></h4>
-                              </div>
-                              <div class="basket__product-item">
-                                 <p>
-                                    Цена: <span id="product__price">330</span>$
-                                 </p>
-                              </div>
-                              <div class="basket__product-item">
-                                 <div class="profile__list-block">
-                                    <div class="">
-                                       <h4 class="profile__list-sizeP">Pазмер:</h4>
-                                    </div>
-
-                                    <select name="size" class="profile__list-sellect" id="product__size">
-                                       <option class="profile__list-option" value="default ">Пожалуйста, Выберите
-                                       </option>
-                                       <option class="profile__list-option" value="42">42</option>
-                                       <option class="profile__list-option" value="44">44</option>
-                                       <option class="profile__list-option" value="48">48</option>
-                                       <option class="profile__list-option" value="52">52</option>
-                                    </select>
-                                 </div>
-                              </div>
-                              <div class="basket__product-item">
-                                 <div class="profile__list-block">
-                                    <input id="like__btn" type="button" value="Добавить в Корзину" />
-                                 </div>
-                              </div>
-                           </ul>
-                           <div class="basket__product-delete">
-                              <img src="/img/page-icon/icons8-close-24.png" alt="" />
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="basket__item">
-                     <div class="basket__product">
-                        <div class="basket__product-img">
-                           <img src="/img/sniker/sniker5-1.jpg" alt="" />
-                        </div>
-                        <div class="basket__product-supp">
-                           <div class="basket__product-title">
-                              <p id="product__name">Черные Мужские Кроссивки Nike</p>
-                           </div>
-                           <ul class="basket__product-list">
-
-                              <div class="basket__product-item">
-                                 <h4>Цвет: <span id="product__cvet">Хаки</span></h4>
-                              </div>
-                              <div class="basket__product-item">
-                                 <p>
-                                    Цена: <span id="product__price">330</span>$
-                                 </p>
-                              </div>
-                              <div class="basket__product-item">
-                                 <div class="profile__list-block">
-                                    <div class="">
-                                       <h4 class="profile__list-sizeP">Pазмер:</h4>
-                                    </div>
-
-                                    <select name="size" class="profile__list-sellect" id="product__size">
-                                       <option class="profile__list-option" value="default ">Пожалуйста, Выберите
-                                       </option>
-                                       <option class="profile__list-option" value="42">42</option>
-                                       <option class="profile__list-option" value="44">44</option>
-                                       <option class="profile__list-option" value="48">48</option>
-                                       <option class="profile__list-option" value="52">52</option>
-                                    </select>
-                                 </div>
-                              </div>
-                              <div class="basket__product-item">
-                                 <div class="profile__list-block">
-                                    <input id="like__btn" type="button" value="Добавить в Корзину" />
-                                 </div>
-                              </div>
-                           </ul>
-                           <div class="basket__product-delete">
-                              <img src="/img/page-icon/icons8-close-24.png" alt="" />
-                           </div>
-                        </div>
-                     </div>
-                  </li>
 
                </ul>
                <div class="basket__btn">

@@ -14,6 +14,7 @@ import Welcome from "./components/Welcome"
 import { PagesContext } from "./components/Context/PagesProvider"
 import ProductsContext from "./components/Context/ProductsContext"
 //acc
+import AccountProvider from "./components/Context/AccountProvider"
 import AccountBasket from "./components/Account/AccountBasket"
 import AccountInfo from "./components/Account/AccountInfo"
 import AccountLikes from "./components/Account/AccountLikes"
@@ -47,21 +48,24 @@ function App() {
             <Route path="cataloge" element={<Cataloge />} />
           </Route>
         </Routes>
+
+        <AccountProvider>
+          <Routes>
+            <Route path="/account/" element={
+              <ReqAuthAcc>
+                <Account />
+              </ReqAuthAcc>
+            } >
+              <Route path="info" element={<AccountInfo />} />
+              <Route path="basket" element={<AccountBasket />} />
+              <Route path="likes" element={<AccountLikes />} />
+              <Route path="zakaz" element={<AccountZakaz />} />
+              <Route path="zakaz/more" element={<AccountZakazMore />} />
+            </Route>
+          </Routes>
+        </AccountProvider>
       </ProductsContext.Provider>
-
-
       <Routes>
-        <Route path="/account/" element={
-          <ReqAuthAcc>
-            <Account />
-          </ReqAuthAcc>
-        } >
-          <Route path="info" element={<AccountInfo />} />
-          <Route path="basket" element={<AccountBasket />} />
-          <Route path="likes" element={<AccountLikes />} />
-          <Route path="zakaz" element={<AccountZakaz />} />
-          <Route path="zakaz/more" element={<AccountZakazMore />} />
-        </Route>
         <Route path="/registration/" element={
           <ReqAuthReg>
             <Registration />
@@ -71,6 +75,7 @@ function App() {
           <Route path="get" element={<FormGet />} />
         </Route>
       </Routes>
+
     </div>
   );
 }

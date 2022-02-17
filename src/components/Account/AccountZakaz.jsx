@@ -1,5 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AccountContext } from "../Context/AccountProvider";
+import ProductsContext from "../Context/ProductsContext";
+import AccountZakazItem from "./AccountZakazItem";
 function AccountZakaz() {
+   const { cabInfo } = useContext(AccountContext)
+
+   const order = cabInfo.order
    return (
       <div class="cab__zakaz active">
          <div class="cab__zakaz-icon">
@@ -18,138 +24,12 @@ function AccountZakaz() {
             </div>
             <div class="zakaz__block">
                <ul class="zakaz__list">
-                  <div class="zakaz__item green">
-                     <div class="zakaz__item-title">
-                        <div class="zakaz__item-status">
-                           <div class="zakaz__item-color"></div>
-                           ОТПРАВЛЕН
-                        </div>
-                        <aside>Заказ № <span id="zakaz__num">GHRDU12FNS002YW</span></aside>
-                        <div class="zakaz__item-more">
-                           <img src="/img/page-icon/more.png" alt="more" />
-                        </div>
-                     </div>
-                     <div class="zakaz__gallery">
-                        <ul class="zakaz__gallery-list">
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <div class="zakaz__gallery-more">
-                                 <img class="zakaz__gallery-opacity" src="/img/t-shirt/t-shirt1-1.jpg"
-                                    alt="img" />
-                                 <div class="zakaz__gallery-after"><img src="/img/page-icon/more-img.png"
-                                    alt="" /></div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="zakaz__item red">
-                     <div class="zakaz__item-title">
-                        <div class="zakaz__item-status">
-                           <div class="zakaz__item-color"></div>
-                           ОТПРАВЛЕН
-                        </div>
-                        <aside>Заказ № <span id="zakaz__num">GHRDU12FNS002YW</span></aside>
-                        <div class="zakaz__item-more">
-                           <img src="/img/page-icon/more.png" alt="more" />
-                        </div>
-                     </div>
-                     <div class="zakaz__gallery">
-                        <ul class="zakaz__gallery-list">
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <div class="zakaz__gallery-more">
-                                 <img class="zakaz__gallery-opacity" src="/img/t-shirt/t-shirt1-1.jpg"
-                                    alt="img" />
-                                 <div class="zakaz__gallery-after"><img src="/img/page-icon/more-img.png"
-                                    alt="" /></div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="zakaz__item red">
-                     <div class="zakaz__item-title">
-                        <div class="zakaz__item-status">
-                           <div class="zakaz__item-color"></div>
-                           ОТПРАВЛЕН
-                        </div>
-                        <aside>Заказ № <span id="zakaz__num">GHRDU12FNS002YW</span></aside>
-                        <div class="zakaz__item-more">
-                           <img src="/img/page-icon/more.png" alt="more" />
-                        </div>
-                     </div>
-                     <div class="zakaz__gallery">
-                        <ul class="zakaz__gallery-list">
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <div class="zakaz__gallery-more">
-                                 <img class="zakaz__gallery-opacity" src="/img/t-shirt/t-shirt1-1.jpg"
-                                    alt="img" />
-                                 <div class="zakaz__gallery-after"><img src="/img/page-icon/more-img.png"
-                                    alt="" /></div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="zakaz__item green">
-                     <div class="zakaz__item-title">
-                        <div class="zakaz__item-status">
-                           <div class="zakaz__item-color"></div>
-                           ОТПРАВЛЕН
-                        </div>
-                        <aside>Заказ № <span id="zakaz__num">GHRDU12FNS002YW</span></aside>
-                        <div class="zakaz__item-more">
-                           <img src="/img/page-icon/more.png" alt="more" />
-                        </div>
-                     </div>
-                     <div class="zakaz__gallery">
-                        <ul class="zakaz__gallery-list">
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <img src="/img/t-shirt/t-shirt1-1.jpg" alt="img" />
-                           </li>
-                           <li class="zakaz__gallery-item">
-                              <div class="zakaz__gallery-more">
-                                 <img class="zakaz__gallery-opacity" src="/img/t-shirt/t-shirt1-1.jpg"
-                                    alt="img" />
-                                 <div class="zakaz__gallery-after"><img src="/img/page-icon/more-img.png"
-                                    alt="" /></div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
+                  {order.map((item) => {
+                     console.log(item.products);
+                     return <AccountZakazItem order={item} productsOrder={item.products} />
+                  })
+                  }
+
 
                </ul>
             </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { Outlet, NavLink } from 'react-router-dom'
 import AccountNavigate from "./AccountNavigate";
 import { PagesContext } from "../Context/PagesProvider";
+import { AuthContext } from "../Context/AuthProvider";
+import { AccountContext } from "../Context/AccountProvider";
 
 
 function Account() {
@@ -94,6 +96,21 @@ function Account() {
    const styleCab = {
       position: "relative"
    }
+   // приемка инфы
+   const { user } = useContext(AuthContext)
+   const { cabInfo, setCabInfo } = useContext(AccountContext)
+   console.log(cabInfo);
+   useEffect(() => {
+      if (user != null && typeof cabInfo != Object) {
+         fetch("http://localhost:3000/UserChange")
+            .then(data => data.json())
+            .then(data => {
+               const MassInfoUser = data.filter((item) => item.user_id == user)
+               setCabInfo(MassInfoUser[0])
+            })
+      }
+   }, [user])
+
 
    return (
       <>
