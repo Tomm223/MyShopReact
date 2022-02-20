@@ -1,8 +1,9 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import ProductsContext from "../Context/ProductsContext";
 import AccountZakazListImg from "./AccountZakazListImg";
 import AccountZakazListProduct from "./AccountZakazListImg";
 import { NavLink } from "react-router-dom"
+import { AuthContext } from "../Context/AuthProvider";
 function AccountZakazItem({ order, productsOrder }) {
    /*function styleBlock() {
       if (order.send == true) {
@@ -13,9 +14,10 @@ function AccountZakazItem({ order, productsOrder }) {
       }
    }*/
    const { products } = useContext(ProductsContext)
-   console.log(order.send);
+   console.log(order.send)
+
    return (
-      <NavLink to="more" state={order}>
+      <NavLink to="more" state={{ order }}>
          <div class="zakaz__item green">
             <div class="zakaz__item-title">
                <div class="zakaz__item-status">

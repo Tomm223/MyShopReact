@@ -6,21 +6,11 @@ import ProductsContext from "../Context/ProductsContext";
 import AccountZakazMoreListItem from "./AccountZakazMoreListItem";
 function AccountZakazMore() {
    const location = useLocation()
-   const order = location.state
+   const order = location.state.order
    console.log("order: ", order);
    const { products } = useContext(ProductsContext)
-   // ПРОБЛЕМА С РАЗНЫМИ МЕСТАМИ USER INFO + YOUR CHANGE 
-   /*
-   const [userSearch, setUserSearch] = useState()
-   console.log(userSearch);
    const { user } = useContext(AuthContext)
-   useEffect(() => {
-      fetch("https://localhost:3000/userCard")
-         .then(data => data.json())
-         .then(data => {
-            setUserSearch(data.filter((item) => item.id == user))
-         })
-   }, [])*/
+
 
    return (
       <div class="cab__zakaz-more">
@@ -39,10 +29,10 @@ function AccountZakazMore() {
             </div>
             <div class="zakaz-more__person">
                <div class="zakaz-more__person-item person__name">
-                  <p id="person__name">Даниил Осипов(ввввв)</p>
+                  <p id="person__name">{user.firstName}  {user.lastName}</p>
                </div>
                <div class="zakaz-more__person-item person__email">
-                  <p>Email: <span id="person__email">dan.osipov9999999999@mail.ru</span></p>
+                  <p>Email: <span id="person__email">{user.email}</span></p>
                </div>
                <div class="zakaz-more__person-item person__local">
                   <p>{order.local}</p>

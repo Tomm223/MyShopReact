@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useMemo } from "react"
+import React, { useState, useContext, useEffect, useMemo, useCallback } from "react"
 import { Routes, Route } from "react-router-dom"
 //pages
 import Layout from "./components/Layout"
@@ -29,13 +29,24 @@ function App() {
 
 
   //products
-  const [products, setProducts] = useState([])
-  useEffect(() => {
-    fetch("http://localhost:3000/products")
-      .then(data => data.json())
-      .then(data => setProducts(data))
-  }, [])
+  const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")))
   console.log(products);
+  const [compliteLStorage, setCompliteLStorage] = useState('')
+
+  const giveLocalProduct = () => {
+    setProducts(JSON.parse(localStorage.getItem('products')))
+  }
+
+  useEffect(() => {
+    if (products == null) {
+      fetch("http://localhost:3000/products")
+        .then(data => data.json())
+        .then(data => localStorage.setItem('products', JSON.stringify(data)))
+        .then(setProducts(prev => "null"))
+        .then(giveLocalProduct)
+    }
+
+  }, [])
   return (
     <div className={`App`}>
       <ProductsContext.Provider value={{ products }}>

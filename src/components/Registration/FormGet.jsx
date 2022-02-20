@@ -32,7 +32,7 @@ function FormGet() {
       if (searchEmail.length == 1) {
          const Card = searchEmail[0]
          console.log(Card);
-         Card.password == inputData.password ? singIn(Card.id, NavigateTo) : alert("false pass")
+         Card.password == inputData.password ? singIn(Card, NavigateTo) : alert("false pass")
       }
    }
 

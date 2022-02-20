@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../components/Context/AuthProvider";
 import { AccountContext } from "../components/Context/AccountProvider";
@@ -11,6 +11,7 @@ export function ReqAuthAcc({ children }) {
    if (user == null) {
       return <Navigate to='/registration/get' state={{ from: location }} ></Navigate>
    }
+
 
    return (
       <>

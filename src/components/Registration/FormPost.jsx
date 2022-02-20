@@ -1,4 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type";
+
 import React, { useState, useEffect, useContext } from "react";
 import { useRef } from 'react'
 import { useNavigate } from "react-router-dom";
@@ -73,11 +73,13 @@ function FormPost() {
 
       })
          .then(data => data.json())
-         .then(singIn(inputData.id, NavigateTo))
+         .then(singIn(inputData, NavigateTo))
          .then(ClearInput)
+      //.then(giveUserData)
    }
 
    const NavigateTo = () => navigate(fromPage, { replace: true })
+
 
    function ClearInput() {
       formElem.email.value = ''

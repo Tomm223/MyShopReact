@@ -137,6 +137,7 @@
    // info + basket
    &__info{
       @include cabina-blockTitle;
+      
    }
    &__basket,&__like, &__zakaz,&__zakaz-more{
       @include cabina-blockTitle;
@@ -415,6 +416,7 @@
       padding: 0 5px;
       padding-left: 50px;
       &-item{
+         color: #222;
          margin-bottom: 20px;
          position: relative;
          &.person__name{
@@ -466,6 +468,7 @@
       width: 100%;
       padding-top: 30px;
       &-item{
+         color: #222;
         border: 1px $lightSer solid; 
       }
    }

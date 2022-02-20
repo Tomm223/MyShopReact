@@ -1,14 +1,21 @@
 
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AccountContext } from "../Context/AccountProvider";
 import { AuthContext } from "../Context/AuthProvider";
+import Account from "./Account";
 function AccountNavigate({ link }) {
    const setStyle = ({ isActive }) => isActive ? `cab__list-item  active  ${link.dopStyle} ` : `cab__list-item  ${link.dopStyle} `
 
    const { AuthOut } = useContext(AuthContext)
+   const { ChangeUserOut } = useContext(AccountContext)
+   function OutUser() {
+      ChangeUserOut()
+      AuthOut()
+   }
    if (link.alt == "out") {
       return (
-         <NavLink onClick={AuthOut} to="/" className={setStyle}>
+         <NavLink onClick={OutUser} to="/" className={setStyle}>
             <div className="cab__list-icon">
                <img src={link.img} alt={link.alt} />
             </div>

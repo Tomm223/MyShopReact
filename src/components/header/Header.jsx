@@ -60,10 +60,10 @@ function Header() {
                            </div>
                            <ul class="person-acc__list">
                               <ul class="person-acc__list-reg">
-                                 <NavLink to="registration/post" state={{ from: location }} className="person-acc__link-reg">
+                                 <NavLink to="registration/post" state={{ from: -1 }} className="person-acc__link-reg">
                                     Зарегестрироваться
                                  </NavLink>
-                                 <NavLink to="registration/get" state={{ from: location }} className="person-acc__link-reg">
+                                 <NavLink to="registration/get" state={{ from: -1 }} className="person-acc__link-reg">
                                     Вход
                                  </NavLink>
                               </ul>

@@ -11,7 +11,7 @@ function ProductsList({ products }) {
             <div class="container">
                <div className="product__block">
                   {products.map((item) => {
-                     return (<ProductsItem id={item.id} key={item.id} imgLink={item.img_product} name={item.product_name} price={item.price} color={item.color} />)
+                     return (<ProductsItem product={item} id={item.id} key={item.id} imgLink={item.img_product} name={item.product_name} price={item.price} color={item.color} />)
 
                   })}
                </div>

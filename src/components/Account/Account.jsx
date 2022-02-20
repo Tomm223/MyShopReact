@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef, useContext, useCallback } from "react";
 import { Outlet, NavLink } from 'react-router-dom'
 import AccountNavigate from "./AccountNavigate";
 import { PagesContext } from "../Context/PagesProvider";
@@ -97,19 +97,26 @@ function Account() {
       position: "relative"
    }
    // приемка инфы
+   const { cabInfo, getUserChange } = useContext(AccountContext)
+   console.log("cabInfo: ", typeof cabInfo);
    const { user } = useContext(AuthContext)
-   const { cabInfo, setCabInfo } = useContext(AccountContext)
-   console.log(cabInfo);
+
    useEffect(() => {
-      if (user != null && typeof cabInfo != Object) {
+      if (user != null && cabInfo == null) {
          fetch("http://localhost:3000/UserChange")
             .then(data => data.json())
             .then(data => {
-               const MassInfoUser = data.filter((item) => item.user_id == user)
-               setCabInfo(MassInfoUser[0])
+               const MassInfoUser = data.filter((item) => item.user_id == user.id)
+               getUserChange(MassInfoUser[0])
             })
       }
-   }, [user])
+      else if (cabInfo != null) {
+         console.log("cabinfo != null");
+      }
+   }, [])
+
+
+
 
 
    return (

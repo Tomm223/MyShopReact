@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom"
-function ProductsItem({ imgLink, name, price, color, id }) {
+function ProductsItem({ imgLink, name, price, color, id, product }) {
    return (
-      <NavLink to='/product' state={{ id }} className="product__item">
+      <NavLink to='/product' state={{ product }} className="product__item">
          <div class="product__item-img">
             <img src={imgLink} alt="" />
          </div>

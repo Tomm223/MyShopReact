@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import Moda from "./Moda"
 import { Outlet } from "react-router-dom";
 import ProductsList from "./Products/ProductsList";
-import ProductsContext from "./Context/ProductsContext";
 import { PagesContext } from "./Context/PagesProvider";
+import ProductsContext from './Context/ProductsContext'
 function Gender() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
@@ -11,9 +11,8 @@ function Gender() {
       pageY0()
    }, [])
 
+
    const { products } = useContext(ProductsContext)
-
-
 
    return (
       <>

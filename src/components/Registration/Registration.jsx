@@ -14,7 +14,7 @@ function Registration() {
    const { setFromPage } = useContext(AuthContext)
    const location = useLocation()
    const navigate = useNavigate()
-   const [FromP, setFromP] = useState(location.state?.from?.pathname || "/")
+   const [FromP, setFromP] = useState(location.state?.from || "/")
    setFromPage(FromP)
 
    // no change location FromPage

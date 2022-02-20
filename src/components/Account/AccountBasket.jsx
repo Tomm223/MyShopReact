@@ -15,6 +15,10 @@ function AccountBasket() {
                      const product = products.filter((item) => item.id == item.product_id)[0]
                      return <AccountBasketItem product={product} amount={item.amount} size={item.size} />
                   })} */
+
+   function BasketToOrder() {
+
+   }
    return (
       <div class="cab__basket">
          <div class="cab__basket-icon">
@@ -35,11 +39,12 @@ function AccountBasket() {
                <ul class="basket__list">
                   {basket.map((item) => {
                      const product = products.filter((prod) => prod.id == item.product_id)[0]
+                     console.log("product1: ", product);
                      return <AccountBasketItem product={product} amount={item.amount} size={item.size} />
                   })}
                </ul>
                <div class="basket__btn">
-                  <input class="basket__btn-item" type="button" value="Заказать" />
+                  <input onClick={BasketToOrder} class="basket__btn-item" type="button" value="Заказать" />
                </div>
 
             </div>
