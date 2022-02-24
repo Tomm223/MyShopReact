@@ -10,12 +10,13 @@ function AccountLikes() {
                      })} */
 
    //
-   const { cabInfo } = useContext(AccountContext)
-   const likes = cabInfo.likes
+   const { cabInfo, likesPers, checkId, deleteLikes } = useContext(AccountContext)
+   const likes = checkId ? likesPers : cabInfo.likes
+
+   console.log("Mlikes: ", deleteLikes);
    console.log("likes: ", likes);
    //
    const { products } = useContext(ProductsContext)
-   console.log(products);
    return (
       <div class="cab__like">
          <div class="cab__like-icon">
@@ -34,9 +35,12 @@ function AccountLikes() {
             <div class="basket__block">
                <ul class="basket__list">
                   {likes.map((item) => {
+                     const deleteCheck = deleteLikes.filter((prod) => prod.likes_id == item.id)[0]
+                     console.log("chehck: ", deleteCheck);
+                     if (deleteCheck) { return console.log("deleteProduct: ", deleteCheck.likes_id) }
                      const product = products.filter((prod) => prod.id == item.product_id)[0]
                      console.log("product: ", product);
-                     return <AccountLikesItem product={product} size={item.size} />
+                     return <AccountLikesItem key={item.id} product={product} size={item.size} itemId={item.id} />
                   })}
 
 

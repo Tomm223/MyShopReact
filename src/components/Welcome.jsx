@@ -12,7 +12,7 @@ function Welcome() {
    }, [])
 
    const { user } = useContext(AuthContext)
-   console.log("user: ", user);
+   // console.log("user: ", typeof user.id);
 
    return (
       <>

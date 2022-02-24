@@ -7,10 +7,13 @@ export function ReqAuthAcc({ children }) {
 
    const location = useLocation()
    const { user } = useContext(AuthContext)
+   const { setCheckId } = useContext(AccountContext)
+
    console.log(user);
    if (user == null) {
       return <Navigate to='/registration/get' state={{ from: location }} ></Navigate>
    }
+   //chekID USER
 
 
    return (

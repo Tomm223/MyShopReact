@@ -5,6 +5,7 @@ import Moda from "../Moda";
 import ProductSuppImg from "./ProductSuppImg";
 import { AuthContext } from "../Context/AuthProvider"
 import { PagesContext } from "../Context/PagesProvider";
+import { AccountContext } from "../Context/AccountProvider";
 export default function Product() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
@@ -47,29 +48,39 @@ export default function Product() {
          .then(data => data.json())
          .then(data => console.log(data))
    }*/
-
+   const { ADDrenderProducts, usSetChangeBasket, usSetChangeLikes } = useContext(AccountContext)
    async function HandlerButton(category) {
       const addObj = await category == "basket" ? {
-         id: Math.random() * 11111,
+         //id: Math.random() * 11111, сервер делает лучше id
          product_id: product.id,
          size: 44,
          amount: 1
 
       } : {
-         id: Math.random() * 11111,
+         //id: Math.random() * 11111, сервер делает лучше id
          product_id: product.id,
          amount: 1
 
       }
-      const putUserChange = await fetch(`http://localhost:3000/${category}Change`, {
+      fetch(`http://localhost:3000/${category}Change`, {
          method: 'POST',
          body: JSON.stringify(addObj),
          headers: {
             "Content-type": "application/json"
          }
       })
-      const resp = await putUserChange.json()
-      console.log(resp);
+         .then(data => data.json())
+         .then(data => {
+            if (category == "basket") {
+               ADDrenderProducts('basketChange', usSetChangeBasket)
+            }
+            else {
+               ADDrenderProducts('likesChange', usSetChangeLikes)
+            }
+         })
+         .then()
+
+
    }
    return (
       <>

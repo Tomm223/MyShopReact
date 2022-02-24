@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { AccountContext } from "../Context/AccountProvider";
 import { AuthContext } from "../Context/AuthProvider";
 function FormGet() {
    const { singIn, fromPage } = useContext(AuthContext)
+   const { usSetCheckId } = useContext(AccountContext)
    //navigate
    const navigate = useNavigate()
    //form func
@@ -32,12 +34,12 @@ function FormGet() {
       if (searchEmail.length == 1) {
          const Card = searchEmail[0]
          console.log(Card);
+         if (Card.password == inputData.password) { usSetCheckId(true) }
          Card.password == inputData.password ? singIn(Card, NavigateTo) : alert("false pass")
       }
    }
 
    const NavigateTo = () => navigate(fromPage, { replace: true })
-
    /*.then(data => users.filter((item) => item.email == inputData.email))
          .then(data => {
             console.log(data)

@@ -1,24 +1,45 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { AccountContext } from "../Context/AccountProvider";
 import ProductsContext from "../Context/ProductsContext";
 import AccountBasketItem from "./AccountBasketItem";
 function AccountBasket() {
-   //
-   const { cabInfo } = useContext(AccountContext)
-   const basket = cabInfo.basket
-   console.log("basket: ", basket);
-   //
+   // massiv в котором TRUEBasket
+   const MAss = []
+   console.log(MAss);
+   const { renderProducts, cabInfo, basketPers, checkId, deleteBasket, AddTopDelBottom, usSetChangeOrder, usSetDeleteBasket } = useContext(AccountContext)
+   const basket = checkId ? basketPers : cabInfo.basket
+   console.log("basketPers: ", basketPers);
    const { products } = useContext(ProductsContext)
-   console.log(products);
+   console.log("basketDELETE: ", deleteBasket);
 
-   /*{basket.map((item) => {
-                     const product = products.filter((item) => item.id == item.product_id)[0]
-                     return <AccountBasketItem product={product} amount={item.amount} size={item.size} />
-                  })} */
 
-   function BasketToOrder() {
-
+   const basketToOrder = {
+      send: basket.length == 2 ? false : true,
+      num: Math.random() * 111111111111,
+      local: "Saint -Peterburg",
+      sum: 4242,
+      products: MAss
    }
+
+   console.log(basketToOrder)
+   const DeleteProduct = () => {
+      const mass = []
+      const trueBasket = basket.map((item) => {
+         const deleteCheck = deleteBasket.filter((prod) => prod.basket_id == item.id)[0]
+         console.log("chehck: ", deleteCheck);
+         if (!deleteCheck) {
+            mass.push({
+               basket_id: item.id,
+               amount: 1
+            })
+         }
+      })
+
+      return mass
+   }
+
+
+
    return (
       <div class="cab__basket">
          <div class="cab__basket-icon">
@@ -32,19 +53,23 @@ function AccountBasket() {
 
          <div class="basket ">
             <div class="basket__hr"></div>
-            <div class="basket__title">
+            <div onClick={renderProducts} class="basket__title">
                <h3>Список Товаров</h3>
             </div>
             <div class="basket__block">
                <ul class="basket__list">
                   {basket.map((item) => {
+                     const deleteCheck = deleteBasket.filter((prod) => prod.basket_id == item.id)[0]
+                     console.log("chehck: ", deleteCheck);
+                     if (deleteCheck) { return console.log("deleteProduct: ", deleteCheck.basket_id) }
+                     else { MAss.push(item) }
                      const product = products.filter((prod) => prod.id == item.product_id)[0]
                      console.log("product1: ", product);
-                     return <AccountBasketItem product={product} amount={item.amount} size={item.size} />
+                     return <AccountBasketItem product={product} amount={item.amount} size={item.size} itemId={item.id} />
                   })}
                </ul>
                <div class="basket__btn">
-                  <input onClick={BasketToOrder} class="basket__btn-item" type="button" value="Заказать" />
+                  <input onClick={() => AddTopDelBottom("orderChange", usSetChangeOrder, basketToOrder, "DeleteBasket", usSetDeleteBasket, DeleteProduct())} class="basket__btn-item" type="button" value="Заказать" />
                </div>
 
             </div>
@@ -53,3 +78,4 @@ function AccountBasket() {
    )
 }
 export default AccountBasket
+

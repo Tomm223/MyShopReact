@@ -3,9 +3,9 @@ import { AccountContext } from "../Context/AccountProvider";
 import ProductsContext from "../Context/ProductsContext";
 import AccountZakazItem from "./AccountZakazItem";
 function AccountZakaz() {
-   const { cabInfo } = useContext(AccountContext)
-
-   const order = cabInfo.order
+   const { cabInfo, orderPers, checkId } = useContext(AccountContext)
+   const order = checkId ? orderPers : cabInfo.order
+   console.log(order);
    return (
       <div class="cab__zakaz active">
          <div class="cab__zakaz-icon">

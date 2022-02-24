@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AccountContext } from "../Context/AccountProvider";
 
-function AccountLikesItem({ product, size }) {
+function AccountLikesItem({ product, size, itemId }) {
 
+   const { PostDeleteItemChange, AddTopDelBottom, usSetChangeBasket, usSetDeleteLikes } = useContext(AccountContext)
 
+   const ProductToBasket = {
+      product_id: product.id,
+      size: size,
+      amount: 1,
+   }
+   const DeleteProduct = {
+      likes_id: itemId
+   }
 
    return (
       <li class="basket__item">
@@ -42,12 +52,12 @@ function AccountLikesItem({ product, size }) {
                   </div>
                   <div class="basket__product-item">
                      <div class="profile__list-block">
-                        <input id="like__btn" type="button" value="Добавить в Корзину" />
+                        <input onClick={() => AddTopDelBottom('BasketChange', usSetChangeBasket, ProductToBasket, 'DeleteLikes', usSetDeleteLikes, DeleteProduct)} id="like__btn" type="button" value="Добавить в Корзину" />
                      </div>
                   </div>
                </ul>
                <div class="basket__product-delete">
-                  <img src="/img/page-icon/icons8-close-24.png" alt="" />
+                  <img onClick={() => PostDeleteItemChange('DeleteLikes', usSetDeleteLikes, DeleteProduct)} src="/img/page-icon/icons8-close-24.png" alt="" />
                </div>
             </div>
          </div>

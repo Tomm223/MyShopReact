@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRef } from 'react'
 import { useNavigate } from "react-router-dom";
+import { AccountContext } from "../Context/AccountProvider";
 import { AuthContext } from "../Context/AuthProvider";
 function FormPost() {
    const { singIn, fromPage } = useContext(AuthContext)
@@ -10,6 +11,7 @@ function FormPost() {
    const formElem = form.current
    const [users, setUsers] = useState('')
    const [inputData, setInputData] = useState(null)
+   const { usSetCheckId } = useContext(AccountContext)
 
    function HandlerButton() {
       const email = formElem.email.value
@@ -73,9 +75,10 @@ function FormPost() {
 
       })
          .then(data => data.json())
+         .then(usSetCheckId(false))
          .then(singIn(inputData, NavigateTo))
          .then(ClearInput)
-      //.then(giveUserData)
+
    }
 
    const NavigateTo = () => navigate(fromPage, { replace: true })

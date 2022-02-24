@@ -38,7 +38,7 @@ function App() {
   }
 
   useEffect(() => {
-    if (products == null) {
+    if (products == null || products == false) {
       fetch("http://localhost:3000/products")
         .then(data => data.json())
         .then(data => localStorage.setItem('products', JSON.stringify(data)))
@@ -50,17 +50,16 @@ function App() {
   return (
     <div className={`App`}>
       <ProductsContext.Provider value={{ products }}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Welcome />} />
-            <Route path="product" element={<Product />} />
-            <Route path="men/" element={<Gender />} />
-            <Route path="women/" element={<Gender />} />
-            <Route path="cataloge" element={<Cataloge />} />
-          </Route>
-        </Routes>
-
         <AccountProvider>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Welcome />} />
+              <Route path="product" element={<Product />} />
+              <Route path="men/" element={<Gender />} />
+              <Route path="women/" element={<Gender />} />
+              <Route path="cataloge" element={<Cataloge />} />
+            </Route>
+          </Routes>
           <Routes>
             <Route path="/account/" element={
               <ReqAuthAcc>
@@ -74,18 +73,19 @@ function App() {
               <Route path="zakaz/more" element={<AccountZakazMore />} />
             </Route>
           </Routes>
+          <Routes>
+            <Route path="/registration/" element={
+              <ReqAuthReg>
+                <Registration />
+              </ReqAuthReg>
+            } >
+              <Route path="post" element={<FormPost />} />
+              <Route path="get" element={<FormGet />} />
+            </Route>
+          </Routes>
         </AccountProvider>
       </ProductsContext.Provider>
-      <Routes>
-        <Route path="/registration/" element={
-          <ReqAuthReg>
-            <Registration />
-          </ReqAuthReg>
-        } >
-          <Route path="post" element={<FormPost />} />
-          <Route path="get" element={<FormGet />} />
-        </Route>
-      </Routes>
+
 
     </div>
   );
