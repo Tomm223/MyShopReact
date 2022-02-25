@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom"
+import React, { useContext, useEffect, useRef } from "react";
+import { NavLink, useLocation, useNavigate, useSearchParams } from "react-router-dom"
 import { useState } from 'react'
 import HeaderNavList from "./HeaderNavList";
 import ProductsContext from "../Context/ProductsContext";
@@ -23,6 +23,8 @@ function Header() {
       }
    }
    //isActive ? "header__gender-link activeLink" setNavBottom() : "header__gender-link"
+
+
    const [search, setSearch] = useState('')
 
    //const searchBtn = () => search == "fghhgjnd" ? "header__search-btn active" : "header__search-btn"
@@ -36,18 +38,31 @@ function Header() {
                         <div class="header__search-btn-item"></div>
                      </NavLink>
                       */
+   const [searchParams, setSearchParams] = useSearchParams()
+   const [navigateProduct, setNavigateProduct] = useState(true)
+   const [paramSearch, setParamSearch] = useState(true)
    const navigate = useNavigate()
    function HandlerSubmit(event) {
       event.preventDefault()
-      navigate('/cataloge', { state: { FilterSearch } })
+
+      location.pathname != "/cataloge" ? setNavigateProduct(!navigateProduct) : setParamSearch(!paramSearch)
    }
 
+   useEffect(() => {
+      search.length ? navigate('/cataloge', { state: { FilterSearch, search } }) : console.log('пустое поле');
+
+   }, [navigateProduct])
+   useEffect(() => {
+      const params = {}
+      params.products = search
+      search.length ? setSearchParams(params) : console.log("пустое поле");
+   }, [paramSearch])
    const [focusSearch, setFocusSearch] = useState(false)
 
    const stylesAutoComplite = {
       height: focusSearch == true ? search != '' ? "50vh" : "0px" : '0px'
    }
-   //
+
 
    return (
       <>

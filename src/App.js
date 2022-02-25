@@ -6,7 +6,9 @@ import Account from "./components/Account/Account"
 import Registration from "./components/Registration/Registration"
 import FormGet from "./components/Registration/FormGet"
 import FormPost from "./components/Registration/FormPost"
-import Cataloge from "./components/Cataloge"
+//cataloge
+import Cataloge from "./components/Cataloge/Cataloge"
+
 import Gender from "./components/Gender"
 import Product from "./components/Products/Product"
 import Welcome from "./components/Welcome"
@@ -57,7 +59,7 @@ function App() {
               <Route path="product" element={<Product />} />
               <Route path="men/" element={<Gender />} />
               <Route path="women/" element={<Gender />} />
-              <Route path="cataloge" element={<Cataloge />} />
+              <Route path="cataloge/" element={<Cataloge />} />
             </Route>
           </Routes>
           <Routes>
