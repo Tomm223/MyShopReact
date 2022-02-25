@@ -10,7 +10,7 @@ function ProductsItem({ imgLink, name, price, color, id, product }) {
             <h3 class="product__item-title">{name}</h3>
             <div class="product__item-text">
                <p>
-                  Цвет: <span id="product__color">{color}</span>
+                  Бренд: <span id="product__color">{product.brand}</span>
                </p>
                <span class="product__item-price">{price} $</span>
             </div>
@@ -21,3 +21,9 @@ function ProductsItem({ imgLink, name, price, color, id, product }) {
 }
 
 export default ProductsItem
+
+
+/*
+ <p>
+                  Цвет: <span id="product__color">{color}</span>
+               </p> */

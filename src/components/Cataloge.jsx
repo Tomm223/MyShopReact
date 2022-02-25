@@ -1,14 +1,17 @@
 import React from "react";
 import { useContext, useEffect } from 'react'
+import { useLocation } from "react-router-dom";
 import { PagesContext } from "./Context/PagesProvider";
-
+import ProductsList from "./Products/ProductsList";
 function Cataloge() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
    }, [])
-
+   const location = useLocation()
+   const filterProd = location.state.FilterSearch
+   console.log(filterProd);
    return (
       <>
          <div class="feture catalog">
@@ -299,103 +302,10 @@ function Cataloge() {
          <div class="feture">
             <div class="container">
                <div class="feture__how">
-                  <p>Найдено товаров: <span></span></p>
+                  <p>Найдено товаров: <span>{filterProd.length}</span></p>
                </div>
             </div>
-            <div class="product">
-               <div class="container">
-                  <div class="product__block">
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="product__item">
-                        <div class="product__item-img">
-                           <img src="/img/jacket/jacket1.jpg" alt="" />
-                        </div>
-                        <div class="product__item-supp">
-                           <h3 class="product__item-title">Красная Мужская Куртка The North Face</h3>
-                           <div class="product__item-text">
-                              <p>
-                                 Цвет: <span id="product__color">Красный</span>
-                              </p>
-                              <span class="product__item-price">559$</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="product-btn">
-               <input class="product-btn__item" type="button" value="Загрузить ещё" />
-            </div>
+            <ProductsList products={filterProd} />
          </div>
       </>
    )

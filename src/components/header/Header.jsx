@@ -1,7 +1,8 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom"
+import React, { useContext, useRef } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import HeaderNavList from "./HeaderNavList";
+import ProductsContext from "../Context/ProductsContext";
 
 
 function Header() {
@@ -22,6 +23,30 @@ function Header() {
       }
    }
    //isActive ? "header__gender-link activeLink" setNavBottom() : "header__gender-link"
+   const [search, setSearch] = useState('')
+
+   //const searchBtn = () => search == "fghhgjnd" ? "header__search-btn active" : "header__search-btn"
+   const { products } = useContext(ProductsContext)
+   const FilterSearch = products ? products.filter((item) =>
+      item.product_name.toLowerCase().includes(search.toLowerCase())
+   ) : null
+   console.log(FilterSearch);
+   /*
+    <NavLink to="cataloge" state={{ FilterSearch }} className="header__search-btn">
+                        <div class="header__search-btn-item"></div>
+                     </NavLink>
+                      */
+   const navigate = useNavigate()
+   function HandlerSubmit(event) {
+      event.preventDefault()
+      navigate('/cataloge', { state: { FilterSearch } })
+   }
+
+   const [focusSearch, setFocusSearch] = useState(false)
+   const stylesAutoComplite = {
+      height: focusSearch == true ? "50vh" : "0px"
+   }
+
 
    return (
       <>
@@ -43,12 +68,21 @@ function Header() {
                   </NavLink>
                </ul>
                <div class="header__search">
-                  <form class="header__search-form">
-                     <input class="header__search-input" type="text" placeholder="Поиск" />
-                     <div class="header__search-btn">
+                  <form onSubmit={HandlerSubmit} class="header__search-form">
+                     <input onFocus={() => setFocusSearch(true)} onBlur={() => setTimeout(() => setFocusSearch(false), 300)} class="header__search-input" type="text" placeholder="Поиск" onChange={event => setSearch(event.target.value)} />
+                     <div className="это фон #000 "></div>
+                     <button type="submit" className="header__search-btn">
                         <div class="header__search-btn-item"></div>
-                     </div>
+                     </button>
                   </form>
+                  <ul className="autoComplite" style={stylesAutoComplite}>
+                     {
+                        FilterSearch == null ? null : FilterSearch.map((item) => {
+                           return <NavLink to="/product" state={{ product: item }} key={item.id} className="autoCompliteLink" >{item.product_name}</NavLink>
+
+                        })
+                     }
+                  </ul>
                </div>
                <ul class="header__persons">
                   <NavLink to="/account/info">
