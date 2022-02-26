@@ -1,15 +1,26 @@
 import React, { useState, useContext, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { PagesContext } from "../Context/PagesProvider";
-function CatalogeFilterItem({ item, scoor, setScoor }) {
+function CatalogeFilterItem({ mass, setMass, item, name }) {
    const [toggle, setToggle] = useState(false)
+
+   const { category } = useContext(PagesContext)
+
    const handler = () => {
+      if (mass.filter((i) => i == item) == false && !toggle) {
+         const massiv = mass
+         massiv.push(item)
+         setMass(massiv)
+      }
+      else if (mass.filter((i) => i == item) && toggle) {
+         const massiv = mass
+         setMass(massiv.filter((i) => i != item))
+      }
+
       if (!toggle) {
-         setScoor(scoor + 1)
          setToggle(true)
       }
       else if (toggle) {
-         setScoor(scoor - 1)
          setToggle(false)
       }
    }

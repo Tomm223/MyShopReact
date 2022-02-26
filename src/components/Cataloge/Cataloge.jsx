@@ -19,14 +19,27 @@ function Cataloge() {
       brands: ["adidas", "Ellesse", "Dr. Martens", "Nike", "Tommy Hilfiger", "Fred Perry", "New Look",
          "The North Face", "Feshin"],
       season: ['all', 'summer', 'winter', 'spring'],
-      material: ["Пух", "Кожа", "Нейлон", "Хлопок", "Стрейч", "Резина", "Сетка", "Замша"],
-      filterName: ['Куртка', "Штаны", "Футболка", "Обувь"]
+      material: ["Пух", "Кожа", "Нейлон", "Denim", "Хлопок", "Стрейч", "Резина", "Сетка", "Замша"],
+      filterName: ['Куртка', "Штаны", "Футболка", "Обувь"],
+      color: ['Черный', 'Синий', 'Зеленый', 'Белый', 'Хаки', 'Multy', 'Серый']
    })
+   const { finishFilter } = useContext(PagesContext)
    const location = useLocation()
-   const filterProd = location.state ? location.state.FilterSearch : products.filter((item) => item.product_name.toLowerCase().includes(productQuery.toLowerCase()))
-   function handlerSearch() {
+   const filterProd = finishFilter.length ? finishFilter : location.state ? location.state.FilterSearch : products.filter((item) => item.product_name.toLowerCase().includes(productQuery.toLowerCase()))
 
+   function handlerSearch() {
+      console.log(finishFilter);
    }
+
+   const { color, setColor, brand, setBrand, category, setCategory, material, setMaterial, season,
+      setSeason, basic, setBasic } = useContext(PagesContext)
+
+
+   /*
+   <li onClick={handlerSearch} class="filter__list-item">
+               <input type="button" class="filter__search active" value="Искать" />
+            </li>
+   */
 
    return (
       <>
@@ -57,20 +70,23 @@ function Cataloge() {
          <div class="filter">
             <ul class="filter__list">
                <div style={{ marginRight: "1rem" }}>
-                  <CatalogeFilter filtres={filterCataloge.filterName} name={'Категории'} />
+                  <CatalogeFilter mass={brand} setMass={setBrand} filtres={filterCataloge.brands} name={'Бренд'} />
                </div>
                <div style={{ marginRight: "1rem" }}>
-                  <CatalogeFilter filtres={filterCataloge.basic} name={'Основные'} />
+                  <CatalogeFilter mass={category} setMass={setCategory} filtres={filterCataloge.filterName} name={'Категории'} />
                </div>
                <div style={{ marginRight: "1rem" }}>
-                  <CatalogeFilter filtres={filterCataloge.season} name={'Сезон'} />
+                  <CatalogeFilter mass={material} setMass={setMaterial} filtres={filterCataloge.material} name={'Материал'} />
                </div>
                <div style={{ marginRight: "1rem" }}>
-                  <CatalogeFilter filtres={filterCataloge.material} name={'Материал'} />
+                  <CatalogeFilter mass={season} setMass={setSeason} filtres={filterCataloge.season} name={'Сезон'} />
                </div>
-               <li onClick={handlerSearch} class="filter__list-item">
-                  <input type="button" class="filter__search active" value="Искать" />
-               </li>
+               <div style={{ marginRight: "1rem" }}>
+                  <CatalogeFilter mass={color} setMass={setColor} filtres={filterCataloge.color} name={'Цвет'} />
+               </div>
+               <div >
+                  <CatalogeFilter mass={basic} setMass={setBasic} filtres={filterCataloge.basic} name={'Основные'} />
+               </div>
             </ul>
          </div>
 
