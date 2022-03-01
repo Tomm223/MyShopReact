@@ -111,6 +111,7 @@
       flex-wrap: nowrap;
    }
    &__item{
+      cursor: pointer;
       max-width: 20vw;
       opacity: 0.5;
       &:hover{

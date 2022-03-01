@@ -12,7 +12,14 @@ function PagesProvider({ children }) {
    const [season, setSeason] = useState([])
    const [basic, setBasic] = useState([])
    const massFilters = [brand, category, material, season, basic]
+   const setMassFilters = [setBrand, setCategory, setMaterial, setSeason, setBasic]
    const [finishFilter, setFinishFilter] = useState([])
+   const DELETEFiltresState = (products) => {
+      console.log('true');
+      setMassFilters.map((item) => {
+         item(null)
+      })
+   }
    function searchForFilter(products) {
       setFinishFilter(prev => [])
       for (var i = 0; i < 6; i++) {
@@ -175,9 +182,15 @@ function PagesProvider({ children }) {
       }
    }
 
+   const [gallery, setGallery] = useState(JSON.parse(localStorage.getItem('GenderGallery')))
+   function usGetGalleryGen(obj) {
+      localStorage.setItem('GenderGallery', JSON.stringify(obj))
+      setGallery(JSON.parse(localStorage.getItem('GenderGallery')))
+   }
    return (
       <PagesContext.Provider value={{
-         finishFilter,
+         massFilters,
+         finishFilter, DELETEFiltresState, usGetGalleryGen, gallery, setGallery,
          brand, setBrand, color, setColor, category, setCategory, material, setMaterial, season,
          setSeason, basic, setBasic, searchForFilter, pageY0, tabs, setTabs
       }}>

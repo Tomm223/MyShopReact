@@ -60,7 +60,7 @@ function Header() {
    const [focusSearch, setFocusSearch] = useState(false)
 
    const stylesAutoComplite = {
-      height: focusSearch == true ? search != '' ? "50vh" : "0px" : '0px'
+      height: focusSearch == true ? search != '' ? 'auto' : "0px" : '0px'
    }
 
 

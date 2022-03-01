@@ -58,6 +58,7 @@
       width: inherit;
       background-color: $white;
       height: 0vh;
+      max-height: 50vh;
       overflow-y: scroll;
       display: flex;
       flex-direction: column;

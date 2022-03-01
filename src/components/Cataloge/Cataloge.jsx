@@ -13,6 +13,7 @@ function Cataloge() {
    }, [])
    const [searchParams, setSearchParams] = useSearchParams()
    const productQuery = searchParams.get('products') || ''
+   const productCollection = searchParams.get('collection') || ''
    const { products } = useContext(ProductsContext)
    const [filterCataloge, setFilterCataloge] = useState({
       basic: ['sales', 'news', 'moda'],
@@ -23,9 +24,25 @@ function Cataloge() {
       filterName: ['Куртка', "Штаны", "Футболка", "Обувь"],
       color: ['Черный', 'Синий', 'Зеленый', 'Белый', 'Хаки', 'Multy', 'Серый']
    })
-   const { finishFilter } = useContext(PagesContext)
+   const { finishFilter, massFilters } = useContext(PagesContext)
+
    const location = useLocation()
-   const filterProd = finishFilter.length ? finishFilter : location.state ? location.state.FilterSearch : products.filter((item) => item.product_name.toLowerCase().includes(productQuery.toLowerCase()))
+   const FilterCataloge = products.filter((item) => item.product_name.toLowerCase().includes(productQuery.toLowerCase()))
+   let filterProd = finishFilter.length ? finishFilter : FilterCataloge.length == products.length ? false : FilterCataloge
+
+   if (!filterProd) {
+      if (location.state.FilterSearch) {
+         //console.log("stateSearch: ", location.state.FilterSearch);
+         filterProd = location.state.FilterSearch
+      }
+      else if (location.state.collection) {
+         //console.log("stateCollection: ", location.state.collection);
+         filterProd = location.state.collection
+      }
+
+   }
+   console.log("F-CATALoge: ", FilterCataloge);
+   console.log("products: ", products);
 
    function handlerSearch() {
       console.log(finishFilter);
@@ -40,6 +57,11 @@ function Cataloge() {
                <input type="button" class="filter__search active" value="Искать" />
             </li>
    */
+   const { DELETEFiltresState } = useContext(PagesContext)
+   function handlerDelete(e) {
+      e.preventDefault()
+      DELETEFiltresState(products)
+   }
 
    return (
       <>
@@ -66,6 +88,11 @@ function Cataloge() {
                      fugit quos odio fuga deleniti!</span>
                </div>
             </div>
+         </div>
+         <div>
+            <form onSubmit={handlerDelete} action="">
+               <button type="submit">DELETE</button>
+            </form>
          </div>
          <div class="filter">
             <ul class="filter__list">

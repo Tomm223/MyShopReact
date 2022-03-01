@@ -9,7 +9,7 @@ import FormPost from "./components/Registration/FormPost"
 //cataloge
 import Cataloge from "./components/Cataloge/Cataloge"
 
-import Gender from "./components/Gender"
+import Gender from "./components/Gender/Gender"
 import Product from "./components/Products/Product"
 import Welcome from "./components/Welcome"
 //context
@@ -27,7 +27,17 @@ import { ReqAuthAcc, ReqAuthReg } from "./hoc/ReqAuth"
 
 
 function App() {
+  //gender gallery
+  const { usGetGalleryGen } = useContext(PagesContext)
+  useEffect(() => {
+    if (!localStorage.getItem('GenderGallery')) {
 
+      fetch("http://localhost:3000/GalleryProduct")
+        .then(data => data.json())
+        .then(data => usGetGalleryGen(data))
+    }
+
+  }, [])
 
 
   //products
