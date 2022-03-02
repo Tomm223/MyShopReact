@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Moda from "./Moda";
 import { Link } from "react-router-dom"
-import { PagesContext } from "./Context/PagesProvider";
+import { PagesContext } from "../Context/PagesProvider";
 import { useEffect, useContext } from 'react'
-import { AuthContext } from "./Context/AuthProvider";
+import { AuthContext } from "../Context/AuthProvider";
 function Welcome() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)

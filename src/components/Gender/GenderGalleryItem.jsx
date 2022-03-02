@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate, useSearchParams } from 'react-router-dom'
-import { PagesContext } from "../Context/PagesProvider";
-import ProductsContext from "../Context/ProductsContext";
+import { PagesContext } from "../../Context/PagesProvider";
+import ProductsContext from "../../Context/ProductsContext";
 function GenderGalleryItem({ filter, img, title }) {
    const [Filter, setFilter] = useState()
    const { products } = useContext(ProductsContext)

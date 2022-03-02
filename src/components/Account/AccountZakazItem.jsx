@@ -1,9 +1,9 @@
 import React, { useContext, useRef, useEffect, useState } from "react";
-import ProductsContext from "../Context/ProductsContext";
+import ProductsContext from "../../Context/ProductsContext";
 import AccountZakazListImg from "./AccountZakazListImg";
 import AccountZakazListProduct from "./AccountZakazListImg";
 import { NavLink } from "react-router-dom"
-import { AuthContext } from "../Context/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 function AccountZakazItem({ order, productsOrder }) {
    /*function styleBlock() {
       if (order.send == true) {

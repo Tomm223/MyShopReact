@@ -12,9 +12,9 @@ function HeaderNavList(props) {
       <div>
          <nav className={props.style}>
             <ul class="nav__list">
-               {category.map((item) => {
+               {category.map((item, index) => {
                   return (
-                     <li class="nav__item">
+                     <li key={index} class="nav__item">
                         <a href="#" class="nav__link" key={item.key}>{item.name}</a>
                         <HeaderNavSort category={item.id} />
                      </li>)

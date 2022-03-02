@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { NavLink, useLocation, useNavigate, useSearchParams } from "react-router-dom"
 import { useState } from 'react'
 import HeaderNavList from "./HeaderNavList";
-import ProductsContext from "../Context/ProductsContext";
+import ProductsContext from "../../Context/ProductsContext";
 
 
 function Header() {
@@ -49,7 +49,7 @@ function Header() {
    }
 
    useEffect(() => {
-      search.length ? navigate('/cataloge', { state: { FilterSearch, search } }) : console.log('пустое поле');
+      search.length ? navigate(`/cataloge?product=${search}`, { state: { FilterSearch, search } }) : console.log('пустое поле');
 
    }, [navigateProduct])
    useEffect(() => {

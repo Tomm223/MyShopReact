@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Header from "./header/Header"
 import Footer from "./Footer"
-import { PagesContext } from "./Context/PagesProvider"
+import { PagesContext } from "../Context/PagesProvider"
 import { Outlet } from 'react-router-dom'
 
 function Layout() {

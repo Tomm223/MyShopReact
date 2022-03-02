@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useContext, useEffect } from 'react'
 import { useLocation, useSearchParams } from "react-router-dom";
-import { PagesContext } from "../Context/PagesProvider";
-import ProductsContext from "../Context/ProductsContext";
+import { PagesContext } from "../../Context/PagesProvider";
+import ProductsContext from "../../Context/ProductsContext";
 import ProductsList from "../Products/ProductsList";
 import CatalogeFilter from "./CatalogeFilter";
 function Cataloge() {

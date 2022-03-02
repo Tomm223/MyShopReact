@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { AccountContext } from "../Context/AccountProvider";
-import ProductsContext from "../Context/ProductsContext";
+import { AccountContext } from "../../Context/AccountProvider";
+import ProductsContext from "../../Context/ProductsContext";
 import AccountZakazItem from "./AccountZakazItem";
 function AccountZakaz() {
    const { cabInfo, orderPers, checkId } = useContext(AccountContext)

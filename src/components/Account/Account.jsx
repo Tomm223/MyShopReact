@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useContext, useCallback } from "react";
 import { Outlet, NavLink } from 'react-router-dom'
 import AccountNavigate from "./AccountNavigate";
-import { PagesContext } from "../Context/PagesProvider";
-import { AuthContext } from "../Context/AuthProvider";
-import { AccountContext } from "../Context/AccountProvider";
+import { PagesContext } from "../../Context/PagesProvider";
+import { AuthContext } from "../../Context/AuthProvider";
+import { AccountContext } from "../../Context/AccountProvider";
 
 
 function Account() {
@@ -134,7 +134,7 @@ function Account() {
          fetch("http://localhost:3000/UserChange")
             .then(data => data.json())
             .then(data => {
-               const MassInfoUser = data.filter((item) => item.user_id == user.id)
+               const MassInfoUser = data.filter((item) => item.user_id == 'default')
                getChangeDef(MassInfoUser[0])
             })
       }

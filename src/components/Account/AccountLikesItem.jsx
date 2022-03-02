@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AccountContext } from "../Context/AccountProvider";
+import { AccountContext } from "../../Context/AccountProvider";
 
 function AccountLikesItem({ product, size, itemId }) {
 

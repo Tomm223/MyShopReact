@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
-import { PagesContext } from "../Context/PagesProvider";
-import ProductsContext from "../Context/ProductsContext";
+import { PagesContext } from "../../Context/PagesProvider";
+import ProductsContext from "../../Context/ProductsContext";
 import CatalogeFilterItem from "./CatalogeFilterItem";
 function CatalogeFilter({ mass, setMass, filtres, name }) {
    const { tabs, setTabs } = useContext(PagesContext)

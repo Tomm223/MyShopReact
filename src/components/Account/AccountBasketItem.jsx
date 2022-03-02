@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AccountContext } from "../Context/AccountProvider";
+import { AccountContext } from "../../Context/AccountProvider";
 
 function AccountBasketItem({ product, amount, size, itemId }) {
    const { PostDeleteItemChange, usSetDeleteBasket } = useContext(AccountContext)

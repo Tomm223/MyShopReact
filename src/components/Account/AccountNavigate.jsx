@@ -1,8 +1,8 @@
 
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AccountContext } from "../Context/AccountProvider";
-import { AuthContext } from "../Context/AuthProvider";
+import { AccountContext } from "../../Context/AccountProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 import Account from "./Account";
 function AccountNavigate({ link }) {
    const setStyle = ({ isActive }) => isActive ? `cab__list-item  active  ${link.dopStyle} ` : `cab__list-item  ${link.dopStyle} `

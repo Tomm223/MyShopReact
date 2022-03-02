@@ -2,112 +2,88 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRef } from 'react'
 import { useNavigate } from "react-router-dom";
-import { AccountContext } from "../Context/AccountProvider";
-import { AuthContext } from "../Context/AuthProvider";
+import { AccountContext } from "../../Context/AccountProvider";
+import { AuthContext } from "../../Context/AuthProvider";
+
+import { GetAxios, PostAxios } from "../../Fetch/Fetching"
+import { useForm } from 'react-hook-form'
 function FormPost() {
+   const { usSetCheckId } = useContext(AccountContext)
    const { singIn, fromPage } = useContext(AuthContext)
    const navigate = useNavigate()
-   const form = useRef()
-   const formElem = form.current
-   const [users, setUsers] = useState('')
-   const [inputData, setInputData] = useState(null)
-   const { usSetCheckId } = useContext(AccountContext)
+   const NavigateTo = () => navigate(fromPage, { replace: true })
+   const {
+      register,
+      formState: { errors, isValid },
+      handleSubmit,
+      reset
+   } = useForm({
+      mode: "onBlur"
+   })
 
-   function HandlerButton() {
-      const email = formElem.email.value
-      const password = formElem.password.value
-      const firstName = formElem.firstName.value
-      const lastName = formElem.lastName.value
+   const [errorReg, setErrorReg] = useState('')
 
-      setInputData({
-         email,
-         password,
-         firstName,
-         lastName,
-         id: Math.random() * 11111111
-      })
+   const inputErr = (str) => <p>Ошибка в поле <span>{str}</span></p>
+   const inputNull = () => <p>Поле обязательно к заполнению</p>
+   const EmailError = () => alert('Email-адресс уже зарегестрирован')
 
-   }
-
-   console.log("fromPage: ", fromPage);
-
-   useEffect(() => {
-      let alike = false
-      fetch("http://localhost:3000/userCard")
-         .then(data => data.json())
-         .then(data => setUsers(data))
-         .then(data => {
-            const arrL = users.filter((item) => item.email == inputData.email)
-            console.log(arrL);
-            if (arrL.length > 0) {
-               alike = true
-            }
-         })
-         .then(data => {
-            if (alike) {
-               alert("Такой Email Уже Зарегестрирован")
-            }
-         })
-         .then(data => {
-            if (inputData.email.length != 0 && alike != true) {
-               fetchPOST()
-            }
-         })
-
-
-      if (inputData) {
-
+   const useSubmitData = async (data) => {
+      const MassUsers = await GetAxios('userCard')
+      const massEmailMatch = await MassUsers.filter((item) => item.email == data.email)
+      if (massEmailMatch.length) {
+         EmailError()
       }
       else {
-         alert("вы Не ввели данные EMAIL")
-      }
-
-
-   }, [inputData])
-
-   function fetchPOST() {
-      fetch("http://localhost:3000/userCard", {
-         method: "POST",
-         body: JSON.stringify(inputData),
-         headers: {
-            "Content-type": "application/json"
+         const body = {
+            email: data.email,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            password: data.password
          }
-
-      })
-         .then(data => data.json())
-         .then(usSetCheckId(false))
-         .then(singIn(inputData, NavigateTo))
-         .then(ClearInput)
-
-   }
-
-   const NavigateTo = () => navigate(fromPage, { replace: true })
-
-
-   function ClearInput() {
-      formElem.email.value = ''
-      formElem.password.value = ''
-      formElem.firstName.value = ''
-      formElem.lastName.value = ''
-      setInputData(null)
+         const postedUser = await PostAxios('userCard', body)
+         singIn(postedUser, NavigateTo)
+         usSetCheckId(false)
+         reset()
+      }
    }
 
 
+
+   const paramsHook = {
+      required: "Поле обязательно к заполнению",
+      minLength: {
+         value: 5,
+         message: "Минимум 5 символов"
+      }
+   }
 
    return (
       <>
-         <form ref={form} class="reg__form">
-            <label class="reg__label" for="email">Адресс Электронной почты:</label>
-            <input class="reg__input" id="reg__emal" name="email" type="text" />
-            <label class="reg__label" for="firstName">Имя:</label>
-            <input class="reg__input" id="reg__f-name" name="firstName" type="text" />
-            <label class="reg__label" for="lastName">Фамилия:</label>
-            <input class="reg__input" id="reg__l-name" name="lastName" type="text" />
-            <label class="reg__label" for="pass">Пароль:</label>
-            <input class="reg__input" id="reg__pass" name="password" type="text" />
-            <button onClick={HandlerButton} class="reg__btn" type="button" >зарегестрироваться </button>
+         <form onSubmit={handleSubmit(useSubmitData)} class="reg__form">
+            <label class="reg__label" for="email">Адресс Электронной почты:
+               <input class="reg__input" id="reg__emal" {...register("email", paramsHook)} type="text" />
+               <div className="reg__error"> {errors?.email && <div>{errors?.email?.message || inputErr('Email')}</div>} </div>
+            </label>
+            <label class="reg__label" for="firstName">Имя:
+               <input class="reg__input" id="reg__f-name" {...register("firstName", paramsHook)} type="text" />
+               <div className="reg__error"> {errors?.firstName && <div>{errors?.firstName?.message || inputErr('firstName')}</div>} </div>
+            </label>
+            <label class="reg__label" for="lastName">Фамилия:
+               <input class="reg__input" id="reg__l-name" {...register("lastName", paramsHook)} type="text" />
+               <div className="reg__error"> {errors?.lastName && <div>{errors?.lastName?.message || inputErr('lastName')}</div>} </div>
+            </label>
+            <label class="reg__label" for="pass">Пароль:
+               <input class="reg__input" id="reg__pass"  {...register("password", paramsHook)} type="text" />
+               <div className="reg__error"> {errors?.password && <div>{errors?.password?.message || inputErr('password')}</div>} </div>
+            </label>
+            <button class="reg__btn" type="submit" disabled={!isValid} >зарегестрироваться </button>
          </form>
       </>
    )
 }
 export default FormPost
+
+
+
+
+

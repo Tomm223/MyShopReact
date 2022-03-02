@@ -3,8 +3,8 @@ import Moda from "../Moda"
 import { Outlet } from "react-router-dom";
 import ProductsList from "../Products/ProductsList";
 import GenderGallery from './GenderGallery'
-import { PagesContext } from "../Context/PagesProvider";
-import ProductsContext from '../Context/ProductsContext'
+import { PagesContext } from "../../Context/PagesProvider";
+import ProductsContext from '../../Context/ProductsContext'
 function Gender() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)

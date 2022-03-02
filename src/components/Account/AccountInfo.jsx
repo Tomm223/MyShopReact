@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useContext, useRef } from 'react'
-import { AuthContext } from "../Context/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 function AccountInfo() {
    const { user } = useContext(AuthContext)
    const [FName, setFName] = useState(user.firstName)
@@ -26,14 +26,18 @@ function AccountInfo() {
          </div>
          <div class="cab__info-form">
             <form onSubmit={handlerSubmit} class="reg__form" id="cab__info-form" action="">
-               <label class="reg__label" for="email">Адресс Электронной почты:</label>
-               <input class="reg__input" id="reg__emal" name="email" type="text" onChange={event => setEmail(event.target.value)} value={email} />
-               <label class="reg__label" for="email">Имя:</label>
-               <input class="reg__input" id="reg__f-name" name="first-name" type="text" onChange={event => setFName(event.target.value)} value={FName} />
-               <label class="reg__label" for="email">Фамилия:</label>
-               <input class="reg__input" id="reg__l-name" name="last-name" type="text" onChange={event => setLName(event.target.value)} value={LName} />
-               <label class="reg__label" for="email">Пароль:</label>
-               <input class="reg__input" id="reg__pass" name="pass" type="text" onChange={event => setPassword(event.target.value)} value={password} />
+               <label class="reg__label" for="email">Адресс Электронной почты:
+                  <input class="reg__input" id="reg__emal" name="email" type="text" onChange={event => setEmail(event.target.value)} value={email} />
+               </label>
+               <label class="reg__label" for="email">Имя:
+                  <input class="reg__input" id="reg__f-name" name="first-name" type="text" onChange={event => setFName(event.target.value)} value={FName} />
+               </label>
+               <label class="reg__label" for="email">Фамилия:
+                  <input class="reg__input" id="reg__l-name" name="last-name" type="text" onChange={event => setLName(event.target.value)} value={LName} />
+               </label>
+               <label class="reg__label" for="email">Пароль:
+                  <input class="reg__input" id="reg__pass" name="pass" type="text" onChange={event => setPassword(event.target.value)} value={password} />
+               </label>
                <input class="reg__btn" id="cab__btn" type="submit" value="Сохранить Изменения" />
             </form>
          </div>

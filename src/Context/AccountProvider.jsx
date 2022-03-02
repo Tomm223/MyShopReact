@@ -6,7 +6,6 @@ function AccountProvider({ children }) {
    const [cabInfo, setCabInfo] = useState(JSON.parse(localStorage.getItem("userChange")))
    const [checkId, setCheckId] = useState(JSON.parse(localStorage.getItem("checkToken")))
    const usSetCheckId = (bull) => {
-      setCheckId(prev => bull)
       localStorage.setItem("checkToken", JSON.stringify(bull))
       setCheckId(prev => JSON.parse(localStorage.getItem("checkToken")))
    }
@@ -68,9 +67,8 @@ function AccountProvider({ children }) {
       setDeleteOrder(prev => JSON.parse(localStorage.getItem('DELETEOrder')))
    }
 
-
+   //ACCOUNT CHANGE
    function AddTopDelBottom(to, usSet, prodAdd, toDel, usSetDel, delProd) {
-      console.log(prodAdd);
       fetch(`http://localhost:3000/${to}`, {
          method: "POST",
          body: JSON.stringify(prodAdd),
@@ -112,9 +110,6 @@ function AccountProvider({ children }) {
       }
 
    }
-
-
-
    async function DELETErenderProducts(to, usSet) {
       if (checkId) {
          await fetch(`http://localhost:3000/${to}`)

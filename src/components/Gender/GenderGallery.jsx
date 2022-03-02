@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import GenderGalleryItem from "./GenderGalleryItem"
-import { PagesContext } from "../Context/PagesProvider";
+import { PagesContext } from "../../Context/PagesProvider";
 import { NavLink } from 'react-router-dom'
 function GenderGallery({ gallery }) {
 

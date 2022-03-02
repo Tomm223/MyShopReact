@@ -1,7 +1,8 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 import { useContext } from "react";
-import { AccountContext } from "../Context/AccountProvider";
-import ProductsContext from "../Context/ProductsContext";
+import { AccountContext } from "../../Context/AccountProvider";
+import ProductsContext from "../../Context/ProductsContext";
 import AccountLikesItem from "./AccountLikesItem";
 function AccountLikes() {
    /* {basket.map((item) => {
@@ -17,6 +18,8 @@ function AccountLikes() {
    console.log("likes: ", likes);
    //
    const { products } = useContext(ProductsContext)
+
+   const salesFilter = products.filter((item) => item.sales == "true")
    return (
       <div class="cab__like">
          <div class="cab__like-icon">
@@ -34,19 +37,33 @@ function AccountLikes() {
             </div>
             <div class="basket__block">
                <ul class="basket__list">
-                  {likes.map((item) => {
-                     const deleteCheck = deleteLikes.filter((prod) => prod.likes_id == item.id)[0]
-                     console.log("chehck: ", deleteCheck);
-                     if (deleteCheck) { return console.log("deleteProduct: ", deleteCheck.likes_id) }
-                     const product = products.filter((prod) => prod.id == item.product_id)[0]
-                     console.log("product: ", product);
-                     return <AccountLikesItem key={item.id} product={product} size={item.size} itemId={item.id} />
-                  })}
+                  {
+                     checkId ?
+                        likes.map((item) => {
+                           const deleteCheck = deleteLikes.filter((prod) => prod.likes_id == item.id)[0]
+                           console.log("chehck: ", deleteCheck);
+                           if (deleteCheck) { return console.log("deleteProduct: ", deleteCheck.likes_id) }
+                           const product = products.filter((prod) => prod.id == item.product_id)[0]
+                           console.log("product: ", product);
+                           return <AccountLikesItem key={item.id} product={product} size={item.size} itemId={item.id} />
+                        })
+
+                        :
+
+                        likes.map((item) => {
+
+                           const product = products.filter((prod) => prod.id == item.product_id)[0]
+                           return <AccountLikesItem key={item.id} product={product} size={item.size} itemId={item.id} />
+                        })
+
+                  }
 
 
                </ul>
                <div class="basket__btn">
-                  <input class="basket__btn-item" type="button" value="Заказать" />
+                  <NavLink to="/cataloge?collection=sales" state={{ collection: salesFilter }}>
+                     <input class="basket__btn-item" type="button" value="Выбрать еще" />
+                  </NavLink>
                </div>
 
             </div>

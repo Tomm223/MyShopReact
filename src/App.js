@@ -13,10 +13,10 @@ import Gender from "./components/Gender/Gender"
 import Product from "./components/Products/Product"
 import Welcome from "./components/Welcome"
 //context
-import { PagesContext } from "./components/Context/PagesProvider"
-import ProductsContext from "./components/Context/ProductsContext"
+import { PagesContext } from "./Context/PagesProvider"
+import ProductsContext from "./Context/ProductsContext"
 //acc
-import AccountProvider from "./components/Context/AccountProvider"
+import AccountProvider from "./Context/AccountProvider"
 import AccountBasket from "./components/Account/AccountBasket"
 import AccountInfo from "./components/Account/AccountInfo"
 import AccountLikes from "./components/Account/AccountLikes"

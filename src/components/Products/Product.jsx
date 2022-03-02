@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ProductsContext from "../Context/ProductsContext"
+import ProductsContext from "../../Context/ProductsContext"
 import Moda from "../Moda";
 import ProductSuppImg from "./ProductSuppImg";
-import { AuthContext } from "../Context/AuthProvider"
-import { PagesContext } from "../Context/PagesProvider";
-import { AccountContext } from "../Context/AccountProvider";
+import { AuthContext } from "../../Context/AuthProvider"
+import { PagesContext } from "../../Context/PagesProvider";
+import { AccountContext } from "../../Context/AccountProvider";
 export default function Product() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)

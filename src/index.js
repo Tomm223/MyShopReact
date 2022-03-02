@@ -15,8 +15,8 @@ import "./styles/kabinet.scss"
 import "./styles/registration.scss"
 import "./styles/reset.css"
 import "./styles/vars.scss"
-import PagesProvider from "./components/Context/PagesProvider"
-import { AuthProvider } from './components/Context/AuthProvider'
+import PagesProvider from "./Context/PagesProvider"
+import { AuthProvider } from './Context/AuthProvider'
 function Main() {
 
 

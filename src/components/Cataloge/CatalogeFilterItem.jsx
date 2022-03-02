@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { PagesContext } from "../Context/PagesProvider";
+import { PagesContext } from "../../Context/PagesProvider";
 function CatalogeFilterItem({ mass, setMass, item, name }) {
    const [toggle, setToggle] = useState(false)
 
