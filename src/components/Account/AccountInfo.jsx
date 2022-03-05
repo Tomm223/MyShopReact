@@ -1,17 +1,84 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useContext, useRef } from 'react'
 import { AuthContext } from "../../Context/AuthProvider";
+import { useForm, Controller } from 'react-hook-form'
+import { SelectReact, ParamsForm } from '../UI/Form/Form'
+import { ErrorsMessage } from "../UI/Form/ErrorsMessage";
+import { GetAxios } from "../../Fetch/Fetching"
+
+
+
 function AccountInfo() {
    const { user } = useContext(AuthContext)
-   const [FName, setFName] = useState(user.firstName)
-   const [LName, setLName] = useState(user.lastName)
-   const [password, setPassword] = useState(user.password)
+   const [FName, setFName] = useState()
+   const [LName, setLName] = useState()
+   const [password, setPassword] = useState()
    const [email, setEmail] = useState(user.email)
+   const [country, setCountry] = useState()
+   const [city, setCity] = useState()
+   const [street, setStreet] = useState()
+   const [house, setHouse] = useState()
+   const {
+      register,
+      formState: { errors },
+      handleSubmit,
+      reset,
+      control,
+      defaultValues,
+      setValue
+   } = useForm({
+      mode: "onChange"
+   })
 
-
-   function handlerSubmit(event) {
-      alert("невозможно изменить данные из-за сервера")
+   function handlerSubmit(data) {
+      alert("ДОДЕЛАТЬ ИЗМЕНЕНИЯ USER_SERVER + ПОЧИСТИТЬ КОД")
    }
+   function valueDefault(regist) {
+      if (regist[0] == "address") {
+         return user[`${regist[0]}`][`${regist[1]}`]
+      }
+
+      return user[`${regist}`]
+   }
+
+   const formInputs = [
+      {
+         title: "Адресс Электронной почты",
+         regist: "email"
+      },
+      {
+         title: "Имя",
+         regist: "firstName",
+      },
+      {
+         title: "Фамилия",
+         regist: "lastName",
+      },
+      {
+         title: "Пароль",
+         regist: "password",
+      },
+      {
+         title: "Страна",
+         regist: "address.country",
+         registArray: ['address', 'country']
+      },
+      {
+         title: "Город",
+         regist: "address.city",
+         registArray: ['address', 'city']
+      },
+      {
+         title: "Улица",
+         regist: "address.street",
+         registArray: ['address', 'street']
+      },
+      {
+         title: "Дом",
+         regist: "address.house",
+         registArray: ["address", "house"]
+      }
+   ]
 
 
    return (
@@ -25,23 +92,40 @@ function AccountInfo() {
                приведенные ниже данные.</aside>
          </div>
          <div class="cab__info-form">
-            <form onSubmit={handlerSubmit} class="reg__form" id="cab__info-form" action="">
-               <label class="reg__label" for="email">Адресс Электронной почты:
-                  <input class="reg__input" id="reg__emal" name="email" type="text" onChange={event => setEmail(event.target.value)} value={email} />
-               </label>
-               <label class="reg__label" for="email">Имя:
-                  <input class="reg__input" id="reg__f-name" name="first-name" type="text" onChange={event => setFName(event.target.value)} value={FName} />
-               </label>
-               <label class="reg__label" for="email">Фамилия:
-                  <input class="reg__input" id="reg__l-name" name="last-name" type="text" onChange={event => setLName(event.target.value)} value={LName} />
-               </label>
-               <label class="reg__label" for="email">Пароль:
-                  <input class="reg__input" id="reg__pass" name="pass" type="text" onChange={event => setPassword(event.target.value)} value={password} />
-               </label>
+            <form onSubmit={handleSubmit(handlerSubmit)} class="reg__form" id="cab__info-form" action="">
+               {formInputs.map((item) => {
+                  let registQuery = ''
+                  let checkInput = true
+                  let defValue = ''
+                  if (item.registArray) {
+                     registQuery = item.registArray
+                     if (item.registArray[1] == "country") checkInput = false
+                  }
+                  else if (!item.registArray) {
+                     registQuery = item.regist
+                  }
+                  return (
+                     <> {checkInput ?
+                        <label className="reg__label">{item.title}:
+                           <input defaultValue={valueDefault(registQuery)} type="text" className="reg__input"
+                              {...register(item.regist, ParamsForm(item.regist))} />
+                           <ErrorsMessage errors={errors} regist={registQuery} />
+                        </label>
+                        :
+                        <label className="reg__label"> {item.title}:
+                           <Controller control={control} name={item.regist} rules={ParamsForm(item.regist)}
+                              render={({ field: { onChange, value }, fieldState: { error } }) =>
+                                 <SelectReact onChange={onChange} value={value} error={error} />
+                              } />
+                        </label>
+                     }
+                     </>
+                  )
+               })}
                <input class="reg__btn" id="cab__btn" type="submit" value="Сохранить Изменения" />
             </form>
          </div>
-      </div>
+      </div >
    )
 }
 export default AccountInfo

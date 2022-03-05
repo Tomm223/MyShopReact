@@ -2,7 +2,7 @@ import React from "react";
 
 
 const inputErr = (str) => <p>Ошибка в поле <span>{str}</span></p>
-const EmailError = () => alert('Email-адресс уже зарегестрирован')
+
 
 
 export function ErrorSelect({ error }) {
