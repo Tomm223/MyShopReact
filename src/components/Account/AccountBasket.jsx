@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useMemo } from "react";
 import { AccountContext } from "../../Context/AccountProvider";
 import ProductsContext from "../../Context/ProductsContext";
 import AccountBasketItem from "./AccountBasketItem";
+import { AuthContext } from "../../Context/AuthProvider";
 function AccountBasket() {
    // massiv в котором TRUEBasket
    const MAss = []
@@ -12,12 +13,12 @@ function AccountBasket() {
    console.log("basket: ", basket);
    const { products } = useContext(ProductsContext)
    console.log("basketDELETE: ", deleteBasket);
-
+   const { user } = useContext(AuthContext)
 
    const basketToOrder = {
       send: basket.length == 2 ? false : true,
       num: Math.random() * 111111111111,
-      local: "Saint -Peterburg",
+      local: `${user.address.country}, ${user.address.city}, ${user.address.street}, ${user.address.house} `,
       sum: 4242,
       products: MAss
    }

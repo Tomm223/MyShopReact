@@ -20,7 +20,7 @@ function FormGet() {
       handleSubmit,
       reset
    } = useForm({
-      mode: "onBlur",
+      mode: "onChange",
    })
 
 
@@ -29,6 +29,13 @@ function FormGet() {
       minLength: {
          value: 5,
          message: "Минимум 5 символов"
+      }
+   }
+   const paramEmal = {
+      required: "Поле обязательно к заполнению",
+      pattern: {
+         value: /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/u,
+         message: "Пожалуйста введите валидный email"
       }
    }
 
@@ -53,7 +60,7 @@ function FormGet() {
       <>
          <form onSubmit={handleSubmit(getUser)} class="vhod__form" action="">
             <label class="reg__label" for="email">Адресс Электронной почты:
-               <input class="reg__input" id="reg__emal" {...register("email", paramsHook)} type="text" />
+               <input class="reg__input" id="reg__emal" {...register("email", paramEmal)} type="text" />
                <div className="reg__error">{errors?.email && <div>{errors?.email?.message || inputErr("Email-адресс")}</div>}</div>
             </label>
             <label class="reg__label" for="password">Пароль:

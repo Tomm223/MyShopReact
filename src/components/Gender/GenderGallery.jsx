@@ -6,9 +6,7 @@ function GenderGallery({ gallery }) {
 
 
    console.log("gall: ", gallery);
-   /*
-    
-    */
+
    return (
       <div class="gallery">
          <div class="container">

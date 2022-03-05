@@ -85,9 +85,9 @@
       margin: 0 auto;
    }
    &__label{
-      font-size: 20px;
+      font-size: 18px;
       color: #767676;
-      font-weight: 600;
+      font-weight: 500;
       margin:1em 0px;
       text-transform: uppercase;
       display: flex;
@@ -95,9 +95,9 @@
       position: relative;
    }
    &__input{
-      margin-top: 1em;
-      padding:10px 25px ;
-      font-size: 20px;
+      margin-top: .5em;
+      padding:.5em 1em ;
+      font-size: 18px;
       font-weight: 500;
    }
    &__btn{
@@ -112,6 +112,7 @@
       font-weight: 500;
    }
    &__error{
+      color: red;
       width: 100%;
       position: absolute;
       top: 100%;
