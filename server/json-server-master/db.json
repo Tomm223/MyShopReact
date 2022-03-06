@@ -1,0 +1,587 @@
+{
+  "products": [
+    {
+      "id": "27-1",
+      "sales": "true",
+      "news": "false",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "winter",
+      "material": "Пух",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket1-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket1-1.jpg"
+      ],
+      "sales-price": [
+        559,
+        400,
+        20
+      ],
+      "price": 559,
+      "color": "Хаки"
+    },
+    {
+      "id": "27-2",
+      "sales": "false",
+      "news": "false",
+      "moda": "true",
+      "brand": "Feshin",
+      "season": "winter",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка хаки ",
+      "img_product": "/img/jacket/jacket2-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket2-1.jpg",
+        "/img/jacket/jacket2-2.jpg",
+        "/img/jacket/jacket2-3.jpg",
+        "/img/jacket/jacket2-4.jpg"
+      ],
+      "sales-price": "false",
+      "material": "Пух",
+      "color": "Хаки",
+      "price": 299
+    },
+    {
+      "id": "27-3",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "winter",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket3-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket3-1.jpg",
+        "/img/jacket/jacket3-2.jpg",
+        "/img/jacket/jacket3-3.jpg",
+        "/img/jacket/jacket3-4.jpg"
+      ],
+      "sales-price": "false",
+      "material": "Пух",
+      "color": "Черный",
+      "price": 559
+    },
+    {
+      "id": "27-4",
+      "sales": "true",
+      "news": "false",
+      "moda": "false",
+      "brand": "New Look",
+      "season": "spring",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket4-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket4-1.jpg",
+        "/img/jacket/jacket4-2.jpg",
+        "/img/jacket/jacket4-3.jpg",
+        "/img/jacket/jacket4-4.jpg"
+      ],
+      "sales-price": [
+        250,
+        169,
+        30
+      ],
+      "material": "Кожа",
+      "color": "Черный",
+      "price": 169
+    },
+    {
+      "id": "27-5",
+      "sales": "false",
+      "news": "false",
+      "moda": "true",
+      "brand": "New Look",
+      "season": "winter",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket5-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket5-1.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Multy",
+      "price": 300
+    },
+    {
+      "id": "27-6",
+      "sales": "true",
+      "news": "false",
+      "moda": "true",
+      "brand": "The North Face",
+      "season": "spring",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "filter_category": "ветровка",
+      "product_name": "Осенняя куртка",
+      "img_product": "/img/jacket/jacket6-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket6-1.jpg",
+        "/img/jacket/jacket6-2.jpg",
+        "/img/jacket/jacket6-3.jpg",
+        "/img/jacket/jacket6-4.jpg"
+      ],
+      "sales-price": [
+        300,
+        269,
+        10
+      ],
+      "color": "Синий",
+      "material": "Нейлон",
+      "price": 300
+    },
+    {
+      "id": "11-1",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "New Look",
+      "season": "all",
+      "material": "Denim",
+      "filter_name": "Штаны",
+      "product_name": "Синии Мужские штаны",
+      "img_product": "/img/bottom/bottom1-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom1-1.jpg",
+        "/img/bottom/bottom1-2.jpg",
+        "/img/bottom/bottom1-3.jpg",
+        "/img/bottom/bottom1-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Синий",
+      "price": 90
+    },
+    {
+      "id": "11-2",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Штаны",
+      "product_name": "Зеленые Мужские спортивки",
+      "img_product": "/img/bottom/bottom2-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom2-1.jpg",
+        "/img/bottom/bottom2-2.jpg",
+        "/img/bottom/bottom2-3.jpg",
+        "/img/bottom/bottom2-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Зеленый",
+      "price": 90
+    },
+    {
+      "id": "11-3",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "Fred Perry",
+      "season": "all",
+      "material": "Denim",
+      "id_product": 111,
+      "filter_name": "Штаны",
+      "product_name": "Cиние Джинсы",
+      "img_product": "/img/bottom/bottom3-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom3-1.jpg",
+        "/img/bottom/bottom3-2.jpg",
+        "/img/bottom/bottom3-3.jpg",
+        "/img/bottom/bottom3-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Синий",
+      "price": 100
+    },
+    {
+      "id": "11-4",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "Fred Perry",
+      "season": "all",
+      "material": "Стрейч",
+      "id_product": 111,
+      "filter_name": "Штаны",
+      "product_name": "Серые Мужские брюки",
+      "img_product": "/img/bottom/bottom4-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom4-1.jpg",
+        "/img/bottom/bottom4-2.jpg",
+        "/img/bottom/bottom4-3.jpg",
+        "/img/bottom/bottom4-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Серый",
+      "price": 199
+    },
+    {
+      "id": "02-1",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "Fred Perry",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Футболка",
+      "product_name": "Серая Мужская Футболка",
+      "img_product": "/img/t-shirt/t-shirt1-1.jpg",
+      "imgs": [
+        "/img/t-shirt/t-shirt1-1.jpg",
+        "/img/t-shirt/t-shirt1-2.jpg",
+        "/img/t-shirt/t-shirt1-3.jpg",
+        "/img/t-shirt/t-shirt1-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Серый",
+      "price": 59
+    },
+    {
+      "id": "02-2",
+      "sales": "true",
+      "news": "true",
+      "moda": "true",
+      "brand": "Tommy Hilfiger",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Футболка",
+      "product_name": "Белая Мужская Футболка",
+      "img_product": "/img/t-shirt/t-shirt2-1.jpg",
+      "imgs": [
+        "/img/t-shirt/t-shirt2-1.jpg",
+        "/img/t-shirt/t-shirt2-2.jpg",
+        "/img/t-shirt/t-shirt2-3.jpg",
+        "/img/t-shirt/t-shirt2-4.jpg"
+      ],
+      "sales-price": [
+        49,
+        39,
+        20
+      ],
+      "color": "Белый",
+      "price": 49
+    },
+    {
+      "id": "02-3",
+      "sales": "true",
+      "news": "true",
+      "moda": "true",
+      "brand": "Nike",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Футболка",
+      "product_name": "Синяя Мужская Футболка",
+      "img_product": "/img/t-shirt/t-shirt3-1.jpg",
+      "imgs": [
+        "/img/t-shirt/t-shirt3-1.jpg",
+        "/img/t-shirt/t-shirt3-2.jpg",
+        "/img/t-shirt/t-shirt3-3.jpg",
+        "/img/t-shirt/t-shirt3-4.jpg"
+      ],
+      "sales-price": [
+        49,
+        39,
+        20
+      ],
+      "color": "Синий",
+      "price": 49
+    },
+    {
+      "id": "33-1",
+      "sales": "true",
+      "news": "true",
+      "moda": "true",
+      "brand": "Nike",
+      "season": "summer",
+      "material": "Резина",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Черные Мужские Шлёпанцы",
+      "img_product": "/img/sniker/sniker1-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker1-1.jpg",
+        "/img/t-shirt/sniker1-2.jpg",
+        "/img/t-shirt/sniker1-3.jpg",
+        "/img/t-shirt/sniker1-4.jpg"
+      ],
+      "sales-price": [
+        29,
+        19,
+        35
+      ],
+      "color": "Черный",
+      "price": 29
+    },
+    {
+      "id": "33-2",
+      "sales": "true",
+      "news": "false",
+      "moda": "false",
+      "brand": "Dr. Martens",
+      "season": "spring",
+      "material": "Кожа",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Черные Мужские Ботинки",
+      "img_product": "/img/sniker/sniker2-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker2-1.jpg",
+        "/img/t-shirt/sniker2-2.jpg",
+        "/img/t-shirt/sniker2-3.jpg",
+        "/img/t-shirt/sniker2-4.jpg"
+      ],
+      "sales-price": [
+        129,
+        119,
+        10
+      ],
+      "color": "Черный",
+      "price": 129
+    },
+    {
+      "id": "33-3",
+      "sales": "false",
+      "news": "false",
+      "moda": "true",
+      "brand": "Ellesse",
+      "season": "all",
+      "material": "Кожа",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Темно-Зеленые Мужские Туфли",
+      "img_product": "/img/sniker/sniker3-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker3-1.jpg",
+        "/img/t-shirt/sniker3-2.jpg",
+        "/img/t-shirt/sniker3-3.jpg",
+        "/img/t-shirt/sniker3-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Зеленый",
+      "price": 229
+    },
+    {
+      "id": "33-4",
+      "sales": "false",
+      "news": "true",
+      "moda": "false",
+      "brand": "adidas",
+      "season": "summer",
+      "material": "Сетка",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Белые Мужские Кроссовки",
+      "img_product": "/img/sniker/sniker4-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker4-1.jpg",
+        "/img/t-shirt/sniker4-2.jpg",
+        "/img/t-shirt/sniker4-3.jpg",
+        "/img/t-shirt/sniker4-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Белый",
+      "price": 79
+    },
+    {
+      "id": "33-5",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "summer",
+      "material": "Замша",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Черные Мужские Кроссовки",
+      "img_product": "/img/sniker/sniker5-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker5-1.jpg",
+        "/img/t-shirt/sniker5-2.jpg",
+        "/img/t-shirt/sniker5-3.jpg",
+        "/img/t-shirt/sniker5-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Черный",
+      "price": 109
+    }
+  ],
+  "GalleryProduct": [
+    {
+      "id": "hEJ5E8slcsdmvdmv",
+      "img": "/img/page-img/intro-men-jacket.jpg",
+      "title": "Куртки и Пальто",
+      "filter": "Куртка"
+    },
+    {
+      "id": "-hEJ5E8flkjghbitjor",
+      "img": "/img/page-img/intro-men-bruki.jpg",
+      "title": "Брюки",
+      "filter": "Штаны"
+    },
+    {
+      "id": "-hEJkfdkvs455E8flkjghbitjor",
+      "img": "/img/page-img/intro-men-rasprod.jpg",
+      "title": "Распродажа",
+      "filter": "sales"
+    },
+    {
+      "id": "-hEJ304985748tjor",
+      "img": "/img/page-img/intro-men-snikers.jpg",
+      "title": "Кроссовки",
+      "filter": "Обувь"
+    },
+    {
+      "id": "-hEJ304985748tjomdskvngkrngbkfr",
+      "img": "/img/page-img/intro-men-t-shirt.jpg",
+      "title": "Футболки",
+      "filter": "Футболка"
+    },
+    {
+      "id": "304985748tj444omdskvn4i356969gkrngbkfr",
+      "img": "/img/page-img/intro-men-rubash.jpg",
+      "title": "Рубашки",
+      "filter": "Футболка"
+    }
+  ],
+  "accountNavigate": [
+    {
+      "img": "/img/page-icon/resume.png",
+      "name": "Моя Информация",
+      "id": "acc01",
+      "dopStyle": "line-bottom",
+      "alt": "info"
+    },
+    {
+      "img": "/img/page-icon/zakaz.png",
+      "name": "Мои Заказы",
+      "id": "acc02",
+      "dopStyle": "line-bottom",
+      "alt": "zakaz"
+    },
+    {
+      "img": "/img/page-icon/basket.png",
+      "name": "Моя Корзина",
+      "id": "acc03",
+      "dopStyle": "line-bottom",
+      "alt": "basket"
+    },
+    {
+      "img": "/img/page-icon/icons8-love-24.png",
+      "name": "Мое Избранное",
+      "id": "acc04",
+      "dopStyle": "m-b",
+      "alt": "likes"
+    },
+    {
+      "img": "/img/page-icon/out.png",
+      "name": "Выход",
+      "id": "acc05",
+      "dopStyle": "",
+      "alt": "out"
+    }
+  ],
+  "UserChange": [
+    {
+      "id": "50607dff6756gfhds",
+      "user_id": "default",
+      "basket": [
+        {
+          "id": "mfgjgbkdbd",
+          "product_id": "33-2",
+          "size": "44",
+          "amount": "3"
+        },
+        {
+          "id": "dfmgvgbeokb",
+          "product_id": "27-2",
+          "size": 48,
+          "amount": 1
+        }
+      ],
+      "likes": [
+        {
+          "id": "sgojrgjeod03030303",
+          "product_id": "11-2",
+          "size": "44"
+        },
+        {
+          "id": "s,flrfglw0496",
+          "product_id": "27-2",
+          "size": "M"
+        }
+      ],
+      "order": [
+        {
+          "id": "fghgfgd7773455",
+          "send": "true",
+          "num": "34663egrdbd24t535",
+          "local": "Sanct-Peterburg",
+          "sum": "4243",
+          "products": [
+            {
+              "product_id": "02-3",
+              "amout": "3"
+            },
+            {
+              "product_id": "02-2",
+              "amout": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5432341,
+      "title": "я еблан"
+    }
+  ],
+  "basketChange": [],
+  "likesChange": [],
+  "DeleteLikes": [],
+  "DeleteOrder": [],
+  "orderChange": [
+    {
+      "send": true,
+      "num": 44947388967.74547,
+      "local": "russia, Velikiy Novgorod, Kochetova, 23 ",
+      "sum": 4242,
+      "products": [
+        {
+          "product_id": "02-2",
+          "size": 44,
+          "amount": 1,
+          "id": 7
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "userCard": [
+    {
+      "id": "001",
+      "firstName": "Daniil",
+      "lastName": "Osipov",
+      "password": "daniilOsipov",
+      "email": "dan.osipov99@mail.ru",
+      "address": {
+        "country": "russia",
+        "city": "Velikiy Novgorod",
+        "street": "Kochetova",
+        "house": "23"
+      }
+    }
+  ]
+}
