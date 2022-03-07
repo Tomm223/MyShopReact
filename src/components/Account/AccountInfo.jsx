@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { useForm, Controller } from 'react-hook-form'
 import { SelectReact, ParamsForm } from '../UI/Form/Form'
 import { ErrorsMessage } from "../UI/Form/ErrorsMessage";
-import { GetAxios } from "../../Fetch/Fetching"
+import { GetAxios, PatchAxios, PutAxios } from "../../Fetch/Fetching"
 
 
 
@@ -30,8 +30,18 @@ function AccountInfo() {
       mode: "onChange"
    })
 
-   function handlerSubmit(data) {
-      alert("ДОДЕЛАТЬ ИЗМЕНЕНИЯ USER_SERVER + ПОЧИСТИТЬ КОД")
+   async function handlerSubmit(data) {
+      const users = await GetAxios('userCard')
+      for (var i = 0; i < users.length; i++) {
+         console.log(users[i]);
+         console.log(data);
+         if (users[i].id == user.id) {
+            const num = i + 1
+            const patch = await PatchAxios(`userCard/${num}`, data)
+            // const patch = await fetch(`http://localhost:3000/userCard/4`, { method: "PUT", body: , headers: { "Content-type": "application/json" } })
+            console.log(patch);
+         }
+      }
    }
    function valueDefault(regist) {
       if (regist[0] == "address") {

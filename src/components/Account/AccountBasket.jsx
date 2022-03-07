@@ -7,15 +7,57 @@ function AccountBasket() {
    // massiv в котором TRUEBasket
    const MAss = []
    console.log(MAss);
-   const { renderProducts, cabInfo, basketPers, checkId, deleteBasket, AddTopDelBottom, usSetChangeOrder, usSetDeleteBasket } = useContext(AccountContext)
-   const basket = checkId ? basketPers : cabInfo.basket
-   console.log("basketPers: ", basketPers);
-   console.log("basket: ", basket);
+   const { renderProducts, AddTopDelBottom, usSetChangeOrder, usSetDeleteBasket } = useContext(AccountContext)
+
+   const basket = "" // ТО ГДЕ ЛЕЖИТ МАССИВ BASKETCAHNGE
+
    const { products } = useContext(ProductsContext)
-   console.log("basketDELETE: ", deleteBasket);
    const { user } = useContext(AuthContext)
 
-   const basketToOrder = {
+
+
+
+
+   return (
+      <div class="cab__basket">
+         <div class="cab__basket-icon">
+            <img src="/img/page-icon/basket.png" alt="info" />
+         </div>
+         <div class="cab__basket-title">
+            <h1>Моя Корзина</h1>
+            <aside>Вы в любой момент можете изменить харакитеристики вашей корзины, а также применить промокод
+               (применение промокода только на один заказ).</aside>
+         </div>
+
+         <div class="basket ">
+            <div class="basket__hr"></div>
+            <div onClick={renderProducts} class="basket__title">
+               <h3>Список Товаров</h3>
+            </div>
+            <div class="basket__block">
+               <ul class="basket__list">
+
+               </ul>
+               <div class="basket__btn">
+                  <input class="basket__btn-item" type="button" value="Заказать" />
+               </div>
+
+            </div>
+         </div>
+      </div>
+   )
+}
+export default AccountBasket
+
+/* ////////////////////////КНОПКА: ИЗ ВАSКЕТ ТО ORDER 
+
+
+onClick={() => MAss.length && AddTopDelBottom("orderChange", usSetChangeOrder, basketToOrder, "DeleteBasket", usSetDeleteBasket, DeleteProduct())}
+
+
+   //////////////////////ФУНКЦИИ КОТОРЫЕ УДАЛЯЛИ ИЛИ :ТО ORDER
+
+const basketToOrder = {
       send: basket.length == 2 ? false : true,
       num: Math.random() * 111111111111,
       local: `${user.address.country}, ${user.address.city}, ${user.address.street}, ${user.address.house} `,
@@ -40,27 +82,11 @@ function AccountBasket() {
       return mass
    }
 
+*/
 
-
-   return (
-      <div class="cab__basket">
-         <div class="cab__basket-icon">
-            <img src="/img/page-icon/basket.png" alt="info" />
-         </div>
-         <div class="cab__basket-title">
-            <h1>Моя Корзина</h1>
-            <aside>Вы в любой момент можете изменить харакитеристики вашей корзины, а также применить промокод
-               (применение промокода только на один заказ).</aside>
-         </div>
-
-         <div class="basket ">
-            <div class="basket__hr"></div>
-            <div onClick={renderProducts} class="basket__title">
-               <h3>Список Товаров</h3>
-            </div>
-            <div class="basket__block">
-               <ul class="basket__list">
-                  {
+/*
+ВЫВОД ТОВАРОВ
+ {
                      checkId ?
                         basket.map((item) => {
                            const deleteCheck = deleteBasket.filter((prod) => prod.basket_id == item.id)[0]
@@ -79,15 +105,5 @@ function AccountBasket() {
                         })
 
                   }
-               </ul>
-               <div class="basket__btn">
-                  <input disabled={!checkId} onClick={() => MAss.length && AddTopDelBottom("orderChange", usSetChangeOrder, basketToOrder, "DeleteBasket", usSetDeleteBasket, DeleteProduct())} class="basket__btn-item" type="button" value="Заказать" />
-               </div>
 
-            </div>
-         </div>
-      </div>
-   )
-}
-export default AccountBasket
-
+*/

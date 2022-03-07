@@ -12,6 +12,9 @@ import FormInput from '../UI/Form/Form'
 import { SelectReact, ParamsForm } from '../UI/Form/Form'
 import { ErrorsMessage } from "../UI/Form/ErrorsMessage";
 
+
+
+
 function FormPost() {
    const { usSetCheckId } = useContext(AccountContext)
    const { singIn, fromPage } = useContext(AuthContext)
@@ -45,7 +48,20 @@ function FormPost() {
             password: data.password,
             address: data.address
          }
+         const bodyChange = {
+            user_id: "",
+            basket: [
+
+            ],
+            likes: [
+            ],
+            order: [
+            ]
+         }
          const postedUser = await PostAxios('userCard', body)
+         const postID = postedUser.id
+         bodyChange.user_id = postID
+         const postUserChange = await PostAxios('UserChange', bodyChange)
          singIn(postedUser, NavigateTo)
          usSetCheckId(false)
          reset()

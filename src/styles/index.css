@@ -1,0 +1,481 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Jura&family=Lato&display=swap");
+.index-body {
+  color: #fbfbfb;
+  font-family: "Jura", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-family: "Jura", sans-serif;
+  font-family: "Lato", sans-serif;
+}
+
+/*.header{
+   width: 100%;
+   height: 10vh;
+   background-color:$black ;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 4%;
+   &__logo{
+
+   }
+   &__logo-item{
+      background:url("../img/vesh-logo2.png") center ;
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+   }
+   &__genders{
+      display: flex;
+      height: 100%;
+   }
+   &__gender{
+      padding: 10px 15px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      &:hover{
+         background-color: $colSer;
+      }
+   }
+   &__gender-link{
+      color: $white;
+      font-size: 30px;
+   }
+   &__search{
+      height: 100%;
+      width: 30vw;
+      display: flex;
+      align-items: center;
+   }
+   &__search-form{
+      position: relative;
+      width: 100%;
+   }
+   &__search-input{
+      width: 100%;
+      position: relative;
+      padding:12px 10px;
+      border: none;
+      border: 3px $black solid;
+      border-radius: 25px;
+      margin: 0;
+      padding-right: 50px;
+      transition: all 0.5s ease ;
+      box-sizing: border-box;
+      &:focus{
+         outline: none;
+         border:3px blue solid;
+         background-color: #fff;
+      }
+   }
+   &__search-btn{
+      position: absolute;
+      right: 6px;
+      top: 5px;
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      border:transparent;
+      background-color: $black;
+      padding: 5px;
+      cursor: pointer;
+      transition: background-color 0.5s ease;
+      &.active{
+         background-color: green
+      }
+
+      &-item{
+         width: 100%;
+         height: 100%;
+         background: url("../img/search.svg") center center;
+         background-size: cover;
+      }
+      &.active{
+         background-color: blue;
+      }
+   }
+
+   &__persons{
+      margin-left: 50px;
+      display: flex;
+      align-items: center;
+
+   }
+   &__person:not(last-chald){
+      margin-left: 40px;
+   }
+   &_person-item{
+      width: 50px;
+      height: 50px;  
+   }
+
+
+}*/
+.intro {
+  width: 100%;
+  height: 120vh;
+  background: url("/img/page-img/intro.webp") center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.intro__text {
+  display: flex;
+  flex-direction: column;
+}
+.intro__text-title {
+  width: 100%;
+  font-size: 60px;
+  text-align: center;
+}
+.intro__text-p {
+  width: 100%;
+  font-size: 49px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.intro__text-span {
+  width: 100%;
+  font-size: 23px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.intro__for {
+  padding: 15px;
+}
+.intro__for-item {
+  padding: 0.66em 0.9em;
+  background-color: #fbfbfb;
+  color: #222;
+  font-size: 25px;
+  transition: all 0.5s ease;
+  border: transparent;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.intro__for-item:hover {
+  background-color: #222;
+  color: #fbfbfb;
+}
+.intro__for-item:last-child {
+  margin-right: 0px;
+}
+
+/*
+.for{
+   width: 100%;
+   height: 100%;
+   .container{
+      @include container (1045px)
+   }
+   &__block{
+      width: 100%;
+      height: 100%;
+   }
+   &__mw{
+      width: 100%;
+      height: 40vw;
+      display: flex;
+      margin-bottom: 2%;
+      .for__item{
+         margin-right: 2% ;
+      }
+      .for__item:last-child{
+         margin-right: 0px;
+      }
+   }
+   &__lk{
+      width: 100%;
+      height: 30vw;
+      display: flex;
+      flex-direction: column;
+      .for__item{
+         margin-bottom: 2%;
+         padding-bottom: 15% ;
+      }
+      .for__item:last-child{
+         margin-bottom: 0px;
+         padding-bottom: 0px;
+      }
+   }
+   &__item{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &-n1{
+         background: url('../img/for_women.jpg');
+         background-size: cover;
+         &:hover{
+            background: url("../img/for_women_hover.jpg");
+            background-size: cover;
+         }
+      }
+      &-n2{
+         background: url('../img/for_men.jpg');
+         background-size: cover;
+         &:hover{
+            background: url("../img/for_men_hover.jpg");
+            background-size: cover;
+         }
+      }
+      &-n3{
+         background: url('../img/for_kids.jpg')center;
+         background-size: cover;
+         &:hover{
+            background: url("../img/for_kids_hover.jpg")center;
+            background-size: cover;
+         }
+      }
+      &-n4{
+         background: url('../img/accessories.jpg');
+         background-size: cover;
+         &:hover{
+            background: url("../img/accessories_hover.jpg");
+            background-size: cover;
+         }
+      }
+   }
+   &__item-text{
+      text-align: center;
+
+      &-title{
+         font-size: 25px;
+
+      }
+      &-span{
+         font-size: 20px;
+         color: red;
+      }
+   }
+}
+
+.feture{
+   width: 100%;
+   margin-bottom: 100px;
+   &__title{
+      text-align: center;
+      margin-bottom: 70px;
+      h2{
+         font-size: 50px;
+         color: $black;
+      }
+      span{
+         color: $colSer;
+         opacity: 0.8;
+      }
+   }
+   .container{
+      @include container ($container)   
+   }
+}
+
+.product{
+   display: flex;
+   justify-content:space-between;
+   flex-wrap: wrap;
+   &__item{
+      max-width: 350px;
+      margin-bottom: 50px;
+      &:hover{
+         box-shadow: $box-shw;
+      }
+   }
+   &__item-img{
+      width: 100%;
+
+   }
+   &__item-supp{
+      display: flex;
+      flex-direction: column;
+      background-color: #F8F3F4;
+      padding: 15px;
+      color: $black;
+   }
+   &__item-title{
+      font-size: 20px;
+      margin-bottom: 20px;
+   }
+   &__item-text{
+      color: #5D5D5D;
+      font-size: 16px;
+      line-height: 18px;
+      margin-bottom: 20px;
+   }
+   &__item-price{
+      color: red;
+   }
+}
+*/
+/*.free{
+   width: 100%;
+   background-color: $blockSer;
+   color: $white;
+   height: 300px;
+   display: flex;
+   align-items: center; 
+   .container{
+      @include container ($container)
+   }
+   &__list{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-gap: minmax(50px,500px);
+      padding-top: 30px;
+   }
+   &__item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 350px;
+   }
+   &__item-img{
+      margin-bottom: 25px;
+   }
+   &__item-title{
+      font-size: 25px;
+      margin-bottom: 25px;
+
+   }
+   &__item-text{
+      font-size: 16px;
+      line-height: 18px;
+      text-align: center;
+   }
+}
+
+.sub{
+   position: relative;
+   width: 100%;
+   padding-bottom:28.5% ;
+   background: url("../img/mw-sub-bcc.png");
+
+   &__item{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      display: flex;
+      flex-direction: column;
+      color: $black;
+   }
+   &__item-form{
+      display: flex;
+      flex-direction: column;
+   }
+   &__item-supp{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 50px;
+      h3{
+         font-size: 25px;
+         text-transform: uppercase;
+      }
+      span{
+         font-size: 18px;
+         font-weight:100;
+         line-height: 22px;
+         text-transform: uppercase;
+      }
+   }
+   &__item-input{
+      padding: 15px 25px;
+      border: 1px solid #000;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      cursor:row;
+   }
+   &__item-btn{
+      cursor: pointer;
+      padding: 10px 35px;
+      border-radius: 20px;
+      background-color:$rose ;
+      //background-color:desaturate($rose,30%) ;
+      &:hover{
+         background-color: saturate($rose, 90%);
+      }
+   }
+}
+
+.moda{
+   margin-bottom: 50px;
+   .container{
+      @include container (100%)
+   }
+   &__title{
+      font-size:50px ;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      color: $black;
+      text-align: center;
+   }
+   &__list{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+   }
+   &__item{
+      max-width: 20vw;
+      opacity: 0.5;
+      &:hover{
+         opacity: 1;
+      }
+   }
+}*/
+/*.footer{
+   height: 80px;
+   padding: 15px;
+   background-color: #000;
+   color: $white;
+   .container{
+      @include container ($container)
+   }
+   &__items{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   &__text{
+      align-items: center;
+   }
+   &__contacts{
+      display: flex;
+      align-items: center;
+   }
+   .contact-item{
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      &:hover{
+         transform: scale(1.1);
+      }
+      &:last-child{
+         margin-right: 0px;
+      }
+      &-face{
+         background: url("../img/facebook.png") center;
+         background-size: cover;
+      }
+      &-vk{
+         background: url("../img/vk.png") center;
+         background-size: cover;
+      }
+      &-inst{
+         background: url("../img//instagram.png") center;
+         background-size: cover;
+      }
+   }
+
+}*//*# sourceMappingURL=index.css.map */

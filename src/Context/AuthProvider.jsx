@@ -6,6 +6,7 @@ export const AuthContext = createContext()
 export function AuthProvider({ children }) {
    const [user, setUser] = useState(JSON.parse(localStorage.getItem("auth")))
    const [fromPage, setFromPage] = useState('/')
+
    const singIn = useCallback((us, Callback) => {
       localStorage.setItem("auth", JSON.stringify(us))
       setUser(prev => JSON.parse(localStorage.getItem("auth")))

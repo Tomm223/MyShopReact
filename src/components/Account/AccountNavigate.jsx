@@ -8,11 +8,8 @@ function AccountNavigate({ link }) {
    const setStyle = ({ isActive }) => isActive ? `cab__list-item  active  ${link.dopStyle} ` : `cab__list-item  ${link.dopStyle} `
 
    const { AuthOut } = useContext(AuthContext)
-   const { ChangeOutDef, outCheckId } = useContext(AccountContext)
    function OutUser() {
-      ChangeOutDef()
       AuthOut()
-      outCheckId()
    }
    if (link.alt == "out") {
       return (

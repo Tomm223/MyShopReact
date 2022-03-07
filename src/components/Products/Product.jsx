@@ -24,64 +24,10 @@ export default function Product() {
    const { user } = useContext(AuthContext)
    const [myObj, setMyObj] = useState()
 
-   // FOR MYLTI USERS
-   /*
-   async function HandlerBasket() {
-      const responce = await fetch("http://localhost:3000/userChange")
-      const resp = await responce.json()
-      const userSearch = await resp.filter((item) => item.user_id == user.id)[0]
-      await userSearch.basket.push({
-         id: Math.random() * 11111,
-         product_id: product.id,
-         size: 44,
-         amount: 1
 
-      })
-      const putUserChange = await fetch("http://localhost:3000/userChange", {
-         method: 'POST',
-         body: JSON.stringify(userSearch),
-         headers: {
-            "Content-type": "application/json",
-            'Accept': 'application/json'
-         }
-      })
-         .then(data => data.json())
-         .then(data => console.log(data))
-   }*/
+   //ТО КАК ПРОИСХОДИЛО ДОБАВЛЕНИЕ
    const { ADDrenderProducts, usSetChangeBasket, usSetChangeLikes } = useContext(AccountContext)
-   async function HandlerButton(category) {
-      const addObj = await category == "basket" ? {
-         //id: Math.random() * 11111, сервер делает лучше id
-         product_id: product.id,
-         size: 44,
-         amount: 1
 
-      } : {
-         //id: Math.random() * 11111, сервер делает лучше id
-         product_id: product.id,
-         amount: 1
-
-      }
-      fetch(`http://localhost:3000/${category}Change`, {
-         method: 'POST',
-         body: JSON.stringify(addObj),
-         headers: {
-            "Content-type": "application/json"
-         }
-      })
-         .then(data => data.json())
-         .then(data => {
-            if (category == "basket") {
-               ADDrenderProducts('basketChange', usSetChangeBasket)
-            }
-            else {
-               ADDrenderProducts('likesChange', usSetChangeLikes)
-            }
-         })
-         .then()
-
-
-   }
    return (
       <>
          <div class="profile">
@@ -146,12 +92,12 @@ export default function Product() {
                         </li>
                         <li class="profile__list-item">
                            <div class="profile__list-block">
-                              <button onClick={() => HandlerButton("basket")} class="profile__btn-basket" type="button"  >
+                              <button class="profile__btn-basket" type="button"  >
                                  <img src="/img/page-icon/basket.png" alt="" />
                                  Добавить в Корзину</button>
                            </div>
                            <div className="profile__like-block">
-                              <button onClick={() => HandlerButton("likes")} type="button" className="profile__btn-like"><img src="/img/page-icon/circle-love-50.png" alt="" /></button>
+                              <button type="button" className="profile__btn-like"><img src="/img/page-icon/circle-love-50.png" alt="" /></button>
                            </div>
                         </li>
                      </ul>
@@ -234,3 +180,55 @@ export default function Product() {
    )
 }
 
+
+/*
+///// КНОПКА ДЛЯ ДОБАВЛЕНИЯ В BASKETCHANGE
+
+onClick={() => HandlerButton("basket")}
+
+///// КНОПКА ДЛЯ ДОБАВЛЕНИЯ В LIKESCHANGE
+
+onClick={() => HandlerButton("likes")}
+
+
+
+
+//////////// ОТПРАВКА ПРОДУКТА НА ДОБАВЛЕНИЕ В Account
+
+async function HandlerButton(category) {
+      const addObj = await category == "basket" ? {
+         //id: Math.random() * 11111, сервер делает лучше id
+         product_id: product.id,
+         size: 44,
+         amount: 1
+
+      } : {
+         //id: Math.random() * 11111, сервер делает лучше id
+         product_id: product.id,
+         amount: 1
+
+      }
+      fetch(`http://localhost:3000/${category}Change`, {
+         method: 'POST',
+         body: JSON.stringify(addObj),
+         headers: {
+            "Content-type": "application/json"
+         }
+      })
+         .then(data => data.json())
+         .then(data => {
+            if (category == "basket") {
+               ADDrenderProducts('basketChange', usSetChangeBasket)
+            }
+            else {
+               ADDrenderProducts('likesChange', usSetChangeLikes)
+            }
+         })
+         .then()
+
+
+
+   }
+    
+        
+*/

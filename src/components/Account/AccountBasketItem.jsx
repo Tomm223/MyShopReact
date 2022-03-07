@@ -4,10 +4,7 @@ import { AccountContext } from "../../Context/AccountProvider";
 function AccountBasketItem({ product, amount, size, itemId }) {
    const { PostDeleteItemChange, usSetDeleteBasket } = useContext(AccountContext)
 
-   const deleteProd = {
-      basket_id: itemId,
 
-   }
    return (
       <li class="basket__item">
          <div class="basket__product">
@@ -60,7 +57,7 @@ function AccountBasketItem({ product, amount, size, itemId }) {
                   </div>
                </ul>
                <div class="basket__product-delete">
-                  <img onClick={() => PostDeleteItemChange("DeleteBasket", usSetDeleteBasket, deleteProd)} src="/img/page-icon/icons8-close-24.png" alt="" />
+                  <img src="/img/page-icon/icons8-close-24.png" alt="" />
                </div>
             </div>
          </div>
@@ -69,3 +66,15 @@ function AccountBasketItem({ product, amount, size, itemId }) {
 }
 
 export default AccountBasketItem
+
+
+/* КНОПКА КОТОРАЯ УДАЛЯЛА САМ ITEM
+onClick={() => PostDeleteItemChange("DeleteBasket", usSetDeleteBasket, deleteProd)}
+
+
+PROPS:
+const deleteProd = {
+      basket_id: itemId,
+   }
+
+*/

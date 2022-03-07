@@ -11,14 +11,12 @@ function AccountLikes() {
                      })} */
 
    //
-   const { cabInfo, likesPers, checkId, deleteLikes } = useContext(AccountContext)
-   const likes = checkId ? likesPers : cabInfo.likes
+   const { cabInfo, likesPers, deleteLikes } = useContext(AccountContext)
 
-   console.log("Mlikes: ", deleteLikes);
-   console.log("likes: ", likes);
-   //
+   const likes = ''// ТО ГДЕ ЛЕЖИТ МАССИВ LIKESCHANGE
+
    const { products } = useContext(ProductsContext)
-
+   // СДЕЛАТЬ ЛУЧШЕ ВЫВЕДЕНИЕ ПОДБОРКИ В ОТДЕЛЬНЫЙ КОМПОНЕНТ ПОДБОРКИ ПОЛОЖИТЬ
    const salesFilter = products.filter((item) => item.sales == "true")
    return (
       <div class="cab__like">
@@ -37,7 +35,30 @@ function AccountLikes() {
             </div>
             <div class="basket__block">
                <ul class="basket__list">
-                  {
+
+
+
+               </ul>
+               <div class="basket__btn">
+                  <NavLink to="/cataloge?collection=sales" state={{ collection: salesFilter }}>
+                     <input class="basket__btn-item" type="button" value="Выбрать еще" />
+                  </NavLink>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   )
+}
+export default AccountLikes
+
+
+
+/*
+
+  { ///////////СПИСОК ТОВАРОВ В LIKES
+
+   
                      checkId ?
                         likes.map((item) => {
                            const deleteCheck = deleteLikes.filter((prod) => prod.likes_id == item.id)[0]
@@ -58,17 +79,4 @@ function AccountLikes() {
 
                   }
 
-
-               </ul>
-               <div class="basket__btn">
-                  <NavLink to="/cataloge?collection=sales" state={{ collection: salesFilter }}>
-                     <input class="basket__btn-item" type="button" value="Выбрать еще" />
-                  </NavLink>
-               </div>
-
-            </div>
-         </div>
-      </div>
-   )
-}
-export default AccountLikes
+*/

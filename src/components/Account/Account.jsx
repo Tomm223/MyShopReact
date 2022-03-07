@@ -98,49 +98,9 @@ function Account() {
    }
    const { user } = useContext(AuthContext)
    const { renderProducts,
-      AddTopDelBottom, DeleteItemChange,
-      deleteLikes, usSetDeleteLikes, deleteBasket, usSetDeleteBasket, deleteOrder, usSetDeleteOrder,
-      orderPers, usSetChangeOrder, basketPers, usSetChangeBasket, likesPers, usSetChangeLikes, cabInfo,
+      AddTopDelBottom, DeleteItemChange, cabInfo,
       ChangeOutDef, getChangeDef, checkId, setCheckId, usSetCheckId, outCheckId } = useContext(AccountContext)
    console.log("checkTOKEN: ", checkId);
-   //приемка 001
-   useEffect(() => {
-      if (checkId && JSON.parse(localStorage.getItem("ChangeBasket")) == null) {
-         console.log("ВОТ ХУЕТА");
-         fetch("http://localhost:3000/basketChange")
-            .then(data => data.json())
-            .then(data => usSetChangeBasket(data))
-         fetch("http://localhost:3000/likesChange")
-            .then(data => data.json())
-            .then(data => usSetChangeLikes(data))
-         fetch("http://localhost:3000/orderChange")
-            .then(data => data.json())
-            .then(data => usSetChangeOrder(data))
-         fetch("http://localhost:3000/DeleteOrder")
-            .then(data => data.json())
-            .then(data => usSetDeleteOrder(data))
-         fetch("http://localhost:3000/DeleteLikes")
-            .then(data => data.json())
-            .then(data => usSetDeleteLikes(data))
-         fetch("http://localhost:3000/DeleteBasket")
-            .then(data => data.json())
-            .then(data => usSetDeleteBasket(data))
-      }
-   }, [])
-
-   // приемка инфы DEFAULTE
-   useEffect(() => {
-      if (!checkId) {
-         fetch("http://localhost:3000/UserChange")
-            .then(data => data.json())
-            .then(data => {
-               const MassInfoUser = data.filter((item) => item.user_id == 'default')
-               getChangeDef(MassInfoUser[0])
-            })
-      }
-   }, [])
-
-
 
 
 
@@ -190,3 +150,46 @@ function Account() {
    )
 }
 export default Account
+
+
+/*///////// ТО КАК ПРОИСХОДИЛ СБОР ДАННЫХ СО ВСЕХ CHANGES + DELETES
+
+ //приемка 001
+   useEffect(() => {
+      if (checkId && JSON.parse(localStorage.getItem("ChangeBasket")) == null) {
+         console.log("ВОТ ХУЕТА");
+         fetch("http://localhost:3000/basketChange")
+            .then(data => data.json())
+            .then(data => usSetChangeBasket(data))
+         fetch("http://localhost:3000/likesChange")
+            .then(data => data.json())
+            .then(data => usSetChangeLikes(data))
+         fetch("http://localhost:3000/orderChange")
+            .then(data => data.json())
+            .then(data => usSetChangeOrder(data))
+         fetch("http://localhost:3000/DeleteOrder")
+            .then(data => data.json())
+            .then(data => usSetDeleteOrder(data))
+         fetch("http://localhost:3000/DeleteLikes")
+            .then(data => data.json())
+            .then(data => usSetDeleteLikes(data))
+         fetch("http://localhost:3000/DeleteBasket")
+            .then(data => data.json())
+            .then(data => usSetDeleteBasket(data))
+      }
+   }, [])
+
+   // приемка инфы DEFAULTE
+   useEffect(() => {
+      if (!checkId) {
+         fetch("http://localhost:3000/UserChange")
+            .then(data => data.json())
+            .then(data => {
+               const MassInfoUser = data.filter((item) => item.user_id == 'default')
+               getChangeDef(MassInfoUser[0])
+            })
+      }
+   }, [])
+
+
+*/

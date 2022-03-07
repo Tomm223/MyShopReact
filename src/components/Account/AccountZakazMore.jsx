@@ -6,7 +6,7 @@ import ProductsContext from "../../Context/ProductsContext";
 import AccountZakazMoreListItem from "./AccountZakazMoreListItem";
 function AccountZakazMore() {
    const location = useLocation()
-   const order = location.state.order
+   const order = location.state.order || ''
    console.log("order: ", order);
    const { products } = useContext(ProductsContext)
    const { user } = useContext(AuthContext)

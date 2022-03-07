@@ -496,27 +496,35 @@
   "UserChange": [
     {
       "id": "50607dff6756gfhds",
-      "user_id": "default",
+      "user_id": "001",
       "basket": [
         {
-          "id": "mfgjgbkdbd",
-          "product_id": "33-2",
-          "size": "44",
-          "amount": "3"
+          "id": "-et654ytgmdk",
+          "product_id": "02-2",
+          "amount": 1
         },
         {
-          "id": "dfmgvgbeokb",
-          "product_id": "27-2",
-          "size": 48,
+          "id": "rethrjhg",
+          "product_id": "02-3",
           "amount": 1
-        }
-      ],
-      "likes": [
+        },
+        {
+          "id": "-et654ytlejfj4gmk",
+          "product_id": "11-2",
+          "amount": 1
+        },
+        {
+          "id": "-et64654knnk54ytgmk",
+          "product_id": "27-2",
+          "amount": 1
+        },
         {
           "id": "sgojrgjeod03030303",
           "product_id": "11-2",
           "size": "44"
-        },
+        }
+      ],
+      "likes": [
         {
           "id": "s,flrfglw0496",
           "product_id": "27-2",
@@ -533,13 +541,58 @@
           "products": [
             {
               "product_id": "02-3",
-              "amout": "3"
+              "amount": "3"
             },
             {
               "product_id": "02-2",
-              "amout": "3"
+              "amount": "3"
             }
           ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 487,
+          "products": [
+            {
+              "id": "-et654ytgmdk",
+              "product_id": "02-2",
+              "amount": 1
+            },
+            {
+              "id": "rethrjhg",
+              "product_id": "02-3",
+              "amount": 1
+            },
+            {
+              "id": "-et654ytlejfj4gmk",
+              "product_id": "11-2",
+              "t": 1
+            },
+            {
+              "id": "-et64654knnk54ytgmk",
+              "product_id": "27-2",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 0,
+          "products": []
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 0,
+          "products": []
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 0,
+          "products": []
         }
       ]
     },
