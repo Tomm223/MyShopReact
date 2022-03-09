@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ProductsContext from "../../Context/ProductsContext"
 import Moda from "../Moda";
 import ProductSuppImg from "./ProductSuppImg";
 import { AuthContext } from "../../Context/AuthProvider"
 import { PagesContext } from "../../Context/PagesProvider";
-import { AccountContext } from "../../Context/AccountProvider";
+import { AddProduct, PatchAxios } from "../../Fetch/Fetching"
+import { useForm, Controller } from 'react-hook-form'
+import { SelectReact, BuildOptionsSelect, ParamsForm } from "../UI/Form/Form";
 export default function Product() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
@@ -14,20 +15,49 @@ export default function Product() {
 
    }, [])
 
+   // Product-DATA      |GET|
    const location = useLocation()
    const [numImg, setnumImg] = useState(0)
-
    const product = location.state.product
    const imgs = product.imgs
+   // form product
+   const {
+      register,
+      formState: { errors },
+      handleSubmit,
+      reset,
+      control,
+      setFocus,
+      setError
+   } = useForm({
+      mode: "onSubmit"
+   })
+   // BuildOptions for Select
+   const [options, setOptions] = useState([])
+   useEffect(async () => {
+      const option = await BuildOptionsSelect(product.filter_name)
+      setOptions(option)
+   }, [])
+   console.log(options);
+   //func form
+   const { ProductBuild } = useContext(PagesContext)
+   const [change, setChange] = useState()
+   async function HandleProduct(data) {
+      if (user) {
+         const prod = await ProductBuild(product, data.size)
+         const response = await AddProduct(user.id, change, prod)
+         console.log(response);
+         reset()
+      }
+      else {
+         alert("Войдите в Аккаунт чтобы добавить ")
+      }
 
-   //add data server
+   }
+   // 
    const { user } = useContext(AuthContext)
-   const [myObj, setMyObj] = useState()
 
-
-   //ТО КАК ПРОИСХОДИЛО ДОБАВЛЕНИЕ
-   const { ADDrenderProducts, usSetChangeBasket, usSetChangeLikes } = useContext(AccountContext)
-
+   //onClick={() => user.id ? AddProduct(user.id, "basket", ProductBuild()) : alert("Войдите в Аккаунт чтобы добавть продукт в Корзину ")}
    return (
       <>
          <div class="profile">
@@ -47,8 +77,6 @@ export default function Product() {
                         {imgs.map((img, index) => {
                            return (<ProductSuppImg key={index} id={index} numImg={numImg} imgLink={img} />)
                         })}
-
-
                         <div class="profile__img-left">
                            <img src="/img/page-icon/down-arrow.png" alt="предыдущая фотография" />
                         </div>
@@ -80,24 +108,21 @@ export default function Product() {
                         </li>
                         <li class="profile__list-item">
                            <div class="profile__list-block">
-                              <h4 class="profile__list-sizeP">Pазмер:</h4>
-                              <select name="size" class="profile__list-sellect" id="product__size">
-                                 <option class="profile__list-option" value="default">Пожалуйста, Выберите</option>
-                                 <option class="profile__list-option" value="42">42</option>
-                                 <option class="profile__list-option" value="44">44</option>
-                                 <option class="profile__list-option" value="48">48</option>
-                                 <option class="profile__list-option" value="52">52</option>
-                              </select>
-                           </div>
-                        </li>
-                        <li class="profile__list-item">
-                           <div class="profile__list-block">
-                              <button class="profile__btn-basket" type="button"  >
-                                 <img src="/img/page-icon/basket.png" alt="" />
-                                 Добавить в Корзину</button>
-                           </div>
-                           <div className="profile__like-block">
-                              <button type="button" className="profile__btn-like"><img src="/img/page-icon/circle-love-50.png" alt="" /></button>
+                              <form className="profile__list-form" onSubmit={handleSubmit(HandleProduct)}>
+                                 <label className="profile__list-sizeP">Pазмер:
+                                    <Controller className="profile__list-select" control={control} name="size" rules={ParamsForm("size")}
+                                       render={({ field: { onChange, value }, fieldState: { error } }) =>
+                                          <SelectReact onChange={onChange} value={value} error={error} options={options} />
+                                       } />
+                                 </label>
+                                 <button onClick={() => setChange("basket")} type="submit" class="profile__btn-basket">
+                                    <img src="/img/page-icon/basket.png" alt="" />
+                                    Добавить в Корзину
+                                 </button>
+                                 <button onClick={() => setChange("likes")} type="submit" className="profile__btn-like">
+                                    <img src="/img/page-icon/circle-love-50.png" alt="" />
+                                 </button>
+                              </form>
                            </div>
                         </li>
                      </ul>

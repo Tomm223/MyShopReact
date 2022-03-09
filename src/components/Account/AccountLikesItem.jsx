@@ -1,9 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../../Context/AccountProvider";
+import { DeleteProduct, ToBasket, AccProductGet } from "../../Fetch/Fetching"
+import { SelectReact, ParamsForm, BuildOptionsSelect } from '../UI/Form/Form'
+import { useForm, Controller } from "react-hook-form"
+import { PagesContext } from "../../Context/PagesProvider";
+function AccountLikesItem({ userID, item, product, size, itemId }) {
+   const {
+      register,
+      formState: { errors },
+      control,
+      watch
+   } = useForm({
+      mode: "onChange",
+      defaultValues: {
+         size: size
+      }
+   })
+   // BuildOptions for Select
+   const [optSize, setOptSize] = useState([])
+   useEffect(async () => {
+      const option = await BuildOptionsSelect(product.filter_name)
+      setOptSize(option)
+   }, [])
 
-function AccountLikesItem({ product, size, itemId }) {
-
-   const { PostDeleteItemChange, AddTopDelBottom, usSetChangeBasket, usSetDeleteLikes } = useContext(AccountContext)
+   // ВОТ ТА ШТУКА КОТОРАЯ ОТЛАВЛИВАЕТ ONCHANGE SELECTS
+   const { handleSelect, UseSetChages } = useContext(AccountContext)
+   useEffect(() => {
+      const subscription = watch((value) => handleSelect(userID, value, item, 'likes'));
+      return () => subscription.unsubscribe();
+   }, [watch]);
+   async function HandleAdd() {
+      const response = await ToBasket(userID, itemId)
+      console.log(response);
+      UseSetChages(response)
+   }
+   async function HandleDelete() {
+      const response = await DeleteProduct(userID, "likes", itemId)
+      UseSetChages(response)
+   }
 
 
    return (
@@ -27,29 +61,28 @@ function AccountLikesItem({ product, size, itemId }) {
                      </p>
                   </div>
                   <div class="basket__product-item">
-                     <div class="profile__list-block">
-                        <div class="">
-                           <h4 class="profile__list-sizeP">Pазмер:</h4>
-                        </div>
-
-                        <select name="size" class="profile__list-sellect" id="product__size">
-                           <option class="profile__list-option" value={size}>{size}
-                           </option>
-                           <option class="profile__list-option" value="42">42</option>
-                           <option class="profile__list-option" value="44">44</option>
-                           <option class="profile__list-option" value="48">48</option>
-                           <option class="profile__list-option" value="52">52</option>
-                        </select>
+                     <div class="basket__product-form">
+                        <form style={{ paddingRight: "1em" }}>
+                           <label class="basket__form-label">
+                              <h4 class="">Pазмер:</h4>
+                              <Controller control={control} name="size" rules={ParamsForm("size")}
+                                 render={({ field: { onChange, value }, fieldState: { error } }) =>
+                                    <SelectReact onChange={onChange} value={value}
+                                       error={error} options={optSize} />
+                                 } />
+                           </label>
+                        </form>
                      </div>
                   </div>
                   <div class="basket__product-item">
                      <div class="profile__list-block">
-                        <input id="like__btn" type="button" value="Добавить в Корзину" />
+                        <input onClick={HandleAdd} id="like__btn" type="button" value="Добавить в Корзину" />
                      </div>
                   </div>
+
                </ul>
                <div class="basket__product-delete">
-                  <img src="/img/page-icon/icons8-close-24.png" alt="" />
+                  <img onClick={HandleDelete} src="/img/page-icon/icons8-close-24.png" alt="" />
                </div>
             </div>
          </div>

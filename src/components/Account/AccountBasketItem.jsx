@@ -1,9 +1,53 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AccountContext } from "../../Context/AccountProvider";
+import { DeleteProduct } from "../../Fetch/Fetching"
+import { SelectReact, ParamsForm, BuildOptionsSelect } from '../UI/Form/Form'
+import { useForm, Controller } from "react-hook-form"
+import { PagesContext } from "../../Context/PagesProvider";
+function AccountBasketItem({ userID, item, product, amount, size, itemId }) {
+   const {
+      register,
+      formState: { },
+      handleSubmit,
+      reset,
+      control,
+      setFocus,
+      setError,
+      getValues,
+      defaultValue,
+      watch
+   } = useForm({
+      mode: "onChange",
+      defaultValues: {
+         size: size,
+         amount: amount
+      }
+   })
+   // BuildOptions for Select
+   const [optSize, setOptSize] = useState([])
+   const [optAmount, setOptAmount] = useState([])
+   useEffect(async () => {
+      const option = await BuildOptionsSelect(product.filter_name)
+      setOptSize(option)
+   }, [])
 
-function AccountBasketItem({ product, amount, size, itemId }) {
-   const { PostDeleteItemChange, usSetDeleteBasket } = useContext(AccountContext)
+   useEffect(async () => {
+      const option = await BuildOptionsSelect("amount")
+      setOptAmount(option)
+   }, [])
+   // ВОТ ТА ШТУКА КОТОРАЯ ОТЛАВЛИВАЕТ ONCHANGE SELECTS
+   const { handleSelect } = useContext(AccountContext)
+   useEffect(() => {
+      const subscription = watch((value) => handleSelect(userID, value, item, 'basket'));
+      return () => subscription.unsubscribe();
+   }, [watch]);
 
+
+   const { UseSetChages } = useContext(AccountContext)
+   async function HandleDelete() {
+      const response = await DeleteProduct(userID, "basket", itemId)
+      UseSetChages(response)
+   }
 
    return (
       <li class="basket__item">
@@ -25,39 +69,31 @@ function AccountBasketItem({ product, amount, size, itemId }) {
                         Цена: <span id="product__price">{product.price}</span>$
                      </p>
                   </div>
-                  <div class="basket__product-item">
-                     <div class="profile__list-block">
-                        <div class="">
-                           <h4 class="profile__list-sizeP">Pазмер:</h4>
-                        </div>
-
-                        <select name="size" class="profile__list-sellect" id="product__size">
-                           <option class="profile__list-option" value={size}>{size}
-                           </option>
-                           <option class="profile__list-option" value="42">42</option>
-                           <option class="profile__list-option" value="44">44</option>
-                           <option class="profile__list-option" value="48">48</option>
-                           <option class="profile__list-option" value="52">52</option>
-                        </select>
-                     </div>
-                  </div>
-                  <div class="basket__product-item">
-                     <div class="profile__list-block">
-                        <h4 class="profile__list-sizeP">Колличестко:
-                        </h4>
-                        <select name="size" class="profile__list-sellect" id="product__summ">
-                           <option class="profile__list-option" value={amount}>{amount}
-                           </option>
-                           <option class="profile__list-option" value="1">1</option>
-                           <option class="profile__list-option" value="2">2</option>
-                           <option class="profile__list-option" value="3">3</option>
-                           <option class="profile__list-option" value="4">4</option>
-                        </select>
+                  <div class="basket__product-item basket__product-form">
+                     <div class="basket__product-form">
+                        <form className="basket__form" >
+                           <label class="basket__form-label">
+                              <h4 class="">Pазмер:</h4>
+                              <Controller control={control} name="size" rules={ParamsForm("size")}
+                                 render={({ field: { onChange, value }, fieldState: { error } }) =>
+                                    <SelectReact onChange={onChange} value={value}
+                                       error={error} options={optSize} />
+                                 } />
+                           </label>
+                           <label class="basket__form-label">
+                              <h4 class="">Колличество:</h4>
+                              <Controller control={control} name="amount" rules={ParamsForm("amount")}
+                                 render={({ field: { onChange, value }, fieldState: { error } }) =>
+                                    <SelectReact onChange={onChange} value={value}
+                                       error={error} options={optAmount} />
+                                 } />
+                           </label>
+                        </form>
                      </div>
                   </div>
                </ul>
                <div class="basket__product-delete">
-                  <img src="/img/page-icon/icons8-close-24.png" alt="" />
+                  <img onClick={HandleDelete} src="/img/page-icon/icons8-close-24.png" alt="" />
                </div>
             </div>
          </div>

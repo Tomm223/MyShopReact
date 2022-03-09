@@ -3,20 +3,24 @@ import { AccountContext } from "../../Context/AccountProvider";
 import ProductsContext from "../../Context/ProductsContext";
 import AccountBasketItem from "./AccountBasketItem";
 import { AuthContext } from "../../Context/AuthProvider";
+import { ToOrder } from "../../Fetch/Fetching"
 function AccountBasket() {
    // massiv в котором TRUEBasket
    const MAss = []
    console.log(MAss);
-   const { renderProducts, AddTopDelBottom, usSetChangeOrder, usSetDeleteBasket } = useContext(AccountContext)
-
-   const basket = "" // ТО ГДЕ ЛЕЖИТ МАССИВ BASKETCAHNGE
+   const { userChange } = useContext(AccountContext)
+   const basket = userChange.basket.reverse() // ТО ГДЕ ЛЕЖИТ МАССИВ BASKETCAHNGE
 
    const { products } = useContext(ProductsContext)
    const { user } = useContext(AuthContext)
 
 
-
-
+   const { UseSetChages } = useContext(AccountContext)
+   async function HandleOrder() {
+      const response = await ToOrder(user.id, "basket", "order")
+      console.log(response);
+      UseSetChages(response)
+   }
 
    return (
       <div class="cab__basket">
@@ -31,15 +35,20 @@ function AccountBasket() {
 
          <div class="basket ">
             <div class="basket__hr"></div>
-            <div onClick={renderProducts} class="basket__title">
+            <div class="basket__title">
                <h3>Список Товаров</h3>
             </div>
             <div class="basket__block">
                <ul class="basket__list">
-
+                  {
+                     basket.map((item) => {
+                        const product = products.find((prod) => prod.id == item.product_id)
+                        return <AccountBasketItem userID={user.id} item={item} product={product} amount={item.amount} size={item.size} itemId={item.id} />
+                     })
+                  }
                </ul>
                <div class="basket__btn">
-                  <input class="basket__btn-item" type="button" value="Заказать" />
+                  <input onClick={HandleOrder} class="basket__btn-item" type="button" value="Заказать" />
                </div>
 
             </div>

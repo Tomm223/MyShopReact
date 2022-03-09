@@ -4,7 +4,6 @@ import { useRef } from 'react'
 import { useNavigate } from "react-router-dom";
 import { AccountContext } from "../../Context/AccountProvider";
 import { AuthContext } from "../../Context/AuthProvider";
-
 import { GetAxios, PostAxios } from "../../Fetch/Fetching"
 import { useForm, Controller } from 'react-hook-form'
 import ReactSelect from 'react-select'
@@ -13,7 +12,24 @@ import { SelectReact, ParamsForm } from '../UI/Form/Form'
 import { ErrorsMessage } from "../UI/Form/ErrorsMessage";
 
 
-
+const options = [
+   {
+      value: "russia",
+      label: "Россия"
+   },
+   {
+      value: "USA",
+      label: "США"
+   },
+   {
+      value: "beloruss",
+      label: "Белорусь"
+   },
+   {
+      value: "chehia",
+      label: "Чехия"
+   }
+]
 
 function FormPost() {
    const { usSetCheckId } = useContext(AccountContext)
@@ -131,7 +147,7 @@ function FormPost() {
                      <label className="reg__label"> {item.title}:
                         <Controller control={control} name={item.regist} rules={ParamsForm(item.regist)}
                            render={({ field: { onChange, value }, fieldState: { error } }) =>
-                              <SelectReact onChange={onChange} value={value} error={error} />
+                              <SelectReact onChange={onChange} value={value} error={error} options={options} />
                            } />
                      </label>
                   }
@@ -146,4 +162,11 @@ function FormPost() {
 export default FormPost
 
 
+/*
+
+ position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%,0%);
+      */
 

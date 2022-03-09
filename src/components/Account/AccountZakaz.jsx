@@ -3,9 +3,8 @@ import { AccountContext } from "../../Context/AccountProvider";
 import ProductsContext from "../../Context/ProductsContext";
 import AccountZakazItem from "./AccountZakazItem";
 function AccountZakaz() {
-   const { cabInfo, orderPers } = useContext(AccountContext)
-   const order = // ТО ГДЕ ЛЕЖИТ МАССИВ ORDERCHANGE
-      console.log(order);
+   const { userChange } = useContext(AccountContext)
+   const order = userChange.order
    return (
       <div class="cab__zakaz active">
          <div class="cab__zakaz-icon">
@@ -24,9 +23,10 @@ function AccountZakaz() {
             </div>
             <div class="zakaz__block">
                <ul class="zakaz__list">
-
-
-
+                  {order.map((item) => {
+                     return <AccountZakazItem order={item} productsOrder={item.products} />
+                  })
+                  }
                </ul>
             </div>
          </div>
@@ -38,10 +38,6 @@ export default AccountZakaz
 
 /* ////////// ТОВАРЫ:
 
- {order.map((item) => {
-                     console.log(item.products);
-                     return <AccountZakazItem order={item} productsOrder={item.products} />
-                  })
-                  }
+ 
 
 */

@@ -181,6 +181,14 @@ function PagesProvider({ children }) {
          }
       }
    }
+   const ProductBuild = async (product, size) => {
+      const body = {}
+      body.id = Math.random() * 1234443254534
+      body.amount = 1
+      body.size = size
+      body.product_id = product.id
+      return body
+   }
 
    const [gallery, setGallery] = useState(JSON.parse(localStorage.getItem('GenderGallery')))
    function usGetGalleryGen(obj) {
@@ -189,6 +197,7 @@ function PagesProvider({ children }) {
    }
    return (
       <PagesContext.Provider value={{
+         ProductBuild,
          massFilters,
          finishFilter, DELETEFiltresState, usGetGalleryGen, gallery, setGallery,
          brand, setBrand, color, setColor, category, setCategory, material, setMaterial, season,

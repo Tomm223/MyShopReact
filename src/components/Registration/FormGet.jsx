@@ -34,7 +34,6 @@ function FormGet() {
       if (userMatch.length) {
          const user = userMatch[0]
          if (user.password == data.password) {
-            usSetCheckId(true)
             singIn(user, NavigateTo)
          } else {
             setError("password", { message: "пароль неверный" })

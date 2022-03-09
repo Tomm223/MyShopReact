@@ -14,7 +14,7 @@ function AccountZakazItem({ order, productsOrder }) {
       }
    }*/
    const { products } = useContext(ProductsContext)
-   console.log(order.send)
+   console.log(order)
 
    return (
       <NavLink to="more" state={{ order }}>
@@ -24,7 +24,7 @@ function AccountZakazItem({ order, productsOrder }) {
                   <div class="zakaz__item-color"></div>
                   {order.send == "true" ? "ОТПРАВЛЕН" : "НЕ ОТПРАВЛЕН"}
                </div>
-               <aside>Заказ № <span id="zakaz__num">{order.num}</span></aside>
+               <aside>Заказ № <span id="zakaz__num">{order.id}</span></aside>
                <div class="zakaz__item-more">
                   <img src="/img/page-icon/more.png" alt="more" />
                </div>
@@ -32,7 +32,7 @@ function AccountZakazItem({ order, productsOrder }) {
             <div class="zakaz__gallery">
                <ul class="zakaz__gallery-list">
                   {productsOrder.map((item) => {
-                     const product = products.filter((prod) => prod.id == item.product_id)[0]
+                     const product = products.find((prod) => prod.id == item.product_id)
                      return <AccountZakazListImg img={product.img_product} />
                   })}
                   <li class="zakaz__gallery-item">

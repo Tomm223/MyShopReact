@@ -191,6 +191,14 @@
       border-top: 1px $lightSer solid;
       padding: 10px 0px;
    }
+   &__form{
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      &-label{
+         width: 40%;
+      }
+   }
    &__product{
       padding: 5px;
       width: 100%;
@@ -198,6 +206,7 @@
       position: relative;
       &-img{
          width: 20%;
+         height: auto;
          img{
             width: 100%;
          }
@@ -210,7 +219,7 @@
       &-list{
          display: grid;
          grid-template-columns: repeat(2,1fr) ;
-         grid-template-rows: repeat(2,1fr) ;
+         grid-template-rows:repeat(2,minmax(2em,3em))  ;
          padding-top: 10px;
       }
       &-title{
@@ -234,6 +243,11 @@
          }
 
 
+      }
+      &-form {
+         display: grid;
+         grid-column: 1 / 3;
+         width: 100%;
       }
       
       &-delete{

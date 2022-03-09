@@ -1,13 +1,27 @@
 import React, { useState } from "react";
-
+import { BuildChangeNewProducts, PatchAxios, BuildBody } from "../Fetch/Fetching"
 export const AccountContext = React.createContext()
 
 function AccountProvider({ children }) {
+   const [userChange, setUserChange] = useState(JSON.parse(localStorage.getItem("UserChange")))
+   const UseSetChages = (body) => {
+      localStorage.setItem("UserChange", JSON.stringify(body))
+      setUserChange(JSON.parse(localStorage.getItem("UserChange")))
+   }
 
+   async function handleSelect(userID, value, item, baskLike) {
+      item.size = value.size
+      item.amount = value.amount ? value.amount : item.amount
+      const { id, newArray } = await BuildChangeNewProducts(userID, baskLike, item)
+      const body = BuildBody(baskLike, newArray)
+      const response = await PatchAxios(`UserChange/${id}`, body)
+      UseSetChages(response.data)
+      console.log(userChange);
+   }
 
    return (
       <AccountContext.Provider value={{
-
+         userChange, UseSetChages, handleSelect
       }}>
          {children}
       </AccountContext.Provider>

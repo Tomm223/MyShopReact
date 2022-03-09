@@ -4,6 +4,7 @@ import AccountNavigate from "./AccountNavigate";
 import { PagesContext } from "../../Context/PagesProvider";
 import { AuthContext } from "../../Context/AuthProvider";
 import { AccountContext } from "../../Context/AccountProvider";
+import { AccProductGet, GetAxios } from "../../Fetch/Fetching";
 
 
 function Account() {
@@ -72,7 +73,6 @@ function Account() {
       const pageY = this.window.scrollY
       const minus100 = pageY - localNavTen
       minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
-      console.log(minus100);
    }
 
 
@@ -97,12 +97,12 @@ function Account() {
       position: "relative"
    }
    const { user } = useContext(AuthContext)
-   const { renderProducts,
-      AddTopDelBottom, DeleteItemChange, cabInfo,
-      ChangeOutDef, getChangeDef, checkId, setCheckId, usSetCheckId, outCheckId } = useContext(AccountContext)
-   console.log("checkTOKEN: ", checkId);
-
-
+   const { userChange, UseSetChages } = useContext(AccountContext)
+   console.log(userChange);
+   useEffect(async () => {
+      const response = await AccProductGet(user.id)
+      UseSetChages(response.AccArray)
+   }, [])
 
    return (
       <>

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AccountContext } from "../../Context/AccountProvider";
 import ProductsContext from "../../Context/ProductsContext";
 import AccountLikesItem from "./AccountLikesItem";
+import { AuthContext } from "../../Context/AuthProvider";
 function AccountLikes() {
    /* {basket.map((item) => {
                         const product = products.filter((prod) => prod.id == item.product_id)[0]
@@ -11,10 +12,10 @@ function AccountLikes() {
                      })} */
 
    //
-   const { cabInfo, likesPers, deleteLikes } = useContext(AccountContext)
-
-   const likes = ''// ТО ГДЕ ЛЕЖИТ МАССИВ LIKESCHANGE
-
+   const { userChange } = useContext(AccountContext)
+   const likes = userChange.likes.reverse()
+   //user
+   const { user } = useContext(AuthContext)
    const { products } = useContext(ProductsContext)
    // СДЕЛАТЬ ЛУЧШЕ ВЫВЕДЕНИЕ ПОДБОРКИ В ОТДЕЛЬНЫЙ КОМПОНЕНТ ПОДБОРКИ ПОЛОЖИТЬ
    const salesFilter = products.filter((item) => item.sales == "true")
@@ -35,9 +36,10 @@ function AccountLikes() {
             </div>
             <div class="basket__block">
                <ul class="basket__list">
-
-
-
+                  {likes.map((item) => {
+                     const product = products.find((prod) => prod.id == item.product_id)
+                     return <AccountLikesItem userID={user.id} item={item} key={item.id} product={product} size={item.size} itemId={item.id} />
+                  })}
                </ul>
                <div class="basket__btn">
                   <NavLink to="/cataloge?collection=sales" state={{ collection: salesFilter }}>
