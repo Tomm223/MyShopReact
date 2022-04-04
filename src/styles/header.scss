@@ -1,60 +1,80 @@
 @import "./reset.css";
 @import "./vars.scss";
 @import url('https://fonts.googleapis.com/css2?family=Jura&family=Lato&display=swap');
-.header{
+
+.header-container {
+   width: 100%;
+   height: 4em;
+
+   &.big {
+      height: 6em;
+   }
+}
+
+.header {
+   z-index: 3;
    position: fixed;
    width: 100%;
-   height: 10vh;
-   background-color:$black ;
-   z-index: 2;
-   &__block{
+   height: 4em;
+   background-color: $black;
+
+   &__block {
       width: 100%;
       height: 100%;
       padding: 0 4%;
       position: relative;
       display: flex;
-   justify-content: space-between;
-   align-items: center;
+      justify-content: space-between;
+      align-items: center;
    }
-  
-   
-   &__logo-item{
-      background:url("/img/page-icon/vesh-logo2.png") center ;
+
+
+   &__logo-item {
+      background: url("/img/page-icon/vesh-logo2.png") center;
       background-size: cover;
-      width: 50px;
-      height: 50px;
+      width: 4.5em;
+      height: 4.5em;
    }
-   &__genders{
+
+   &__genders {
       display: flex;
       height: 100%;
    }
-   &__gender{
+
+   &__gender {
       height: 100%;
    }
-   &__gender-link{
+
+   &__gender-link {
       height: 100%;
-      padding: 10px 15px;
+      padding: 0;
       color: $white;
-      font-size: 30px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      &:hover{
-         background-color: $colSer;
-         .nav{
-            opacity: 1;
-         }
+
+      div {
+         padding: .33em .5em;
+         font-size: 2rem;
       }
-      
-      &.activeLink{
+
+      &:hover {
          background-color: $colSer;
+
+      }
+
+      &.activeLink {
+         background-color: $colSer;
+         color: $white
       }
    }
-   .autoComplite{
+
+   .autoComplite {
+      z-index: 1;
       position: absolute;
       left: 50%;
       top: 100%;
-      transform: translate(-50%,0%);
+      transform: translate(-50%, 0%);
       width: inherit;
       background-color: $white;
       height: 0vh;
@@ -62,98 +82,116 @@
       overflow-y: scroll;
       display: flex;
       flex-direction: column;
-      .autoCompliteLink{
-         width: 100%;
+
+      .autoCompliteLink {
+         width: 30vw;
          height: auto;
          color: #222;
-         padding: 5px 15px ;
-         &:hover{
+         padding: .33em 1em;
+
+         &:hover {
             background-color: $colSer;
          }
       }
    }
-   &__search{
+
+   &__search {
       height: 100%;
       width: 30vw;
       display: flex;
       align-items: center;
       position: relative;
    }
-   &__search-form{
+
+   &__search-form {
       position: relative;
       width: 100%;
    }
-   &__search-input{
+
+   &__search-input {
+      z-index: 2;
       width: 100%;
       position: relative;
-      padding:12px 10px;
+      padding: 12px 10px;
       border: none;
       border: 3px $black solid;
       border-radius: 25px;
       margin: 0;
       padding-right: 50px;
-      transition: all 0.5s ease ;
+      transition: all 0.5s ease;
       box-sizing: border-box;
-      &:focus{
+
+      &:focus {
          outline: none;
-         border:3px blue solid;
+         border: 3px blue solid;
          background-color: #fff;
-         .autoComplite{
+
+         .autoComplite {
             height: 50vh;
          }
       }
    }
-   &__search-btn{
+
+   &__search-btn {
+      z-index: 2;
       position: absolute;
-      right: 6px;
-      top: 5px;
-      height: 35px;
-      width: 35px;
+      right: .5em;
+      top: 50%;
+      transform: translate(0%, -50%);
+      height: 2.2em;
+      width: 2.2em;
       border-radius: 50%;
-      border:transparent;
+      border: transparent;
       background-color: $black;
       padding: 5px;
       cursor: pointer;
       transition: background-color 0.5s ease;
-      &.active{
+
+      &.active {
          background-color: green
       }
 
-      &-item{
+      &-item {
          width: 100%;
          height: 100%;
          background: url("/img/page-icon/search.svg") center center;
          background-size: cover;
       }
-      &.active{
+
+      &.active {
          background-color: blue;
       }
    }
 
-   &__persons{
+   &__persons {
       margin-left: 50px;
       display: flex;
       align-items: center;
-      &:hover{
-         .person-acc__checkout{
+
+      &:hover {
+         .person-acc__checkout {
             top: 100%;
          }
       }
 
    }
-   &__person:not(last-chald){
-      margin-left: 40px;
-   }
-   &_person-item{
-      width: 50px;
-      height: 50px;  
+
+   &__person {
+      margin-left: 2.5em;
    }
 
-   
+   &_person-item {
+      width: 50px;
+      height: 50px;
+   }
+
+
 }
+
 //height nav === CATALOG!!!!!!!!
-.nav{
-   transition: all,.5s ease;
+.nav {
+   display: none;
+   transition: all, .5s ease;
    position: absolute;
    top: 100%;
    left: 0;
@@ -161,11 +199,14 @@
    height: 40px;
    background-color: $colSer;
    z-index: 0;
-  opacity: 0;
-   &.active{
+   opacity: 0;
+
+   &.active {
+      display: block;
       opacity: 1;
    }
-   &__list{
+
+   &__list {
       position: relative;
       display: flex;
       justify-content: start;
@@ -173,66 +214,77 @@
       height: 100%;
       padding: 0px 15px;
    }
-   &__item{
+
+   &__item {
       position: relative;
-      padding: 10px 15px ;
+      padding: 10px 15px;
       display: flex;
       align-items: center;
       transition: all 0.5s ease;
-      &:first-child{
+
+      &:first-child {
          background-color: $rose;
       }
-      &:hover{
+
+      &:hover {
          background-color: $white;
-         .nav__link{
+
+         .nav__link {
             color: $black;
          }
-         .sort{
-            display: flex;
+
+         .sort {
+            display: none; //////////// НЕ ВКЛЮЧАЮ СОРТ
          }
-         
+
       }
    }
-   &__link{
-      font-size: 18px ;
+
+   &__link {
+      font-size: 18px;
       line-height: 22px;
       color: $white;
    }
 }
-.sort{
+
+.sort {
    display: none;
    position: absolute;
    left: -50%;
-   top: 100%; 
-   width:50vw ;
+   top: 100%;
+   width: 50vw;
    height: auto;
    background-color: $white;
    padding: 15px;
    padding-left: 20px;
-   
 
-   
-      
-   &__title{
+
+
+
+   &__title {
       text-align: start;
-      padding-bottom:3px ;
+      padding-bottom: 3px;
       margin-bottom: 30px;
-      h3{
+
+      h3 {
          font-size: 25px;
          display: inline-block;
          color: black;
          border-bottom: 1px solid black;
       }
    }
-   &__block{
+
+   &__block {
       width: 50%;
       height: 100%;
    }
-   &__list-block{
+
+   &__list-block {
       width: 100%;
       height: 100%;
    }
-   &__list{
+
+   &__list {
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -240,32 +292,39 @@
       padding-left: 20px;
       margin-right: 500px;
    }
-   &__item-block{
+
+   &__item-block {
       width: 100%;
       height: 100%;
    }
-   &__item-title{
+
+   &__item-title {
       font-size: 22px;
       line-height: 25px;
       text-align: center;
       margin-bottom: 20px;
       color: $black;
    }
-   &__item{
+
+   &__item {
       margin-bottom: 20px;
-      &:last-child{
+
+      &:last-child {
          margin-bottom: 0px;
       }
    }
-   &__link{
+
+   &__link {
       color: $colSer;
       font-size: 18px;
       line-height: 22px;
-      &:hover{
+
+      &:hover {
          color: darken($colSer, 30%);
       }
    }
-   .gallery__item{
+
+   .gallery__item {
       max-width: 50%;
       margin: 0 auto;
       border: 1px solid $black;
@@ -273,24 +332,27 @@
    }
 
 }
-.burger{
+
+.burger {
    position: absolute;
    top: -1%;
    right: -1%;
    min-width: 40vw;
    z-index: 2;
-   &__block{
+
+   &__block {
       border-radius: 5%;
       width: 100%;
       height: 100%;
       background-color: #fff;
       color: #000;
       position: relative;
-      padding:15px ;
+      padding: 15px;
       display: flex;
       justify-content: space-around;
    }
-   &::after{
+
+   &::after {
       content: "";
       position: absolute;
       top: 5%;
@@ -300,10 +362,11 @@
       width: 24px;
       height: 24px;
    }
-  
-   &__item{
+
+   &__item {
       padding: 15px;
-      &-title{
+
+      &-title {
          color: $rose;
          font-size: 35px;
          text-align: center;
@@ -311,33 +374,38 @@
          margin-bottom: 20px;
       }
    }
-   &__list{
 
-      &-nav{
+   &__list {
+
+      &-nav {
          font-size: 24px;
          line-height: 26px;
          color: $rose;
          font-weight: 700;
       }
    }
-   &__link{
-      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+   &__link {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       font-size: 20px;
       line-height: 24px;
-      color: #000; 
-      padding-left: 20px; 
-      &:hover{
+      color: #000;
+      padding-left: 20px;
+
+      &:hover {
          text-decoration: underline;
-      } 
+      }
    }
 }
+
 //lich cabinet
 
-.person-acc{
+.person-acc {
+
    //кнопка человечка на панели header
    //. ПОСТАВИЛ POSITION  IN HEADER
    //.
-   &__checkout{
+   &__checkout {
       transition: all .5s ease;
       position: absolute;
       top: -1000%;
@@ -348,41 +416,47 @@
       box-shadow: $box-shw;
       z-index: 0;
    }
-   
-   &__title{
+
+   &__title {
       width: 100%;
       padding: 0% 0%;
       display: flex;
       justify-content: center;
       position: relative;
       background-color: #eee;
-      img{
+
+      img {
          width: 50px;
          height: 50px;
       }
-      &::after{
+
+      &::after {
          content: "";
          position: absolute;
          right: 0%;
          top: 50%;
-         transform: translate(-50%,-50%);
-        background: url("/img/page-icon/icons8-close-24.png");
-         width: 24px;height: 24px;
+         transform: translate(-50%, -50%);
+         background: url("/img/page-icon/icons8-close-24.png");
+         width: 24px;
+         height: 24px;
       }
    }
-   &__list{
+
+   &__list {
       width: 100%;
       display: flex;
       flex-direction: column;
-      color:#222;
+      color: #222;
    }
-   &__list-reg{
+
+   &__list-reg {
       width: 100%;
       height: 100%;
       display: flex;
       margin-bottom: 30px;
    }
-   &__link-reg{
+
+   &__link-reg {
       width: 50%;
       text-align: center;
       border-bottom: 1px solid #f1f1f1;
@@ -391,34 +465,38 @@
       line-height: 20px;
       font-weight: 700;
       padding: 15px 0px;
-      
-      &:hover{
+
+      &:hover {
          border-bottom: 1px solid $rose;
-         a{
+
+         a {
             color: #222;
          }
-         
+
       }
-      &:last-child{
+
+      &:last-child {
          position: relative;
-         &::after{
+
+         &::after {
             content: '';
             position: absolute;
             left: 0;
             top: 50%;
-            transform: translate(0%,-50%);
+            transform: translate(0%, -50%);
             width: 2px;
             height: 100%;
             background-color: #eaeaea;
          }
       }
    }
-   
-  
-   &__list-self{
+
+
+   &__list-self {
       margin-bottom: 30px;
       position: relative;
-      &::after{
+
+      &::after {
          content: "(c)Vash4lka";
          width: 20px;
          height: 5px;
@@ -426,84 +504,191 @@
          position: absolute;
          top: 100%;
          left: 50%;
-         transform: translate(-100%,200%);
+         transform: translate(-100%, 200%);
       }
    }
-   &__item-self{
+
+   &__item-self {
       padding: 15px;
       padding-left: 60px;
       position: relative;
       border-bottom: 1px transparent solid;
       border-top: 1px transparent solid;
-      &:hover{
-         border-bottom: 1px  darken($color: #eaeaea, $amount: 20%) solid;
-         border-top: 1px  darken($color: #eaeaea, $amount: 20%) solid;
-         a{
+
+      &:hover {
+         border-bottom: 1px darken($color: #eaeaea, $amount: 20%) solid;
+         border-top: 1px darken($color: #eaeaea, $amount: 20%) solid;
+
+         a {
             color: $rose;
          }
       }
    }
-   &__link-self{
+
+   &__link-self {
       color: #222;
       font-size: 16px;
       line-height: 20px;
       font-weight: 700;
-      
+
    }
 
 }
 
-#header{
-   &__cab{
+#header {
+   &__cab {
       position: relative;
       width: 100%;
       height: 100%;
       text-align: start;
-      &::after{
+
+      &::after {
          content: "";
          position: absolute;
          top: 50%;
          left: -15%;
-         transform: translate(0%,-50%);
+         transform: translate(0%, -50%);
          width: 24px;
          height: 24px;
-        background: url("/img/page-icon/icons8-home-50.png") no-repeat center;
+         background: url("/img/page-icon/icons8-home-50.png") no-repeat center;
          background-size: cover;
       }
-      
+
    }
-   &__zakaz{
+
+   &__zakaz {
       position: relative;
       width: 100%;
       height: 100%;
       text-align: start;
-      &::after{
+
+      &::after {
          content: "";
          position: absolute;
          top: 50%;
          left: -15%;
-         transform: translate(0%,-50%);
+         transform: translate(0%, -50%);
          width: 24px;
          height: 24px;
          background: url("/img/page-icon/basket.png") no-repeat center;
          background-size: cover;
       }
    }
-   &__like{
+
+   &__like {
       position: relative;
       width: 100%;
       height: 100%;
       text-align: start;
-      &::after{
+
+      &::after {
          content: "";
          position: absolute;
          top: 50%;
          left: -15%;
-         transform: translate(0%,-50%);
+         transform: translate(0%, -50%);
          width: 24px;
          height: 24px;
          background: url("/img/page-icon/icons8-love-24.png") no-repeat center;
          background-size: cover;
       }
    }
+}
+
+@media screen and (min-width:1024px) {}
+
+// media screen
+
+@media screen and (max-width:1280px) {
+
+   // gender btn
+   .header__gender-link {
+      div {
+         font-size: 1.5rem;
+      }
+
+   }
+
+   // header - right btn
+   .header__persons {
+      margin: 0;
+   }
+}
+
+//mini heaeder-search
+
+.mini-search {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+
+   &.close {
+      display: none;
+   }
+
+   &.open {
+      display: block;
+   }
+
+   &__container {
+      padding: 1em 5em;
+      position: relative;
+      width: 100%;
+   }
+
+   &__close {
+      z-index: 1;
+      position: absolute;
+      right: 1em;
+      top: 50%;
+      transform: translate(0%, -50%) scale(2);
+   }
+}
+
+
+@media screen and (max-width:1023px) {
+
+   //container 
+   .header-container {
+      height: 3.5em;
+   }
+
+   // logo
+   .header__logo-item {
+      width: 5em;
+      height: 5em;
+   }
+
+   // header кнопки жен\муж
+   .header__genders {
+      display: none;
+   }
+
+   //right side header
+   .header__persons {
+      &:hover {
+         .person-acc__checkout {
+            top: -10000%;
+         }
+      }
+
+   }
+
+   .header__person {
+      margin-left: 0;
+      margin-right: 2em;
+   }
+
+   .header__person:last-child {
+      margin-right: 0;
+      margin-left: 0;
+
+   }
+
+   //header-search mini
+   .header__search {
+      width: 100%;
+   }
+
 }

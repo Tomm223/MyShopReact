@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useContext, useRef } from 'react'
 import { AuthContext } from "../../Context/AuthProvider";
 import { useForm, Controller } from 'react-hook-form'
-import { SelectReact, ParamsForm } from '../UI/Form/Form'
+import { SelectReact, ParamsForm, BuildOptionsSelect } from '../UI/Form/Form'
 import { ErrorsMessage } from "../UI/Form/ErrorsMessage";
 import { GetAxios, PatchAxios, PutAxios } from "../../Fetch/Fetching"
+import { useSelector } from "react-redux";
+import { AlertDefault } from "../UI/Alerts/Alerts";
+import AccountOut from "../UI/Account/AccountOut";
+import { useWindowSize } from '../../hook/useWindowSize'
 
 
 
 function AccountInfo() {
-   const { user } = useContext(AuthContext)
-   const [FName, setFName] = useState()
-   const [LName, setLName] = useState()
-   const [password, setPassword] = useState()
-   const [email, setEmail] = useState(user.email)
-   const [country, setCountry] = useState()
-   const [city, setCity] = useState()
-   const [street, setStreet] = useState()
-   const [house, setHouse] = useState()
+   //responsive
+   const { minLabTop,
+      minTablet,
+      minMonitor,
+      minFon, minBigAcc } = useWindowSize()
+
+
+   const user = useSelector(state => state.user.user)
    const {
       register,
       formState: { errors },
@@ -30,26 +33,35 @@ function AccountInfo() {
       mode: "onChange"
    })
 
-   async function handlerSubmit(data) {
-      const users = await GetAxios('userCard')
-      for (var i = 0; i < users.length; i++) {
-         console.log(users[i]);
-         console.log(data);
-         if (users[i].id == user.id) {
-            const num = i + 1
-            const patch = await PatchAxios(`userCard/${num}`, data)
-            // const patch = await fetch(`http://localhost:3000/userCard/4`, { method: "PUT", body: , headers: { "Content-type": "application/json" } })
-            console.log(patch);
-         }
-      }
-   }
-   function valueDefault(regist) {
-      if (regist[0] == "address") {
-         return user[`${regist[0]}`][`${regist[1]}`]
-      }
 
-      return user[`${regist}`]
+   const { singIn } = useContext(AuthContext)
+   const [alert, setAlert] = useState(false)
+   async function handlerSubmit(data) {
+      console.log(data);
+      data.id = user.id
+      try {
+         const resp = await PatchAxios(`userCard/${user.id}`, data)
+         singIn(data, function () { console.log(data) })
+         setAlert('Ваши данные успешно изменены')
+      }
+      catch {
+         setAlert("Что-то пошло не так")
+      }
    }
+
+
+   useEffect(() => {
+      if (user) {
+         setValue('email', user.email, { shouldValidate: true })
+         setValue('firstName', user.firstName, { shouldValidate: true })
+         setValue('lastName', user.lastName, { shouldValidate: true })
+         setValue('password', user.password, { shouldValidate: true })
+         setValue('address.country', user.address.country, { shouldValidate: true })
+         setValue('address.city', user.address.city, { shouldValidate: true })
+         setValue('address.street', user.address.street, { shouldValidate: true })
+         setValue('address.house', user.address.house, { shouldValidate: true })
+      }
+   }, [user])
 
    const formInputs = [
       {
@@ -89,53 +101,64 @@ function AccountInfo() {
          registArray: ["address", "house"]
       }
    ]
-
+   const label = useRef()
+   // width: label.current.getBoundingClientRect().width
+   // BuildOptions for Select
+   const [options, setOptions] = useState([])
+   useEffect(async () => {
+      const option = await BuildOptionsSelect("country")
+      setOptions(option)
+   }, [])
 
    return (
-      <div class="cab__info">
-         <div class="cab__info-icon">
-            <img src="/img/page-icon/resume.png" alt="info" />
-         </div>
-         <div class="cab__info-title">
-            <h1>МОЯ ИНФОРМАЦИЯ</h1>
-            <aside>Вы в любой момент можете обновить вашу учетную запись и внести любые изменения в
-               приведенные ниже данные.</aside>
-         </div>
-         <div class="cab__info-form">
-            <form onSubmit={handleSubmit(handlerSubmit)} class="reg__form" id="cab__info-form" action="">
-               {formInputs.map((item) => {
-                  let registQuery = ''
-                  let checkInput = true
-                  let defValue = ''
-                  if (item.registArray) {
-                     registQuery = item.registArray
-                     if (item.registArray[1] == "country") checkInput = false
-                  }
-                  else if (!item.registArray) {
-                     registQuery = item.regist
-                  }
-                  return (
-                     <> {checkInput ?
-                        <label className="reg__label">{item.title}:
-                           <input defaultValue={valueDefault(registQuery)} type="text" className="reg__input"
-                              {...register(item.regist, ParamsForm(item.regist))} />
-                           <ErrorsMessage errors={errors} regist={registQuery} />
-                        </label>
-                        :
-                        <label className="reg__label"> {item.title}:
-                           <Controller control={control} name={item.regist} rules={ParamsForm(item.regist)}
-                              render={({ field: { onChange, value }, fieldState: { error } }) =>
-                                 <SelectReact onChange={onChange} value={value} error={error} />
-                              } />
-                        </label>
+      <Fragment>
+         {minBigAcc && <AccountOut />}
+         {alert && <AlertDefault state={alert} setState={setAlert} />}
+         <div class="cab__info">
+            <div class="cab__info-icon">
+               <img src="/img/page-icon/resume.png" alt="info" />
+            </div>
+            <div class="cab__info-title">
+               <h1>МОЯ ИНФОРМАЦИЯ</h1>
+               <aside>Вы в любой момент можете обновить вашу учетную запись и внести любые изменения в
+                  приведенные ниже данные.</aside>
+            </div>
+            <div class="cab__info-form">
+               <form onSubmit={handleSubmit(handlerSubmit)} class="reg__form" id="cab__info-form" action="">
+                  {formInputs.map((item) => {
+                     let registQuery = ''
+                     let checkInput = true
+                     if (item.registArray) {
+                        registQuery = item.registArray
+                        if (item.registArray[1] == "country") checkInput = false
                      }
-                     </>
-                  )
-               })}
-               <input class="reg__btn" id="cab__btn" type="submit" value="Сохранить Изменения" />
-            </form>
-         </div>
-      </div >
+                     else if (!item.registArray) {
+                        registQuery = item.regist
+                     }
+                     return (
+                        <> {checkInput ?
+                           <label ref={label} className="reg__label">{item.title}:
+                              <input id={item.regist} type="text" className="reg__input"
+                                 {...register(item.regist, ParamsForm(item.regist))} />
+                              <ErrorsMessage errors={errors} regist={registQuery} />
+                           </label>
+                           :
+                           <label style={{}} className="reg__label"> {item.title}:
+                              <Controller control={control} name={item.regist} rules={ParamsForm(item.regist)}
+                                 render={({ field: { onChange, value }, fieldState: { error } }) =>
+                                    <SelectReact onChange={onChange} value={value} error={error} options={options} />
+                                 } />
+                           </label>
+                        }
+                        </>
+                     )
+                  })}
+                  <input class="reg__btn" id="cab__btn" type="submit" value="Сохранить Изменения" />
+               </form>
+            </div>
+         </div >
+      </Fragment>
+
    )
 }
 export default AccountInfo

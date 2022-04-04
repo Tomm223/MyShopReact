@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect, useMemo, useCallback } from "react"
 import { Routes, Route } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { useMediaQuery } from 'react-responsive'
 //pages
 import Layout from "./components/Layout"
 import Account from "./components/Account/Account"
@@ -24,9 +26,17 @@ import AccountZakaz from "./components/Account//AccountZakaz"
 import AccountZakazMore from "./components/Account//AccountZakazMore"
 //hoc
 import { ReqAuthAcc, ReqAuthReg } from "./hoc/ReqAuth"
+import AccountChange from "./hoc/AccountChange"
+//Redux
+import { StateInit, userChange } from "./Redux/actions/UserActions"
+import { AccountInitial, initialStateRedux, ProductsInitial, UserInitial } from "./Redux/GetLocalStorage"
+import { ProductsInit } from "./Redux/actions/ProductsActions"
+import { AccountFullChange } from "./Redux/actions/AccountActions"
 
+import { useWindowSize } from './hook/useWindowSize'
 
 function App() {
+
   //gender gallery
   const { usGetGalleryGen } = useContext(PagesContext)
   useEffect(() => {
@@ -48,7 +58,11 @@ function App() {
   const giveLocalProduct = () => {
     setProducts(JSON.parse(localStorage.getItem('products')))
   }
-
+  // state init
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(StateInit())
+  }, [])
   useEffect(() => {
     if (products == null || products == false) {
       fetch("http://localhost:3000/products")
@@ -59,6 +73,8 @@ function App() {
     }
 
   }, [])
+
+
   return (
     <div className={`App`}>
       <ProductsContext.Provider value={{ products }}>

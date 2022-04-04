@@ -1,6 +1,11 @@
 import React from "react";
 
 function Footer() {
+
+   function handle(event) {
+      event.preventDefault()
+      event.target.sub.value = ''
+   }
    return (
       <>
          <div class="free">
@@ -32,12 +37,12 @@ function Footer() {
          </div>
          <div class="sub">
             <div class="sub__item">
-               <form class="sub__item-form" action="sub">
+               <form onSubmit={handle} class="sub__item-form">
                   <label class="sub__item-supp">
                      <h3>SUBSCRIBE</h3>
                      <span>FOR OUR NEWSLETTER AND PROMOTION</span>
                   </label>
-                  <input class="sub__item-input" type="text" placeholder="Email" />
+                  <input class="sub__item-input" name="sub" type="text" placeholder="Email" />
                   <input class="sub__item-btn" type="button" value="Subscribe" />
                </form>
             </div>

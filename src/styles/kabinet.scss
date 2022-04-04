@@ -1,58 +1,67 @@
 @import "./reset.css";
 @import "./vars.scss";
-.cab{
+
+.cab {
    position: relative;
    width: 100vw;
    height: 100%;
-   &__block{
+
+   &__block {
       max-width: 940px;
       margin: 0 auto;
       display: flex;
    }
-   .navigateBlock{
+
+   &__navigateBlock {
       width: 28%;
       position: relative;
    }
-   &__nav{
+
+   &__nav {
       position: absolute;
       width: 100%;
       top: 0;
       left: 0;
       padding: 0 10px;
-      &.fixed{
+
+      &.fixed {
          position: fixed;
          top: 0;
          left: 0;
       }
-      &-title{
+
+      &-title {
          padding: 4px 10px;
          padding-left: 20px;
          width: 28%;
-         img{
+
+         img {
             width: 100px;
          }
       }
 
-      &-nav{
+      &-nav {}
 
-      }
-      &-face{
+      &-face {
          width: 100%;
-         padding: 15px ;
+         padding: 15px;
          background-color: #fff;
          display: flex;
          flex-direction: column;
          margin-bottom: 5px;
       }
    }
-   &__ava{
+
+   &__ava {
       margin-bottom: 30px;
-      &-item{
+
+      &-item {
          width: 70px;
          height: 70px;
-         
+
       }
-      &-text{
+
+      &-text {
 
          p {
             font-size: 20px;
@@ -61,16 +70,18 @@
          }
       }
    }
-   &__list{
-      &-item{
+
+   &__list {
+      &-item {
          position: relative;
-         padding:25px 20px ;
+         padding: 25px 20px;
          //padding-left: 65px;
          padding-left: 0;
          background-color: #fff;
          display: flex;
-         &.line-bottom{
-            &::after{
+
+         &.line-bottom {
+            &::after {
                content: "";
                position: absolute;
                bottom: 0;
@@ -82,49 +93,59 @@
                opacity: 0.4;
             }
          }
-         &.m-b{
+
+         &.m-b {
             margin-bottom: 5px;
          }
-         &.active{
-            -webkit-box-shadow: inset 0px 0px 10px 3px rgba(0,0,0,0.2);
-            -moz-box-shadow: inset 0px 0px 10px 3px rgba(0,0,0,0.2);
-            box-shadow: inset 0px 0px 10px 3px rgba(0,0,0,0.2);
+
+         &.active {
+            -webkit-box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
          }
-         &:hover{
+
+         &:hover {
             background-color: #F8F8F8;
          }
       }
-      &-icon{
+
+      &-icon {
          display: flex;
          justify-content: center;
          align-items: center;
          width: 68px;
-         img{
+
+         img {
             width: 24px;
             height: 24px;
          }
       }
-      &-link{display: flex;
+
+      &-link {
+         display: flex;
          flex-wrap: nowrap;
          font-size: 18px;
          font-weight: normal;
          color: #222;
-         border-bottom: 1px  darken($color: #eaeaea, $amount: 20%) solid;
-         border-top: 1px  darken($color: #eaeaea, $amount: 20%) solid;
-         &:last-child{
-            border-bottom: 1px  transparent solid;
-         border-top: 1px  transparent solid;
+         border-bottom: 1px darken($color: #eaeaea, $amount: 20%) solid;
+         border-top: 1px darken($color: #eaeaea, $amount: 20%) solid;
+
+         &:last-child {
+            border-bottom: 1px transparent solid;
+            border-top: 1px transparent solid;
          }
-         &.active{
+
+         &.active {
             font-weight: 600;
          }
       }
    }
-  
-   &__supp{
+
+   &__supp {
       width: 72%;
       padding: 0 10px;
-      &-title{
+
+      &-title {
          width: 73%;
          padding: 18px 10px;
          font-weight: 700;
@@ -134,123 +155,151 @@
          align-items: center;
       }
    }
+
    // info + basket
-   &__info{
+   &__info {
       @include cabina-blockTitle;
-      
+
    }
-   &__basket,&__like, &__zakaz,&__zakaz-more{
+
+   &__basket,
+   &__like,
+   &__zakaz,
+   &__zakaz-more {
       @include cabina-blockTitle;
-     
+      min-height: 100vh;
+
    }
 }
+
 // info ...
-#cab__info-form{
+#cab__info-form {
    align-items: center;
-   
-   
+
+
 }
-#cab__btn{
+
+#cab__btn {
    margin: 20px 0;
 }
 
 //basket...
 
-.basket{
+.basket {
    width: 100%;
    margin: 0 auto;
-   &__hr{
+
+   &__hr {
       width: 100%;
       height: 10px;
       background-color: $lightSer;
 
    }
-   &__block{
+
+   &__block {
       width: 100%;
       margin: 0 auto;
    }
-   &__title{
+
+   &__title {
       padding-top: 20px;
       text-align: center;
       //padding-bottom: 20px;
       background-color: #fff;
-      h3{
+
+      h3 {
          font-size: 25px;
          font-weight: normal;
          color: $colSer;
       }
    }
-   &__list{
+
+   &__list {
       width: 100%;
       padding: 10px;
+      list-style: none;
    }
-   &__item{
+
+   &__item {
       margin-bottom: 20px;
       background-color: #fff;
       border-bottom: 1px $lightSer solid;
       border-top: 1px $lightSer solid;
       padding: 10px 0px;
    }
-   &__form{
+
+   &__form {
       width: 100%;
       display: flex;
       justify-content: space-around;
-      &-label{
+
+      &-label {
          width: 40%;
       }
    }
-   &__product{
+
+   &__product {
       padding: 5px;
       width: 100%;
       display: flex;
       position: relative;
-      &-img{
+
+      &-img {
          width: 20%;
          height: auto;
-         img{
+
+         img {
             width: 100%;
          }
       }
-      &-supp{
+
+      &-supp {
          width: 80%;
-         padding-left: 20px ;
+         padding-left: 20px;
          padding-right: 30px;
       }
-      &-list{
+
+      &-list {
          display: grid;
-         grid-template-columns: repeat(2,1fr) ;
-         grid-template-rows:repeat(2,minmax(2em,3em))  ;
+         grid-template-columns: repeat(2, 1fr);
+         grid-template-rows: repeat(2, minmax(2em, 3em));
          padding-top: 10px;
       }
-      &-title{
+
+      &-title {
          margin-bottom: 10px;
-         #product__name{
+
+         #product__name {
             font-size: 20px;
             font-weight: 100;
          }
       }
+
       &-item {
-         margin-bottom: 20px; 
-         .profile__list-block{
+         margin-bottom: 20px;
+
+         .profile__list-block {
             display: flex;
          }
-         .profile__list-sellect{
-            margin-left:5px ;
+
+         .profile__list-sellect {
+            margin-left: 5px;
             padding: 5px;
             font-size: 16px;
-            font-weight:100;
+            font-weight: 100;
             width: 50%;
          }
 
 
       }
+
       &-form {
          display: grid;
          grid-column: 1 / 3;
          width: 100%;
       }
-      
-      &-delete{
+
+      &-delete {
          position: absolute;
          top: 0px;
          right: 0px;
@@ -260,28 +309,31 @@
          justify-content: center;
          align-items: top;
          cursor: pointer;
-         img{
+
+         img {
             width: 24px;
             height: 24px;
          }
       }
 
    }
-   &__btn{
+
+   &__btn {
       padding: 20px 0;
       display: flex;
       justify-content: center;
-      &-item{
+
+      &-item {
          @include btn-white-black;
          background-color: lawngreen;
       }
-      
+
    }
 }
 
 // like...
 
-#like__btn{
+#like__btn {
    @include btn-white-black;
    background-color: green;
    padding: 10px;
@@ -290,49 +342,57 @@
 
 // zakaz
 
-.zakaz{
+.zakaz {
    width: 100%;
-   &__title{
+
+   &__title {
       padding: 30px 0px;
       text-align: center;
       margin-bottom: 10px;
       font-size: 25px;
    }
-   &__block{
+
+   &__block {
       margin: 0 auto;
       width: 98%;
       border-left: 1px $lightSer solid;
       border-right: 1px $lightSer solid;
-      padding:0 10px;
+      padding: 0 10px;
    }
-   &__list{
 
-   }
-   &__item{
+   &__list {}
+
+   &__item {
       color: #222;
       width: 100%;
       height: auto;
       margin-bottom: 20px;
-      &.green{
-      border:1px solid green ;
-         .zakaz__item-color{
-            background-color:green;
+
+      &.green {
+         border: 1px solid green;
+
+         .zakaz__item-color {
+            background-color: green;
          }
       }
-      &.red{
-         border:1px solid red ;
-            .zakaz__item-color{
-               background-color:red;
-            }
+
+      &.red {
+         border: 1px solid red;
+
+         .zakaz__item-color {
+            background-color: red;
          }
-      &-status{
+      }
+
+      &-status {
          position: relative;
 
-      }   
-      &-color{
+      }
+
+      &-color {
          position: absolute;
          top: 50%;
-         transform: translate(0%,-50%);
+         transform: translate(0%, -50%);
          left: -20px;
          width: 10px;
          height: 10px;
@@ -340,20 +400,21 @@
          border-radius: 50%;
       }
 
-      &-title{
+      &-title {
          position: relative;
-         padding: 15px ;
+         padding: 15px;
          padding-left: 30px;
-         h4{
+
+         h4 {
             font-size: 20px;
             font-weight: 500;
          }
       }
 
-      &-more{
+      &-more {
          position: absolute;
          top: 50%;
-         transform: translate(0%,-50%);
+         transform: translate(0%, -50%);
          right: 10px;
          width: 50px;
          height: 50px;
@@ -362,52 +423,74 @@
          display: flex;
          justify-content: center;
          align-items: center;
-         img{
+
+         img {
             width: 24px;
             height: 24px;
          }
+
+         &-modal {
+            display: none;
+            position: absolute;
+            top: -1em;
+            left: -100%;
+            z-index: 1;
+
+            &.active {
+               display: block;
+            }
+         }
       }
-      
+
    }
-   &__gallery{
+
+   &__gallery {
       padding: 5px;
-      &-list{
+
+      &-list {
          display: flex;
          justify-content: space-between;
       }
-      &-item{
+
+      &-item {
          display: flex;
          justify-content: center;
          margin-right: 5px;
-         &:last-child{
+
+         &:last-child {
             margin-right: 0px;
          }
-         img,div{
+
+         img,
+         div {
             width: 100%;
          }
-         
       }
-      &-more{
+
+      &-more {
          position: relative;
          background-color: #BBBBBB;
+
       }
-      &-after{
+
+      &-after {
          position: absolute;
          top: 50%;
          left: 50%;
-         transform: translate(-50%,-50%);
+         transform: translate(-50%, -50%);
          height: 100%;
          display: flex;
          justify-content: center;
          align-items: center;
 
-         img{
+         img {
             width: 50%;
-            
-            
+
+
          }
       }
-      &-opacity{
+
+      &-opacity {
          opacity: 0;
       }
    }
@@ -416,54 +499,59 @@
 
 // zakaz-more...
 
-.zakaz-more{
+.zakaz-more {
 
-   &__title{
+   &__title {
       font-size: 25px;
       padding: 0 15px;
       padding-top: 30px;
       margin-bottom: 30px;
    }
-   &__person{
+
+   &__person {
       font-size: 20px;
       font-weight: 100;
       padding: 0 5px;
       padding-left: 50px;
-      &-item{
+
+      &-item {
          color: #222;
          margin-bottom: 20px;
          position: relative;
-         &.person__name{
-            &::after{
-               content:"" ;
+
+         &.person__name {
+            &::after {
+               content: "";
                position: absolute;
                left: -35px;
                top: 50%;
-               transform: translate(0%,-50%);
+               transform: translate(0%, -50%);
                width: 24px;
                height: 24px;
                background: url("/img/page-icon/icons8-person-24.png") no-repeat center;
             }
          }
-         &.person__email{
-            &::after{
-               content:"" ;
+
+         &.person__email {
+            &::after {
+               content: "";
                position: absolute;
                left: -35px;
                top: 50%;
-               transform: translate(0%,-50%);
+               transform: translate(0%, -50%);
                width: 24px;
                height: 24px;
                background: url("/img/page-icon/icons8-find-email-24.png") no-repeat center;
             }
          }
-         &.person__local{
-            &::after{
-               content:"" ;
+
+         &.person__local {
+            &::after {
+               content: "";
                position: absolute;
                left: -35px;
                top: 50%;
-               transform: translate(0%,-50%);
+               transform: translate(0%, -50%);
                width: 24px;
                height: 24px;
                background: url("/img/page-icon/icons8-local-24.png") no-repeat center;
@@ -471,49 +559,174 @@
          }
       }
    }
-   &__summ{
+
+   &__summ {
       font-size: 25px;
       font-weight: 200;
-      p{
-         padding:30px;
+
+      p {
+         padding: 30px;
       }
    }
-   &__list{
+
+   &__list {
       width: 100%;
       padding-top: 30px;
-      &-item{
+
+      &-item {
          color: #222;
-        border: 1px $lightSer solid; 
+         border: 1px $lightSer solid;
       }
    }
-   &__product{
+
+   &__product {
       width: 97%;
       margin: 15px auto;
       padding: 10px;
       display: flex;
       justify-content: space-between;
-      &-blockImg{
+
+      &-blockImg {
          width: 20%;
-         img{
+
+         img {
             width: 100%;
          }
       }
-      &-blockSupp{
+
+      &-blockSupp {
          font-size: 20px;
          font-weight: 100;
-         p{
+
+         p {
             margin-bottom: 20px;
          }
-        
+
       }
-      &-priceCall{
+
+      &-priceCall {
          font-size: 18px;
-         p{
+
+         p {
             margin-bottom: 50%;
          }
-         p:last-child{
+
+         p:last-child {
             margin-bottom: 0;
          }
       }
    }
+}
+
+.panel {
+   width: 100%;
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   cursor: pointer;
+
+}
+
+// Transition group CSS
+.productPost {
+   list-style-type: none;
+}
+
+.productPost-enter {
+   opacity: 0;
+}
+
+.productPost-enter-active {
+   opacity: 1;
+   transition: opacity 500ms ease-in;
+}
+
+.productPost-exit {
+   opacity: 1;
+}
+
+.productPost-exit-active {
+   opacity: 0;
+   transition: opacity 500ms ease-in;
+}
+
+
+
+// MINI ACC
+.mini {
+   &-exit {
+      background-color: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1em;
+
+   }
+
+   &-exit__item {
+      transform: rotate(90deg);
+      width: 3em;
+      height: auto;
+   }
+
+   &-out {
+      background-color: #fff;
+      padding: 1.5rem;
+      margin: 0 10px;
+      margin-bottom: 1em;
+
+   }
+
+   &-out__item {
+      transform: rotate(90deg);
+      width: 3em;
+      height: auto;
+   }
+}
+
+.mini__header {
+   padding: 0 10px;
+}
+
+.mini__list {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+.main-container {
+   background-color: #eee;
+   z-index: 3;
+   position: absolute;
+   left: 0;
+   top: 0;
+   padding: 0 10px;
+
+   &.close {
+      display: none;
+   }
+
+   &.open {
+      display: block;
+
+   }
+}
+
+
+
+@media screen and (max-width: 1200px) {
+
+   // cab title
+   .cab__block.title {
+      display: none;
+   }
+
+   // cab NAvigate
+   .cab__block.mini {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .cab__supp {
+      width: 100%;
+   }
+
 }

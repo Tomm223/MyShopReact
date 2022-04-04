@@ -313,9 +313,9 @@
       "img_product": "/img/sniker/sniker1-1.jpg",
       "imgs": [
         "/img/sniker/sniker1-1.jpg",
-        "/img/t-shirt/sniker1-2.jpg",
-        "/img/t-shirt/sniker1-3.jpg",
-        "/img/t-shirt/sniker1-4.jpg"
+        "/img/sniker/sniker1-2.jpg",
+        "/img/sniker/sniker1-3.jpg",
+        "/img/sniker/sniker1-4.jpg"
       ],
       "sales-price": [
         29,
@@ -339,9 +339,9 @@
       "img_product": "/img/sniker/sniker2-1.jpg",
       "imgs": [
         "/img/sniker/sniker2-1.jpg",
-        "/img/t-shirt/sniker2-2.jpg",
-        "/img/t-shirt/sniker2-3.jpg",
-        "/img/t-shirt/sniker2-4.jpg"
+        "/img/sniker/sniker2-2.jpg",
+        "/img/sniker/sniker2-3.jpg",
+        "/img/sniker/sniker2-4.jpg"
       ],
       "sales-price": [
         129,
@@ -365,9 +365,9 @@
       "img_product": "/img/sniker/sniker3-1.jpg",
       "imgs": [
         "/img/sniker/sniker3-1.jpg",
-        "/img/t-shirt/sniker3-2.jpg",
-        "/img/t-shirt/sniker3-3.jpg",
-        "/img/t-shirt/sniker3-4.jpg"
+        "/img/sniker/sniker3-2.jpg",
+        "/img/sniker/sniker3-3.jpg",
+        "/img/sniker/sniker3-4.jpg"
       ],
       "sales-price": "false",
       "color": "Зеленый",
@@ -387,9 +387,9 @@
       "img_product": "/img/sniker/sniker4-1.jpg",
       "imgs": [
         "/img/sniker/sniker4-1.jpg",
-        "/img/t-shirt/sniker4-2.jpg",
-        "/img/t-shirt/sniker4-3.jpg",
-        "/img/t-shirt/sniker4-4.jpg"
+        "/img/sniker/sniker4-2.jpg",
+        "/img/sniker/sniker4-3.jpg",
+        "/img/sniker/sniker4-4.jpg"
       ],
       "sales-price": "false",
       "color": "Белый",
@@ -409,9 +409,9 @@
       "img_product": "/img/sniker/sniker5-1.jpg",
       "imgs": [
         "/img/sniker/sniker5-1.jpg",
-        "/img/t-shirt/sniker5-2.jpg",
-        "/img/t-shirt/sniker5-3.jpg",
-        "/img/t-shirt/sniker5-4.jpg"
+        "/img/sniker/sniker5-2.jpg",
+        "/img/sniker/sniker5-3.jpg",
+        "/img/sniker/sniker5-4.jpg"
       ],
       "sales-price": "false",
       "color": "Черный",
@@ -422,38 +422,38 @@
     {
       "id": "hEJ5E8slcsdmvdmv",
       "img": "/img/page-img/intro-men-jacket.jpg",
-      "title": "Куртки и Пальто",
-      "filter": "Куртка"
+      "title": "Куртки",
+      "filter": "noshoes"
     },
     {
       "id": "-hEJ5E8flkjghbitjor",
       "img": "/img/page-img/intro-men-bruki.jpg",
       "title": "Брюки",
-      "filter": "Штаны"
+      "filter": "bottom"
     },
     {
       "id": "-hEJkfdkvs455E8flkjghbitjor",
       "img": "/img/page-img/intro-men-rasprod.jpg",
       "title": "Распродажа",
-      "filter": "sales"
+      "filter": "sale"
     },
     {
       "id": "-hEJ304985748tjor",
       "img": "/img/page-img/intro-men-snikers.jpg",
       "title": "Кроссовки",
-      "filter": "Обувь"
+      "filter": "shoes"
     },
     {
       "id": "-hEJ304985748tjomdskvngkrngbkfr",
       "img": "/img/page-img/intro-men-t-shirt.jpg",
       "title": "Футболки",
-      "filter": "Футболка"
+      "filter": "t-shirt"
     },
     {
       "id": "304985748tj444omdskvn4i356969gkrngbkfr",
       "img": "/img/page-img/intro-men-rubash.jpg",
       "title": "Рубашки",
-      "filter": "Футболка"
+      "filter": "t-shirt"
     }
   ],
   "accountNavigate": [
@@ -689,6 +689,182 @@
             }
           ],
           "id": 432852417998587.94
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 98,
+          "products": [
+            {
+              "id": 485344813077.78754,
+              "amount": 1,
+              "size": "s",
+              "product_id": "02-3"
+            },
+            {
+              "id": 1028274640605.706,
+              "amount": 1,
+              "size": "s",
+              "product_id": "02-3"
+            }
+          ],
+          "id": 876088945790371.9
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 128,
+          "products": [
+            {
+              "id": 1152883425820.9097,
+              "amount": 1,
+              "size": "43",
+              "product_id": "33-4"
+            },
+            {
+              "id": 140107720195.17755,
+              "amount": 1,
+              "size": "xs",
+              "product_id": "02-3"
+            }
+          ],
+          "id": 247120673593112.56
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 180,
+          "products": [
+            {
+              "id": 1225365246739.9624,
+              "amount": 1,
+              "size": "32x34",
+              "product_id": "11-2"
+            },
+            {
+              "id": 537510708437.8852,
+              "amount": 1,
+              "size": "32x32",
+              "product_id": "11-1"
+            }
+          ],
+          "id": 509199839560559
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 300,
+          "products": [
+            {
+              "id": 599318634203.9374,
+              "amount": 1,
+              "size": "xs",
+              "product_id": "27-6"
+            }
+          ],
+          "id": 161225821533500.62
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 600,
+          "products": [
+            {
+              "id": 1156630235468.176,
+              "amount": 1,
+              "size": "xl",
+              "product_id": "27-6"
+            },
+            {
+              "id": 36950179203.43337,
+              "amount": 1,
+              "size": "m",
+              "product_id": "27-6"
+            }
+          ],
+          "id": 378616540934099.44
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 218,
+          "products": [
+            {
+              "id": 927710063188.7932,
+              "amount": 1,
+              "size": "42",
+              "product_id": "33-5"
+            },
+            {
+              "id": 887051528247.4027,
+              "amount": 1,
+              "size": "44",
+              "product_id": "33-5"
+            }
+          ],
+          "id": 1048046385677635.9
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 29,
+          "products": [
+            {
+              "id": 119367308178.04224,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-1"
+            }
+          ],
+          "id": 701432382733313.5
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 49,
+          "products": [
+            {
+              "id": 756497781689.1392,
+              "amount": 1,
+              "size": "s",
+              "product_id": "02-2"
+            }
+          ],
+          "id": 479028927792293.44
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 258,
+          "products": [
+            {
+              "id": 973543960669.9784,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-3"
+            },
+            {
+              "id": 529684612194.25476,
+              "amount": 1,
+              "size": "42",
+              "product_id": "33-1"
+            }
+          ],
+          "id": 278144070495547.8
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 59,
+          "products": [
+            {
+              "id": 317535068446.6431,
+              "amount": 5,
+              "size": "m",
+              "product_id": "02-1"
+            }
+          ],
+          "id": 920394270125182.1
         }
       ]
     },
@@ -698,6 +874,229 @@
       "likes": [],
       "order": [],
       "id": "01SVv-T"
+    },
+    {
+      "user_id": "GJVPYHT",
+      "basket": [],
+      "likes": [],
+      "order": [
+        {
+          "send": "true",
+          "local": "BELORUSS, rf'dpkg, ;ds, fghyjgtf",
+          "sum": 298,
+          "products": [
+            {
+              "id": 554857228453.4789,
+              "amount": 1,
+              "size": "s",
+              "product_id": "27-4"
+            },
+            {
+              "id": 1045200203757.5643,
+              "amount": 1,
+              "size": "42",
+              "product_id": "33-2"
+            }
+          ],
+          "id": 83272715411865.7
+        }
+      ],
+      "id": "_snVy8r"
+    },
+    {
+      "user_id": "2dfBgAr",
+      "basket": [
+        {
+          "id": 885918656768.7933,
+          "amount": 1,
+          "size": "42",
+          "product_id": "33-2"
+        }
+      ],
+      "likes": [],
+      "order": [
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 8711066526716.492
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 672382662933570.5
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 1012239647525192.1
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 898986092948396
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 129,
+          "products": [
+            {
+              "id": 220132503604.43665,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-2"
+            }
+          ],
+          "id": 753051743393370.9
+        }
+      ],
+      "id": "TlPv6yH"
+    },
+    {
+      "user_id": "ME_pJBK",
+      "basket": [
+        {
+          "id": 1158635163538.4443,
+          "amount": 1,
+          "size": "33x34",
+          "product_id": "11-2"
+        },
+        {
+          "id": 847733393563.5719,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 1010769563607.2129,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 329395246844.6983,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 213187119725.00528,
+          "amount": 1,
+          "size": "xs",
+          "product_id": "27-3"
+        }
+      ],
+      "likes": [
+        {
+          "id": 1113846195372.2942,
+          "amount": 1,
+          "size": "m",
+          "product_id": "02-2"
+        },
+        {
+          "id": 265336583075.03403,
+          "amount": 1,
+          "size": "29x30",
+          "product_id": "11-2"
+        },
+        {
+          "id": 416805311285.5755,
+          "amount": 1,
+          "size": "xs",
+          "product_id": "27-3"
+        },
+        {
+          "id": 387050172488.5717,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 535056224571.43475,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 622827540097.2285,
+          "amount": 1,
+          "size": "m",
+          "product_id": "27-3"
+        },
+        {
+          "id": 872203588696.6823,
+          "amount": 1,
+          "size": "xs",
+          "product_id": "27-3"
+        },
+        {
+          "id": 413872237056.2443,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        }
+      ],
+      "order": [
+        {
+          "send": "true",
+          "local": "RUSSIA, Иннополис, блабла, нету",
+          "sum": 49,
+          "products": [
+            {
+              "id": 402247060824.26825,
+              "amount": 1,
+              "size": "xs",
+              "product_id": "02-2"
+            }
+          ],
+          "id": 1041894547013535.9
+        }
+      ],
+      "id": "EnJi-Pa"
+    },
+    {
+      "user_id": "mWpDEd-",
+      "basket": [],
+      "likes": [],
+      "order": [],
+      "id": "IpIwa5z"
+    },
+    {
+      "user_id": "-93cLKX",
+      "basket": [],
+      "likes": [],
+      "order": [
+        {
+          "send": "true",
+          "local": "BELORUSS, sbfgfgnb, sdvb fg, bdfbgfdb",
+          "sum": 49,
+          "products": [
+            {
+              "id": 488300908214.4252,
+              "amount": 1,
+              "size": "m",
+              "product_id": "02-3"
+            }
+          ],
+          "id": 356854074958046.94
+        }
+      ],
+      "id": "lNyrREi"
+    },
+    {
+      "user_id": "baViiNm",
+      "basket": [],
+      "likes": [],
+      "order": [],
+      "id": "LfuQdvc"
     }
   ],
   "basketChange": [],
@@ -729,10 +1128,10 @@
       "password": "daniilOsipov",
       "email": "dan.osipov99@mail.ru",
       "address": {
-        "country": "russia",
         "city": "Velikiy Novgorod",
         "street": "Kochetova",
-        "house": "23"
+        "house": "23",
+        "country": "USA"
       }
     },
     {
@@ -747,6 +1146,84 @@
         "country": "beloruss"
       },
       "id": "i-4ciMQ"
+    },
+    {
+      "email": "danila@mail.ru",
+      "firstName": "dgfbgdfbgfd",
+      "lastName": "smv;lfm;vlfmld",
+      "password": "danila",
+      "address": {
+        "city": "rf'dpkg",
+        "street": ";ds",
+        "house": "fghyjgtf",
+        "country": "beloruss"
+      },
+      "id": "GJVPYHT"
+    },
+    {
+      "email": "dd44sdg@mail.ru",
+      "firstName": "dfgfdgfgfd",
+      "lastName": "fgdfgdfgfdgsb",
+      "password": "1234",
+      "address": {
+        "city": "rethytjyukuy",
+        "street": "kbuukiln;l",
+        "house": "43w35435",
+        "country": "russia"
+      },
+      "id": "2dfBgAr"
+    },
+    {
+      "email": "katenkadem1denko@yandex.ru",
+      "firstName": "Катенька",
+      "lastName": "Осипова",
+      "password": "люблюданю",
+      "address": {
+        "city": "Иннополис",
+        "street": "блабла",
+        "house": "нету",
+        "country": "russia"
+      },
+      "id": "ME_pJBK"
+    },
+    {
+      "email": "dad@mai.ru",
+      "firstName": "sdfgbhf",
+      "lastName": "dfgfdgddfgfgdfdg",
+      "password": "fsovmfl;mv;dfl",
+      "address": {
+        "city": "Иннополис",
+        "street": "блабла",
+        "house": "нету",
+        "country": "USA"
+      },
+      "id": "mWpDEd-"
+    },
+    {
+      "email": "gfdbdf@vdfb.ere",
+      "firstName": "fdbgbfg",
+      "lastName": "bdfbdfbdf",
+      "password": "dfbgfg",
+      "address": {
+        "city": "sbfgfgnb",
+        "street": "sdvb fg",
+        "house": "bdfbgfdb",
+        "country": "beloruss"
+      },
+      "id": "-93cLKX"
+    },
+    {
+      "email": "oiga.gaponuk@icloud.com",
+      "firstName": "апрапваыв",
+      "lastName": "Osipov",
+      "password": "daniilOsipov",
+      "address": {
+        "city": "Velikiy Novgorod",
+        "street": "Kochetov",
+        "house": "24",
+        "country": "beloruss"
+      },
+      "id": "baViiNm"
     }
   ]
 }

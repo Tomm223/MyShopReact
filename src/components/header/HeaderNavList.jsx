@@ -1,23 +1,41 @@
 import React, { useState } from "react";
+import { Navigate, NavLink, useLocation } from "react-router-dom";
+import { useNavigateParams } from "../../hook/useSearchParams";
 import HeaderNavSort from "./HeaderNavSort";
-function HeaderNavList(props) {
+import { BuildType } from "../../Filtres/TypesSearch";
+
+function HeaderNavList({ style }) {
+
+   const navigateParams = useNavigateParams()
+
    const [category, setCategory] = useState([{ name: "Распродажа", key: 111, id: "sale" },
-   { name: "Новинки", key: 222, id: "news" },
-   { name: "Одежда", key: 222, id: "shot" },
-   { name: "Обувь", key: 222, id: "shot" },
-   { name: "Модно в этом году", key: 222, id: "shot" },
-   { name: "Бренды", key: 222, id: "shot" },
-   { name: "Всё", key: 222, id: "shot" }])
+   { name: "Новинки", key: 221, id: "news" },
+   { name: "Одежда", key: 222, id: "noshoes" },
+   { name: "Обувь", key: 223, id: "shoes" },
+   { name: "Модно в этом году", key: 226, id: "moda" },
+   { name: "Бренды", key: 224, id: "luxery" },
+   { name: "Всё", key: 225, id: "all" }])
+
+   function Handle(event, item) {
+      event.stopPropagation()
+      console.log(item);
+      navigateParams('/cataloge', { collection: BuildType(item.id) })
+
+   }
+
+
+
    return (
       <div>
-         <nav className={props.style}>
+         <nav className={style ? "nav active" : "nav"}>
             <ul class="nav__list">
-               {category.map((item, index) => {
+               {category.map((item) => {
                   return (
-                     <li key={index} class="nav__item">
-                        <a href="#" class="nav__link" key={item.key}>{item.name}</a>
+                     <div onClick={(event) => Handle(event, item)}
+                        key={item.key} class="nav__item">
+                        <p class="nav__link" >{item.name}</p>
                         <HeaderNavSort category={item.id} />
-                     </li>)
+                     </div>)
                })}
 
             </ul>
@@ -26,3 +44,7 @@ function HeaderNavList(props) {
    )
 }
 export default HeaderNavList
+
+
+// event.stopPropagation()
+//navigeteParams('/cataloge', { collection: BuildType(item.id) })

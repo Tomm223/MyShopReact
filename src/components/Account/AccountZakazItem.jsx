@@ -5,16 +5,12 @@ import AccountZakazListProduct from "./AccountZakazListImg";
 import { NavLink } from "react-router-dom"
 import { AuthContext } from "../../Context/AuthProvider";
 function AccountZakazItem({ order, productsOrder }) {
-   /*function styleBlock() {
-      if (order.send == true) {
-         return "zakaz__item green"
-      }
-      else if (order.send == false) {
-         return "zakaz__item red"
-      }
-   }*/
+   const [delBool, setDelBool] = useState(false)
+   function HandleMore() {
+      setDelBool(true)
+   }
+   const classMoreDel = delBool ? "zakaz__item-more-modal active" : "zakaz__item-more-modal"
    const { products } = useContext(ProductsContext)
-   console.log(order)
 
    return (
       <NavLink to="more" state={{ order }}>
@@ -25,8 +21,18 @@ function AccountZakazItem({ order, productsOrder }) {
                   {order.send == "true" ? "ОТПРАВЛЕН" : "НЕ ОТПРАВЛЕН"}
                </div>
                <aside>Заказ № <span id="zakaz__num">{order.id}</span></aside>
-               <div class="zakaz__item-more">
+               <div onClick={HandleMore} class="zakaz__item-more">
                   <img src="/img/page-icon/more.png" alt="more" />
+                  <div className={classMoreDel}>
+                     <ul className="list-group">
+                        <li className="list-group-item">
+                           <div className="d-flex p-right-15">
+                              <p>удалить</p>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
                </div>
             </div>
             <div class="zakaz__gallery">
@@ -42,6 +48,7 @@ function AccountZakazItem({ order, productsOrder }) {
                         <div class="zakaz__gallery-after"><img src="/img/page-icon/more-img.png"
                            alt="" /></div>
                      </div>
+
                   </li>
                </ul>
             </div>

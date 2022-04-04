@@ -53,13 +53,33 @@ export async function BuildOptionsSelect(filter) {
    else if (filter.toLowerCase() == 'amount') {
       return AmountOption
    }
+   else if (filter.toLowerCase() == 'country') {
+      return CountryOptions
+   }
    else {
       //   console.log(SMLOption)
       return SMLOption
    }
 }
 
-
+const CountryOptions = [
+   {
+      value: "russia",
+      label: "Россия"
+   },
+   {
+      value: "USA",
+      label: "США"
+   },
+   {
+      value: "beloruss",
+      label: "Белорусь"
+   },
+   {
+      value: "chehia",
+      label: "Чехия"
+   }
+]
 const SMLOption = [
    {
       value: "xs",

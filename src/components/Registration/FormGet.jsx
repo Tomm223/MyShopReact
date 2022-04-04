@@ -6,13 +6,11 @@ import { useForm } from 'react-hook-form'
 import { GetAxios, PostAxios } from "../../Fetch/Fetching"
 import { ErrorsMessage } from '../UI/Form/ErrorsMessage'
 import { ParamsForm } from '../UI/Form/Form'
+import { PagesContext } from "../../Context/PagesProvider";
 function FormGet() {
    const { singIn, fromPage } = useContext(AuthContext)
-   const { usSetCheckId } = useContext(AccountContext)
+   const { NavigateTo } = useContext(AuthContext)
    //navigate
-   const navigate = useNavigate()
-   //form func
-   const NavigateTo = () => navigate(fromPage, { replace: true })
 
    const {
       register,

@@ -3,6 +3,7 @@ import { NavLink, useSearchParams } from "react-router-dom";
 import { PagesContext } from "../../Context/PagesProvider";
 import ProductsContext from "../../Context/ProductsContext";
 import CatalogeFilterItem from "./CatalogeFilterItem";
+
 function CatalogeFilter({ mass, setMass, filtres, name }) {
    const { tabs, setTabs } = useContext(PagesContext)
    const styleOptions = {
@@ -36,7 +37,7 @@ function CatalogeFilter({ mass, setMass, filtres, name }) {
                <div style={styleOptions} class="filter__option">
                   <div class="filter__option-filter">
                      <div class="filter__option-block">
-                        <p class="filter__option-span">Выбрано: <span>{ }</span></p>
+                        <p class="filter__option-span">Выбрано: <span>{mass.length}</span></p>
                      </div>
                      <input onClick={searchStart} class="filter__option-btn" type="button" value="Выбрать" />
                   </div>

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import axios from "axios"
+import { useSelector } from "react-redux";
 
 export const GetAxios = async (url) => {
    const response = await axios.get(`http://localhost:3000/${url}`)
@@ -17,8 +18,6 @@ export const PutAxios = async (url, body) => {
    const response = await axios.put(`http://localhost:3000/${url}`, body)
    return response
 }
-
-
 export const BuildBody = (key, body) => {
    if (key == 'basket') {
       return {
@@ -46,8 +45,6 @@ export const AddProduct = async (userID, basLikOrd, bodyItem) => {
    //return responsePatch
    // СЮДА ПОЛОЖИТЬ ФУНКЦИЯ С ОТОБРАЖЕНИЕМ ТОГО ЧТО PRODUCTS БЫЛ ИЗМЕНЕН
 }
-
-
 export async function DeleteProduct(userID, basLikOrd, prodID) {
    const { id, AccArray } = await AccProductGet(userID, basLikOrd)
    const FilterArray = await AccArray.filter((item) => item.id != prodID)
@@ -62,7 +59,6 @@ export async function DeleteProductS(id, basLikOrd) {
    const response = await PatchAxios(`userChange/${id}`, body)
    return response
 }
-
 export async function ToOrder(userID, changeStart, changeEnd) {
    const { id, AccArray } = await AccProductGet(userID, changeStart)
    const bodyOrder = await BuildOrder(userID, AccArray)
@@ -141,6 +137,7 @@ export async function BuildChangeNewProducts(userID, baskLike, newItem) {
 
 
 }
+
 
 
 

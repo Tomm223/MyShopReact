@@ -2,12 +2,25 @@ import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Moda from "../Moda";
 import ProductSuppImg from "./ProductSuppImg";
-import { AuthContext } from "../../Context/AuthProvider"
 import { PagesContext } from "../../Context/PagesProvider";
-import { AddProduct, PatchAxios } from "../../Fetch/Fetching"
+import { AddProduct } from "../../Fetch/Fetching"
 import { useForm, Controller } from 'react-hook-form'
 import { SelectReact, BuildOptionsSelect, ParamsForm } from "../UI/Form/Form";
+import { useDispatch, useSelector } from "react-redux";
+import { AlertToAccount } from "../UI/Product/AlertChange";
+import { productImgChange, productToAcc } from "../../Redux/actions/ProductActions";
+import { AlertDefault } from "../UI/Alerts/Alerts";
+
+
 export default function Product() {
+   //const { user } = useContext(AuthContext)
+   const user = useSelector(state => state.user.user)
+   // redux state 
+   const alertBool = useSelector(state => state.product.alert)
+   const [alertDef, setAlertDef] = useState(false)
+   const watchImg = useSelector(state => state.product.watchImg)
+   const dispatch = useDispatch()
+
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
@@ -17,7 +30,6 @@ export default function Product() {
 
    // Product-DATA      |GET|
    const location = useLocation()
-   const [numImg, setnumImg] = useState(0)
    const product = location.state.product
    const imgs = product.imgs
    // form product
@@ -38,50 +50,80 @@ export default function Product() {
       const option = await BuildOptionsSelect(product.filter_name)
       setOptions(option)
    }, [])
-   console.log(options);
+
    //func form
    const { ProductBuild } = useContext(PagesContext)
    const [change, setChange] = useState()
+
    async function HandleProduct(data) {
       if (user) {
-         const prod = await ProductBuild(product, data.size)
-         const response = await AddProduct(user.id, change, prod)
-         console.log(response);
-         reset()
+         try {
+            const prod = await ProductBuild(product, data.size)
+            const response = await AddProduct(user.id, change, prod)
+            reset()
+            dispatch(productToAcc(prod, change))
+         }
+         catch {
+            setAlertDef("Что-то пошло не так")
+         }
       }
       else {
-         alert("Войдите в Аккаунт чтобы добавить ")
+         setAlertDef("Войдите в Аккаунт чтобы добавить")
       }
 
    }
-   // 
-   const { user } = useContext(AuthContext)
 
-   //onClick={() => user.id ? AddProduct(user.id, "basket", ProductBuild()) : alert("Войдите в Аккаунт чтобы добавть продукт в Корзину ")}
+   function handleImg(event) {
+      const item = event.target
+      item.className.includes("right") ? ImgReducer(true) : ImgReducer(false)
+   }
+
+
+   function ImgReducer(side) {
+      if (side) {
+         watchImg == 3
+            ? dispatch(productImgChange(0))
+            : dispatch(productImgChange(watchImg + 1))
+      }
+      else {
+         watchImg == 0
+            ? dispatch(productImgChange(3))
+            : dispatch(productImgChange(watchImg - 1))
+      }
+   }
+
+   useEffect(() => {
+      dispatch(productImgChange(0))
+   }, [])
+
+   const SRCimgs = (mass) => imgs.length > 1 ? mass[watchImg] : mass[0]
+
    return (
       <>
+         {alertDef && <AlertDefault state={alertDef} setState={setAlertDef} />}
          <div class="profile">
+            {alertBool && <AlertToAccount />}
             <div class="container">
                <div class="profile__block">
                   <div class="profile__fotos">
                      <div class="profile__img">
-                        <img className="profile__img-item" src={imgs[numImg]} alt="" />
-                        <div class="profile__img-left">
-                           <img src="/img/page-icon/down-arrow.png" alt="предыдущая фотография" />
+                        <img className="profile__img-item" src={SRCimgs(imgs)} alt="" />
+                        <div onClick={handleImg} class="profile__img-left">
+                           <img className="profile__img-left-item" src="/img/page-icon/down-arrow.png" alt="предыдущая фотография" />
                         </div>
-                        <div class="profile__img-right">
-                           <img src="/img/page-icon/down-arrow.png" alt="следующая фотография" />
+                        <div onClick={handleImg} class="profile__img-right">
+                           <img className="profile__img-right-item" src="/img/page-icon/down-arrow.png" alt="следующая фотография" />
                         </div>
                      </div>
                      <div class="profile__fotos-supp">
                         {imgs.map((img, index) => {
-                           return (<ProductSuppImg key={index} id={index} numImg={numImg} imgLink={img} />)
+                           return (<ProductSuppImg key={index} id={index} numImg={imgs.length > 1 ? watchImg : [0]} imgLink={img} />)
                         })}
-                        <div class="profile__img-left">
-                           <img src="/img/page-icon/down-arrow.png" alt="предыдущая фотография" />
+                        <div onClick={handleImg} class="profile__img-left">
+                           <img className="profile__img-left-item" src="/img/page-icon/down-arrow.png" alt="предыдущая фотография" />
                         </div>
-                        <div class="profile__img-right">
-                           <img src="/img/page-icon/down-arrow.png" alt="следующая фотография" />
+                        <div onClick={handleImg} class="profile__img-right">
+                           <img className="profile__img-right-item" src="/img/page-icon/down-arrow.png" alt="следующая фотография" />
                         </div>
                      </div>
                   </div>
@@ -109,19 +151,21 @@ export default function Product() {
                         <li class="profile__list-item">
                            <div class="profile__list-block">
                               <form className="profile__list-form" onSubmit={handleSubmit(HandleProduct)}>
-                                 <label className="profile__list-sizeP">Pазмер:
+                                 <div className="profile__list-select">Pазмер:
                                     <Controller className="profile__list-select" control={control} name="size" rules={ParamsForm("size")}
                                        render={({ field: { onChange, value }, fieldState: { error } }) =>
                                           <SelectReact onChange={onChange} value={value} error={error} options={options} />
                                        } />
-                                 </label>
-                                 <button onClick={() => setChange("basket")} type="submit" class="profile__btn-basket">
-                                    <img src="/img/page-icon/basket.png" alt="" />
-                                    Добавить в Корзину
-                                 </button>
-                                 <button onClick={() => setChange("likes")} type="submit" className="profile__btn-like">
-                                    <img src="/img/page-icon/circle-love-50.png" alt="" />
-                                 </button>
+                                 </div>
+                                 <div style={{ display: "flex" }}>
+                                    <button onClick={() => setChange("basket")} type="submit" class="profile__btn-basket">
+                                       <img src="/img/page-icon/basket.png" alt="" />
+                                       Добавить в Корзину
+                                    </button>
+                                    <button onClick={() => setChange("likes")} type="submit" className="profile__btn-like">
+                                       <img src="/img/page-icon/circle-love-50.png" alt="" />
+                                    </button>
+                                 </div>
                               </form>
                            </div>
                         </li>

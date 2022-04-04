@@ -45,11 +45,8 @@ function HeaderNavSort(props) {
             </div>
             <div class="sort__item-block">
                <h3 class="sort__item-title">Начните гардероб с представленных товаров</h3>
-               <div class="gallery__item ">
-                  <img class="gallery__item-img" src="../src/img/page-img/intro-men-jacket.jpg" alt="img-jacket" />
-                  <div class="gallery__item-title">
-                     Куртки и Пальто
-                  </div>
+               <div class="" style={{ display: "flex", justifyContent: "center" }}>
+                  <img class="" src="/img/page-img/intro-men-jacket.jpg" alt="img-jacket" />
                </div>
             </div>
          </div>

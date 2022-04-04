@@ -7,35 +7,18 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { GetAxios, PostAxios } from "../../Fetch/Fetching"
 import { useForm, Controller } from 'react-hook-form'
 import ReactSelect from 'react-select'
-import FormInput from '../UI/Form/Form'
+import FormInput, { BuildOptionsSelect } from '../UI/Form/Form'
 import { SelectReact, ParamsForm } from '../UI/Form/Form'
 import { ErrorsMessage } from "../UI/Form/ErrorsMessage";
+import { PagesContext } from "../../Context/PagesProvider";
 
 
-const options = [
-   {
-      value: "russia",
-      label: "Россия"
-   },
-   {
-      value: "USA",
-      label: "США"
-   },
-   {
-      value: "beloruss",
-      label: "Белорусь"
-   },
-   {
-      value: "chehia",
-      label: "Чехия"
-   }
-]
+
 
 function FormPost() {
    const { usSetCheckId } = useContext(AccountContext)
    const { singIn, fromPage } = useContext(AuthContext)
-   const navigate = useNavigate()
-   const NavigateTo = () => navigate(fromPage, { replace: true })
+   const { NavigateTo } = useContext(AuthContext)
    const {
       register,
       formState: { errors },
@@ -123,6 +106,12 @@ function FormPost() {
       }
    ]
 
+   // BuildOptions for Select
+   const [options, setOptions] = useState([])
+   useEffect(async () => {
+      const option = await BuildOptionsSelect('country')
+      setOptions(option)
+   }, [])
 
    return (
       <>

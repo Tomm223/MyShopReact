@@ -4,15 +4,13 @@ import { Link } from "react-router-dom"
 import { PagesContext } from "../Context/PagesProvider";
 import { useEffect, useContext } from 'react'
 import { AuthContext } from "../Context/AuthProvider";
+import { useSelector } from "react-redux";
 function Welcome() {
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
    }, [])
-
-   const { user } = useContext(AuthContext)
-   // console.log("user: ", typeof user.id);
 
    return (
       <>
@@ -22,6 +20,9 @@ function Welcome() {
                <span class="intro__text-p">the brand</span>
                <span class="intro__text-span">of luxerious fashion</span>
                <form class="intro__for">
+                  <div>
+
+                  </div>
                   <Link to="women" className="intro__for-item" > ЖЕНЩИНЫ </Link>
                   <Link to="men" className="intro__for-item" > МУЖЧИНЫ </Link>
                </form>

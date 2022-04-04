@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 export const PagesContext = React.createContext()
 
 function PagesProvider({ children }) {
@@ -11,7 +12,7 @@ function PagesProvider({ children }) {
    const [color, setColor] = useState([])
    const [season, setSeason] = useState([])
    const [basic, setBasic] = useState([])
-   const massFilters = [brand, category, material, season, basic]
+   const massFilters = [brand, category, material, season, basic, color]
    const setMassFilters = [setBrand, setCategory, setMaterial, setSeason, setBasic]
    const [finishFilter, setFinishFilter] = useState([])
    const DELETEFiltresState = (products) => {
@@ -20,6 +21,7 @@ function PagesProvider({ children }) {
          item(null)
       })
    }
+
    function searchForFilter(products) {
       setFinishFilter(prev => [])
       for (var i = 0; i < 6; i++) {

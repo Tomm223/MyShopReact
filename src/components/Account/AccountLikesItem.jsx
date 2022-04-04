@@ -63,7 +63,7 @@ function AccountLikesItem({ userID, item, product, size, itemId }) {
                   <div class="basket__product-item">
                      <div class="basket__product-form">
                         <form style={{ paddingRight: "1em" }}>
-                           <label class="basket__form-label">
+                           <label style={{ width: '95%' }} class="basket__form-label">
                               <h4 class="">Pазмер:</h4>
                               <Controller control={control} name="size" rules={ParamsForm("size")}
                                  render={({ field: { onChange, value }, fieldState: { error } }) =>

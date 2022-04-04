@@ -1,19 +1,36 @@
 import React, { useEffect, useState, useRef, useContext, useCallback } from "react";
-import { Outlet, NavLink } from 'react-router-dom'
+import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import AccountNavigate from "./AccountNavigate";
 import { PagesContext } from "../../Context/PagesProvider";
 import { AuthContext } from "../../Context/AuthProvider";
 import { AccountContext } from "../../Context/AccountProvider";
-import { AccProductGet, GetAxios } from "../../Fetch/Fetching";
-
+import { AccProductGet } from "../../Fetch/Fetching";
+import { useDispatch, useSelector } from "react-redux";
+import { LocationFrom } from "../../Redux/actions/PagesActions";
+import AccountOut from "../UI/Account/AccountOut";
+import { useWindowSize } from '../../hook/useWindowSize'
+import { AccountExitMini, AccountOutMini } from "../UI/Account/AccountExitMini";
 
 function Account() {
+   //responsive
+   const { minLabTop,
+      minTablet,
+      minMonitor,
+      minFon, minBigAcc } = useWindowSize()
    //pageYo
    const { pageY0 } = useContext(PagesContext)
    useEffect(() => {
       pageY0()
    }, [])
+   // accOUT
 
+   const location = useLocation()
+   const dispatch = useDispatch()
+   useEffect(() => {
+      if (location.state) {
+         dispatch(LocationFrom(location.state.from))
+      }
+   }, [])
 
    const [navigate, setNavigate] = useState([])
 
@@ -69,7 +86,7 @@ function Account() {
    }
 
    function scrolling() {
-      const localNavTen = navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
+      const localNavTen = minBigAcc && navigateBlock.current.getBoundingClientRect().top + this.window.scrollY - 10
       const pageY = this.window.scrollY
       const minus100 = pageY - localNavTen
       minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
@@ -92,23 +109,31 @@ function Account() {
       left: `${navLeft}px`,
       width: `${navWidth}`
    }
+
+
+
    //Это не нужно только без него не работает((((
    const styleCab = {
       position: "relative"
    }
-   const { user } = useContext(AuthContext)
-   const { userChange, UseSetChages } = useContext(AccountContext)
-   console.log(userChange);
+   //const { user } = useContext(AuthContext)
+   const user = useSelector(state => state.user.user)
+   const { UseSetChages } = useContext(AccountContext)
    useEffect(async () => {
       const response = await AccProductGet(user.id)
       UseSetChages(response.AccArray)
    }, [])
 
+
+   // account for mini screen
+
+   const styleMiniMain = useSelector(state => state.account.responsive_main)
+
    return (
       <>
          <div class="registration-body">
             <div ref={cab} style={styleCab} class="cab">
-               <div class="cab__block">
+               <div class="cab__block title">
                   <div className="cab__nav-title">
                      <NavLink to='/' style={{ width: "100%" }}>
                         <img src="/img/page-icon/vesh-logo2.png" alt="lojgo" />
@@ -118,31 +143,62 @@ function Account() {
                      <h1>Личный кабинет</h1>
                   </div>
                </div>
-               <div className="cab__block">
-                  <div ref={navigateBlock} style={styleNavBlock} className="navigateBlock">
-                     <div ref={cabNav} style={styleNav} className="cab__nav">
-                        <nav class="cab__nav-nav">
-                           <div class="cab__nav-face">
-                              <div class="cab__ava">
-                                 <img src="/img/page-icon/delivery.svg" alt="" class="cab__ava-item" />
+               {minBigAcc
+                  ?
+                  <div className="cab__block">
+                     <div ref={navigateBlock} style={styleNavBlock} className="cab__navigateBlock">
+                        <div ref={cabNav} style={styleNav} className="cab__nav">
+                           <nav class="cab__nav-nav">
+                              <div class="cab__nav-face">
+                                 <div class="cab__ava">
+                                    <img src="/img/page-icon/delivery.svg" alt="" class="cab__ava-item" />
+                                 </div>
+                                 <div class="cab__ava-text">
+                                    <p id="ava__f-name">{user.firstName}</p>
+                                    <p id="ava__l-name">{user.lastName}</p>
+                                 </div>
                               </div>
-                              <div class="cab__ava-text">
-                                 <p id="ava__f-name">{user.firstName}</p>
-                                 <p id="ava__l-name">{user.lastName}</p>
-                              </div>
-                           </div>
-                           <ul class="cab__list">
-                              {navigate.map((link) => {
-                                 return (<AccountNavigate key={link.id} link={link} />)
-                              })}
-                           </ul>
-                        </nav>
+                              <ul class="cab__list">
+                                 {navigate.map((link) => {
+                                    return (<AccountNavigate key={link.id} link={link} />)
+                                 })}
+                              </ul>
+                           </nav>
+                        </div>
+                     </div>
+                     <div class="cab__supp">
+                        <Outlet />
                      </div>
                   </div>
-                  <div class="cab__supp">
-                     <Outlet />
+                  :
+                  <div className="cab__block mini">
+                     <AccountOutMini />
+                     <header class="mini__header">
+                        <div class="cab__nav-face">
+                           <div class="cab__ava">
+                              <img src="/img/page-icon/delivery.svg" alt="" class="cab__ava-item" />
+                           </div>
+                           <div class="cab__ava-text">
+                              <p id="ava__f-name">{user.firstName}</p>
+                              <p id="ava__l-name">{user.lastName}</p>
+                           </div>
+                        </div>
+                        <ul class="mini__list">
+                           {navigate.map((link) => {
+                              return (<AccountNavigate key={link.id} link={link} />)
+                           })}
+                        </ul>
+                     </header>
+                     <div class="cab__supp mini__supp">
+                        <div className={styleMiniMain ? `main-container open` : 'main-container close'}>
+                           <AccountExitMini />
+                           <Outlet />
+                        </div>
+
+                     </div>
                   </div>
-               </div>
+               }
+
             </div>
          </div>
 
@@ -152,44 +208,3 @@ function Account() {
 export default Account
 
 
-/*///////// ТО КАК ПРОИСХОДИЛ СБОР ДАННЫХ СО ВСЕХ CHANGES + DELETES
-
- //приемка 001
-   useEffect(() => {
-      if (checkId && JSON.parse(localStorage.getItem("ChangeBasket")) == null) {
-         console.log("ВОТ ХУЕТА");
-         fetch("http://localhost:3000/basketChange")
-            .then(data => data.json())
-            .then(data => usSetChangeBasket(data))
-         fetch("http://localhost:3000/likesChange")
-            .then(data => data.json())
-            .then(data => usSetChangeLikes(data))
-         fetch("http://localhost:3000/orderChange")
-            .then(data => data.json())
-            .then(data => usSetChangeOrder(data))
-         fetch("http://localhost:3000/DeleteOrder")
-            .then(data => data.json())
-            .then(data => usSetDeleteOrder(data))
-         fetch("http://localhost:3000/DeleteLikes")
-            .then(data => data.json())
-            .then(data => usSetDeleteLikes(data))
-         fetch("http://localhost:3000/DeleteBasket")
-            .then(data => data.json())
-            .then(data => usSetDeleteBasket(data))
-      }
-   }, [])
-
-   // приемка инфы DEFAULTE
-   useEffect(() => {
-      if (!checkId) {
-         fetch("http://localhost:3000/UserChange")
-            .then(data => data.json())
-            .then(data => {
-               const MassInfoUser = data.filter((item) => item.user_id == 'default')
-               getChangeDef(MassInfoUser[0])
-            })
-      }
-   }, [])
-
-
-*/

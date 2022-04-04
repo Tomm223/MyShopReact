@@ -1,13 +1,15 @@
 @import "./reset.css";
 @import "./vars.scss";
 @import url('https://fonts.googleapis.com/css2?family=Jura&family=Lato&display=swap');
-.index-body{
+
+.index-body {
    color: $white;
    font-family: 'Jura', sans-serif;
    font-family: 'Lato', sans-serif;
    font-family: 'Jura', sans-serif;
    font-family: 'Lato', sans-serif;
 }
+
 /*.header{
    width: 100%;
    height: 10vh;
@@ -115,372 +117,105 @@
 }*/
 
 
-.intro{
+.intro {
    width: 100%;
-   height: 120vh;
-   background: url("/img/page-img/intro.webp")center center;
+   height: calc(100vh - 4em);
+   background: url("/img/page-img/intro.webp") center center;
    background-size: cover;
    display: flex;
    justify-content: center;
    align-items: center;
    margin-bottom: 100px;
-  
-   &__text{
+   color: #000;
+
+   &__text {
       display: flex;
       flex-direction: column;
    }
-   &__text-title{
+
+   &__text-title {
       width: 100%;
-      font-size: 60px;
+      font-size: 6rem;
       text-align: center;
-      
+
    }
-   &__text-p{
+
+   &__text-p {
       width: 100%;
-      font-size: 49px;
-      text-align: center;
-      text-transform: uppercase;
-   }
-   &__text-span{
-      width: 100%;
-      font-size: 23px;
+      font-size: 5rem;
       text-align: center;
       text-transform: uppercase;
-      margin-bottom: 10px;
    }
-   &__for{
-      padding: 15px;
+
+   &__text-span {
+      width: 100%;
+      font-size: 2.37em;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 1em;
    }
-   &__for-item{
+
+   &__for {}
+
+   &__for-item {
       padding: .66em .9em;
-      background-color:$white ;
-      color: $black;
-      font-size: 25px;
+      background-color: $white;
+      color: #000;
+      font-size: 1.8em;
       transition: all 0.5s ease;
       border: transparent;
       margin-right: 20px;
       cursor: pointer;
-      &:hover{
+
+      &:hover {
          background-color: $black;
          color: $white;
       }
-      &:last-child{
+
+      &:last-child {
          margin-right: 0px;
       }
 
    }
 }
-/*
-.for{
-   width: 100%;
-   height: 100%;
-   .container{
-      @include container (1045px)
-   }
-   &__block{
-      width: 100%;
-      height: 100%;
-   }
-   &__mw{
-      width: 100%;
-      height: 40vw;
-      display: flex;
-      margin-bottom: 2%;
-      .for__item{
-         margin-right: 2% ;
-      }
-      .for__item:last-child{
-         margin-right: 0px;
-      }
-   }
-   &__lk{
-      width: 100%;
-      height: 30vw;
-      display: flex;
-      flex-direction: column;
-      .for__item{
-         margin-bottom: 2%;
-         padding-bottom: 15% ;
-      }
-      .for__item:last-child{
-         margin-bottom: 0px;
-         padding-bottom: 0px;
-      }
-   }
-   &__item{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      &-n1{
-         background: url('../img/for_women.jpg');
-         background-size: cover;
-         &:hover{
-            background: url("../img/for_women_hover.jpg");
-            background-size: cover;
-         }
-      }
-      &-n2{
-         background: url('../img/for_men.jpg');
-         background-size: cover;
-         &:hover{
-            background: url("../img/for_men_hover.jpg");
-            background-size: cover;
-         }
-      }
-      &-n3{
-         background: url('../img/for_kids.jpg')center;
-         background-size: cover;
-         &:hover{
-            background: url("../img/for_kids_hover.jpg")center;
-            background-size: cover;
-         }
-      }
-      &-n4{
-         background: url('../img/accessories.jpg');
-         background-size: cover;
-         &:hover{
-            background: url("../img/accessories_hover.jpg");
-            background-size: cover;
-         }
-      }
-   }
-   &__item-text{
-      text-align: center;
 
-      &-title{
-         font-size: 25px;
-         
-      }
-      &-span{
-         font-size: 20px;
-         color: red;
-      }
+@media screen and (max-width:767px) {
+   .intro {
+      margin-bottom: 0;
    }
 }
 
-.feture{
-   width: 100%;
-   margin-bottom: 100px;
-   &__title{
-      text-align: center;
-      margin-bottom: 70px;
-      h2{
-         font-size: 50px;
-         color: $black;
-      }
-      span{
-         color: $colSer;
-         opacity: 0.8;
-      }
-   }
-   .container{
-      @include container ($container)   
-   }
-}
+@media screen and (max-width:600px) {
 
-.product{
-   display: flex;
-   justify-content:space-between;
-   flex-wrap: wrap;
-   &__item{
-      max-width: 350px;
-      margin-bottom: 50px;
-      &:hover{
-         box-shadow: $box-shw;
+   // intro
+   .intro {
+      &__text-title {
+         font-size: 3.5em;
       }
-   }
-   &__item-img{
-      width: 100%;
-      
-   }
-   &__item-supp{
-      display: flex;
-      flex-direction: column;
-      background-color: #F8F3F4;
-      padding: 15px;
-      color: $black;
-   }
-   &__item-title{
-      font-size: 20px;
-      margin-bottom: 20px;
-   }
-   &__item-text{
-      color: #5D5D5D;
-      font-size: 16px;
-      line-height: 18px;
-      margin-bottom: 20px;
-   }
-   &__item-price{
-      color: red;
-   }
-}
-*/
-/*.free{
-   width: 100%;
-   background-color: $blockSer;
-   color: $white;
-   height: 300px;
-   display: flex;
-   align-items: center; 
-   .container{
-      @include container ($container)
-   }
-   &__list{
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      grid-gap: minmax(50px,500px);
-      padding-top: 30px;
-   }
-   &__item{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 350px;
-   }
-   &__item-img{
-      margin-bottom: 25px;
-   }
-   &__item-title{
-      font-size: 25px;
-      margin-bottom: 25px;
-      
-   }
-   &__item-text{
-      font-size: 16px;
-      line-height: 18px;
-      text-align: center;
-   }
-}
 
-.sub{
-   position: relative;
-   width: 100%;
-   padding-bottom:28.5% ;
-   background: url("../img/mw-sub-bcc.png");
-   
-   &__item{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-      display: flex;
-      flex-direction: column;
-      color: $black;
-   }
-   &__item-form{
-      display: flex;
-      flex-direction: column;
-   }
-   &__item-supp{
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      margin-bottom: 50px;
-      h3{
-         font-size: 25px;
-         text-transform: uppercase;
+      &__text-p {
+         font-size: 3em;
       }
-      span{
-         font-size: 18px;
-         font-weight:100;
-         line-height: 22px;
-         text-transform: uppercase;
+
+      &__text-span {
+         font-size: 1.4em;
       }
-   }
-   &__item-input{
-      padding: 15px 25px;
-      border: 1px solid #000;
-      border-radius: 30px;
-      margin-bottom: 10px;
-      cursor:row;
-   }
-   &__item-btn{
-      cursor: pointer;
-      padding: 10px 35px;
-      border-radius: 20px;
-      background-color:$rose ;
-      //background-color:desaturate($rose,30%) ;
-      &:hover{
-         background-color: saturate($rose, 90%);
+
+      &__for {
+         display: flex;
+         flex-direction: column;
+
       }
+
+      &__for-item {
+         padding: .99em .9em;
+         margin-right: 0;
+         margin-bottom: 1em;
+         display: flex;
+         justify-content: center;
+         font-size: 1.2em;
+      }
+
    }
+
 }
-
-.moda{
-   margin-bottom: 50px;
-   .container{
-      @include container (100%)
-   }
-   &__title{
-      font-size:50px ;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-      color: $black;
-      text-align: center;
-   }
-   &__list{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-   }
-   &__item{
-      max-width: 20vw;
-      opacity: 0.5;
-      &:hover{
-         opacity: 1;
-      }
-   }
-}*/
-
-/*.footer{
-   height: 80px;
-   padding: 15px;
-   background-color: #000;
-   color: $white;
-   .container{
-      @include container ($container)
-   }
-   &__items{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-   }
-   &__text{
-      align-items: center;
-   }
-   &__contacts{
-      display: flex;
-      align-items: center;
-   }
-   .contact-item{
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-      &:hover{
-         transform: scale(1.1);
-      }
-      &:last-child{
-         margin-right: 0px;
-      }
-      &-face{
-         background: url("../img/facebook.png") center;
-         background-size: cover;
-      }
-      &-vk{
-         background: url("../img/vk.png") center;
-         background-size: cover;
-      }
-      &-inst{
-         background: url("../img//instagram.png") center;
-         background-size: cover;
-      }
-   }
-   
-}*/
