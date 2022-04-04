@@ -1,0 +1,1229 @@
+{
+  "products": [
+    {
+      "id": "27-1",
+      "sales": "true",
+      "news": "false",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "winter",
+      "material": "Пух",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket1-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket1-1.jpg"
+      ],
+      "sales-price": [
+        559,
+        400,
+        20
+      ],
+      "price": 559,
+      "color": "Хаки"
+    },
+    {
+      "id": "27-2",
+      "sales": "false",
+      "news": "false",
+      "moda": "true",
+      "brand": "Feshin",
+      "season": "winter",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка хаки ",
+      "img_product": "/img/jacket/jacket2-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket2-1.jpg",
+        "/img/jacket/jacket2-2.jpg",
+        "/img/jacket/jacket2-3.jpg",
+        "/img/jacket/jacket2-4.jpg"
+      ],
+      "sales-price": "false",
+      "material": "Пух",
+      "color": "Хаки",
+      "price": 299
+    },
+    {
+      "id": "27-3",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "winter",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket3-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket3-1.jpg",
+        "/img/jacket/jacket3-2.jpg",
+        "/img/jacket/jacket3-3.jpg",
+        "/img/jacket/jacket3-4.jpg"
+      ],
+      "sales-price": "false",
+      "material": "Пух",
+      "color": "Черный",
+      "price": 559
+    },
+    {
+      "id": "27-4",
+      "sales": "true",
+      "news": "false",
+      "moda": "false",
+      "brand": "New Look",
+      "season": "spring",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket4-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket4-1.jpg",
+        "/img/jacket/jacket4-2.jpg",
+        "/img/jacket/jacket4-3.jpg",
+        "/img/jacket/jacket4-4.jpg"
+      ],
+      "sales-price": [
+        250,
+        169,
+        30
+      ],
+      "material": "Кожа",
+      "color": "Черный",
+      "price": 169
+    },
+    {
+      "id": "27-5",
+      "sales": "false",
+      "news": "false",
+      "moda": "true",
+      "brand": "New Look",
+      "season": "winter",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "product_name": "Пуховая зимняя куртка",
+      "img_product": "/img/jacket/jacket5-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket5-1.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Multy",
+      "price": 300
+    },
+    {
+      "id": "27-6",
+      "sales": "true",
+      "news": "false",
+      "moda": "true",
+      "brand": "The North Face",
+      "season": "spring",
+      "id_product": 111,
+      "filter_name": "Куртка",
+      "filter_category": "ветровка",
+      "product_name": "Осенняя куртка",
+      "img_product": "/img/jacket/jacket6-1.jpg",
+      "imgs": [
+        "/img/jacket/jacket6-1.jpg",
+        "/img/jacket/jacket6-2.jpg",
+        "/img/jacket/jacket6-3.jpg",
+        "/img/jacket/jacket6-4.jpg"
+      ],
+      "sales-price": [
+        300,
+        269,
+        10
+      ],
+      "color": "Синий",
+      "material": "Нейлон",
+      "price": 300
+    },
+    {
+      "id": "11-1",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "New Look",
+      "season": "all",
+      "material": "Denim",
+      "filter_name": "Штаны",
+      "product_name": "Синии Мужские штаны",
+      "img_product": "/img/bottom/bottom1-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom1-1.jpg",
+        "/img/bottom/bottom1-2.jpg",
+        "/img/bottom/bottom1-3.jpg",
+        "/img/bottom/bottom1-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Синий",
+      "price": 90
+    },
+    {
+      "id": "11-2",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Штаны",
+      "product_name": "Зеленые Мужские спортивки",
+      "img_product": "/img/bottom/bottom2-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom2-1.jpg",
+        "/img/bottom/bottom2-2.jpg",
+        "/img/bottom/bottom2-3.jpg",
+        "/img/bottom/bottom2-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Зеленый",
+      "price": 90
+    },
+    {
+      "id": "11-3",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "Fred Perry",
+      "season": "all",
+      "material": "Denim",
+      "id_product": 111,
+      "filter_name": "Штаны",
+      "product_name": "Cиние Джинсы",
+      "img_product": "/img/bottom/bottom3-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom3-1.jpg",
+        "/img/bottom/bottom3-2.jpg",
+        "/img/bottom/bottom3-3.jpg",
+        "/img/bottom/bottom3-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Синий",
+      "price": 100
+    },
+    {
+      "id": "11-4",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "Fred Perry",
+      "season": "all",
+      "material": "Стрейч",
+      "id_product": 111,
+      "filter_name": "Штаны",
+      "product_name": "Серые Мужские брюки",
+      "img_product": "/img/bottom/bottom4-1.jpg",
+      "imgs": [
+        "/img/bottom/bottom4-1.jpg",
+        "/img/bottom/bottom4-2.jpg",
+        "/img/bottom/bottom4-3.jpg",
+        "/img/bottom/bottom4-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Серый",
+      "price": 199
+    },
+    {
+      "id": "02-1",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "Fred Perry",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Футболка",
+      "product_name": "Серая Мужская Футболка",
+      "img_product": "/img/t-shirt/t-shirt1-1.jpg",
+      "imgs": [
+        "/img/t-shirt/t-shirt1-1.jpg",
+        "/img/t-shirt/t-shirt1-2.jpg",
+        "/img/t-shirt/t-shirt1-3.jpg",
+        "/img/t-shirt/t-shirt1-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Серый",
+      "price": 59
+    },
+    {
+      "id": "02-2",
+      "sales": "true",
+      "news": "true",
+      "moda": "true",
+      "brand": "Tommy Hilfiger",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Футболка",
+      "product_name": "Белая Мужская Футболка",
+      "img_product": "/img/t-shirt/t-shirt2-1.jpg",
+      "imgs": [
+        "/img/t-shirt/t-shirt2-1.jpg",
+        "/img/t-shirt/t-shirt2-2.jpg",
+        "/img/t-shirt/t-shirt2-3.jpg",
+        "/img/t-shirt/t-shirt2-4.jpg"
+      ],
+      "sales-price": [
+        49,
+        39,
+        20
+      ],
+      "color": "Белый",
+      "price": 49
+    },
+    {
+      "id": "02-3",
+      "sales": "true",
+      "news": "true",
+      "moda": "true",
+      "brand": "Nike",
+      "season": "all",
+      "material": "Хлопок",
+      "id_product": 111,
+      "filter_name": "Футболка",
+      "product_name": "Синяя Мужская Футболка",
+      "img_product": "/img/t-shirt/t-shirt3-1.jpg",
+      "imgs": [
+        "/img/t-shirt/t-shirt3-1.jpg",
+        "/img/t-shirt/t-shirt3-2.jpg",
+        "/img/t-shirt/t-shirt3-3.jpg",
+        "/img/t-shirt/t-shirt3-4.jpg"
+      ],
+      "sales-price": [
+        49,
+        39,
+        20
+      ],
+      "color": "Синий",
+      "price": 49
+    },
+    {
+      "id": "33-1",
+      "sales": "true",
+      "news": "true",
+      "moda": "true",
+      "brand": "Nike",
+      "season": "summer",
+      "material": "Резина",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Черные Мужские Шлёпанцы",
+      "img_product": "/img/sniker/sniker1-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker1-1.jpg",
+        "/img/sniker/sniker1-2.jpg",
+        "/img/sniker/sniker1-3.jpg",
+        "/img/sniker/sniker1-4.jpg"
+      ],
+      "sales-price": [
+        29,
+        19,
+        35
+      ],
+      "color": "Черный",
+      "price": 29
+    },
+    {
+      "id": "33-2",
+      "sales": "true",
+      "news": "false",
+      "moda": "false",
+      "brand": "Dr. Martens",
+      "season": "spring",
+      "material": "Кожа",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Черные Мужские Ботинки",
+      "img_product": "/img/sniker/sniker2-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker2-1.jpg",
+        "/img/sniker/sniker2-2.jpg",
+        "/img/sniker/sniker2-3.jpg",
+        "/img/sniker/sniker2-4.jpg"
+      ],
+      "sales-price": [
+        129,
+        119,
+        10
+      ],
+      "color": "Черный",
+      "price": 129
+    },
+    {
+      "id": "33-3",
+      "sales": "false",
+      "news": "false",
+      "moda": "true",
+      "brand": "Ellesse",
+      "season": "all",
+      "material": "Кожа",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Темно-Зеленые Мужские Туфли",
+      "img_product": "/img/sniker/sniker3-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker3-1.jpg",
+        "/img/sniker/sniker3-2.jpg",
+        "/img/sniker/sniker3-3.jpg",
+        "/img/sniker/sniker3-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Зеленый",
+      "price": 229
+    },
+    {
+      "id": "33-4",
+      "sales": "false",
+      "news": "true",
+      "moda": "false",
+      "brand": "adidas",
+      "season": "summer",
+      "material": "Сетка",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Белые Мужские Кроссовки",
+      "img_product": "/img/sniker/sniker4-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker4-1.jpg",
+        "/img/sniker/sniker4-2.jpg",
+        "/img/sniker/sniker4-3.jpg",
+        "/img/sniker/sniker4-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Белый",
+      "price": 79
+    },
+    {
+      "id": "33-5",
+      "sales": "false",
+      "news": "true",
+      "moda": "true",
+      "brand": "adidas",
+      "season": "summer",
+      "material": "Замша",
+      "id_product": 111,
+      "filter_name": "Обувь",
+      "product_name": "Черные Мужские Кроссовки",
+      "img_product": "/img/sniker/sniker5-1.jpg",
+      "imgs": [
+        "/img/sniker/sniker5-1.jpg",
+        "/img/sniker/sniker5-2.jpg",
+        "/img/sniker/sniker5-3.jpg",
+        "/img/sniker/sniker5-4.jpg"
+      ],
+      "sales-price": "false",
+      "color": "Черный",
+      "price": 109
+    }
+  ],
+  "GalleryProduct": [
+    {
+      "id": "hEJ5E8slcsdmvdmv",
+      "img": "/img/page-img/intro-men-jacket.jpg",
+      "title": "Куртки",
+      "filter": "noshoes"
+    },
+    {
+      "id": "-hEJ5E8flkjghbitjor",
+      "img": "/img/page-img/intro-men-bruki.jpg",
+      "title": "Брюки",
+      "filter": "bottom"
+    },
+    {
+      "id": "-hEJkfdkvs455E8flkjghbitjor",
+      "img": "/img/page-img/intro-men-rasprod.jpg",
+      "title": "Распродажа",
+      "filter": "sale"
+    },
+    {
+      "id": "-hEJ304985748tjor",
+      "img": "/img/page-img/intro-men-snikers.jpg",
+      "title": "Кроссовки",
+      "filter": "shoes"
+    },
+    {
+      "id": "-hEJ304985748tjomdskvngkrngbkfr",
+      "img": "/img/page-img/intro-men-t-shirt.jpg",
+      "title": "Футболки",
+      "filter": "t-shirt"
+    },
+    {
+      "id": "304985748tj444omdskvn4i356969gkrngbkfr",
+      "img": "/img/page-img/intro-men-rubash.jpg",
+      "title": "Рубашки",
+      "filter": "t-shirt"
+    }
+  ],
+  "accountNavigate": [
+    {
+      "img": "/img/page-icon/resume.png",
+      "name": "Моя Информация",
+      "id": "acc01",
+      "dopStyle": "line-bottom",
+      "alt": "info"
+    },
+    {
+      "img": "/img/page-icon/zakaz.png",
+      "name": "Мои Заказы",
+      "id": "acc02",
+      "dopStyle": "line-bottom",
+      "alt": "zakaz"
+    },
+    {
+      "img": "/img/page-icon/basket.png",
+      "name": "Моя Корзина",
+      "id": "acc03",
+      "dopStyle": "line-bottom",
+      "alt": "basket"
+    },
+    {
+      "img": "/img/page-icon/icons8-love-24.png",
+      "name": "Мое Избранное",
+      "id": "acc04",
+      "dopStyle": "m-b",
+      "alt": "likes"
+    },
+    {
+      "img": "/img/page-icon/out.png",
+      "name": "Выход",
+      "id": "acc05",
+      "dopStyle": "",
+      "alt": "out"
+    }
+  ],
+  "UserChange": [
+    {
+      "id": "50607dff6756gfhds",
+      "user_id": "001",
+      "basket": [],
+      "likes": [],
+      "order": [
+        {
+          "id": "fghgfgd7773455",
+          "send": "true",
+          "num": "34663egrdbd24t535",
+          "local": "Sanct-Peterburg",
+          "sum": "4243",
+          "products": [
+            {
+              "product_id": "02-3",
+              "amount": "3"
+            },
+            {
+              "product_id": "02-2",
+              "amount": "3"
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 487,
+          "products": [
+            {
+              "id": "-et654ytgmdk",
+              "product_id": "02-2",
+              "amount": 1
+            },
+            {
+              "id": "rethrjhg",
+              "product_id": "02-3",
+              "amount": 1
+            },
+            {
+              "id": "-et654ytlejfj4gmk",
+              "product_id": "11-2",
+              "t": 1
+            },
+            {
+              "id": "-et64654knnk54ytgmk",
+              "product_id": "27-2",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 327,
+          "products": [
+            {
+              "id": "-et654ytgmdk",
+              "product_id": "02-2",
+              "size": "s",
+              "amount": 1
+            },
+            {
+              "id": "rethrjhg",
+              "product_id": "02-3",
+              "amount": 1,
+              "size": "m"
+            },
+            {
+              "id": 689684631472.4275,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-3"
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 1396,
+          "products": [
+            {
+              "id": 858418282357.9116,
+              "amount": 1,
+              "size": "40",
+              "product_id": "33-4"
+            },
+            {
+              "id": 801356955985.228,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-5"
+            },
+            {
+              "id": 918913768326.9004,
+              "amount": 1,
+              "size": "m",
+              "product_id": "27-1"
+            },
+            {
+              "id": 772210917732.6772,
+              "amount": 1,
+              "size": "33x34",
+              "product_id": "11-2"
+            },
+            {
+              "id": 1105473132689.6008,
+              "amount": 1,
+              "size": "l",
+              "product_id": "27-3"
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 900,
+          "products": [
+            {
+              "id": 125703627846.12004,
+              "amount": 4,
+              "size": "s",
+              "product_id": "27-6"
+            },
+            {
+              "id": 853642838686.4083,
+              "amount": 5,
+              "size": "l",
+              "product_id": "27-6"
+            },
+            {
+              "id": 962312896364.497,
+              "amount": 6,
+              "size": "xl",
+              "product_id": "27-6"
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 90,
+          "products": [
+            {
+              "id": 532675573808.365,
+              "amount": 2,
+              "size": "30x32",
+              "product_id": "11-2"
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 0,
+          "products": []
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 300,
+          "products": [
+            {
+              "id": 914499878895.8356,
+              "amount": 1,
+              "size": "s",
+              "product_id": "27-5"
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 59,
+          "products": [
+            {
+              "id": 988117100356.1886,
+              "amount": 1,
+              "size": "l",
+              "product_id": "02-1"
+            }
+          ]
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 299,
+          "products": [
+            {
+              "id": 860335819220.6415,
+              "amount": 1,
+              "size": "s",
+              "product_id": "27-2"
+            }
+          ],
+          "id": 432852417998587.94
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 98,
+          "products": [
+            {
+              "id": 485344813077.78754,
+              "amount": 1,
+              "size": "s",
+              "product_id": "02-3"
+            },
+            {
+              "id": 1028274640605.706,
+              "amount": 1,
+              "size": "s",
+              "product_id": "02-3"
+            }
+          ],
+          "id": 876088945790371.9
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 128,
+          "products": [
+            {
+              "id": 1152883425820.9097,
+              "amount": 1,
+              "size": "43",
+              "product_id": "33-4"
+            },
+            {
+              "id": 140107720195.17755,
+              "amount": 1,
+              "size": "xs",
+              "product_id": "02-3"
+            }
+          ],
+          "id": 247120673593112.56
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 180,
+          "products": [
+            {
+              "id": 1225365246739.9624,
+              "amount": 1,
+              "size": "32x34",
+              "product_id": "11-2"
+            },
+            {
+              "id": 537510708437.8852,
+              "amount": 1,
+              "size": "32x32",
+              "product_id": "11-1"
+            }
+          ],
+          "id": 509199839560559
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 300,
+          "products": [
+            {
+              "id": 599318634203.9374,
+              "amount": 1,
+              "size": "xs",
+              "product_id": "27-6"
+            }
+          ],
+          "id": 161225821533500.62
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 600,
+          "products": [
+            {
+              "id": 1156630235468.176,
+              "amount": 1,
+              "size": "xl",
+              "product_id": "27-6"
+            },
+            {
+              "id": 36950179203.43337,
+              "amount": 1,
+              "size": "m",
+              "product_id": "27-6"
+            }
+          ],
+          "id": 378616540934099.44
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 218,
+          "products": [
+            {
+              "id": 927710063188.7932,
+              "amount": 1,
+              "size": "42",
+              "product_id": "33-5"
+            },
+            {
+              "id": 887051528247.4027,
+              "amount": 1,
+              "size": "44",
+              "product_id": "33-5"
+            }
+          ],
+          "id": 1048046385677635.9
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 29,
+          "products": [
+            {
+              "id": 119367308178.04224,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-1"
+            }
+          ],
+          "id": 701432382733313.5
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 49,
+          "products": [
+            {
+              "id": 756497781689.1392,
+              "amount": 1,
+              "size": "s",
+              "product_id": "02-2"
+            }
+          ],
+          "id": 479028927792293.44
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 258,
+          "products": [
+            {
+              "id": 973543960669.9784,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-3"
+            },
+            {
+              "id": 529684612194.25476,
+              "amount": 1,
+              "size": "42",
+              "product_id": "33-1"
+            }
+          ],
+          "id": 278144070495547.8
+        },
+        {
+          "send": "true",
+          "local": "USA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 59,
+          "products": [
+            {
+              "id": 317535068446.6431,
+              "amount": 5,
+              "size": "m",
+              "product_id": "02-1"
+            }
+          ],
+          "id": 920394270125182.1
+        }
+      ]
+    },
+    {
+      "user_id": "i-4ciMQ",
+      "basket": [],
+      "likes": [],
+      "order": [],
+      "id": "01SVv-T"
+    },
+    {
+      "user_id": "GJVPYHT",
+      "basket": [],
+      "likes": [],
+      "order": [
+        {
+          "send": "true",
+          "local": "BELORUSS, rf'dpkg, ;ds, fghyjgtf",
+          "sum": 298,
+          "products": [
+            {
+              "id": 554857228453.4789,
+              "amount": 1,
+              "size": "s",
+              "product_id": "27-4"
+            },
+            {
+              "id": 1045200203757.5643,
+              "amount": 1,
+              "size": "42",
+              "product_id": "33-2"
+            }
+          ],
+          "id": 83272715411865.7
+        }
+      ],
+      "id": "_snVy8r"
+    },
+    {
+      "user_id": "2dfBgAr",
+      "basket": [
+        {
+          "id": 885918656768.7933,
+          "amount": 1,
+          "size": "42",
+          "product_id": "33-2"
+        }
+      ],
+      "likes": [],
+      "order": [
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 8711066526716.492
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 672382662933570.5
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 1012239647525192.1
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 0,
+          "products": [],
+          "id": 898986092948396
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, rethytjyukuy, kbuukiln;l, 43w35435",
+          "sum": 129,
+          "products": [
+            {
+              "id": 220132503604.43665,
+              "amount": 1,
+              "size": "41",
+              "product_id": "33-2"
+            }
+          ],
+          "id": 753051743393370.9
+        }
+      ],
+      "id": "TlPv6yH"
+    },
+    {
+      "user_id": "ME_pJBK",
+      "basket": [
+        {
+          "id": 1158635163538.4443,
+          "amount": 1,
+          "size": "33x34",
+          "product_id": "11-2"
+        },
+        {
+          "id": 847733393563.5719,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 1010769563607.2129,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 329395246844.6983,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 213187119725.00528,
+          "amount": 1,
+          "size": "xs",
+          "product_id": "27-3"
+        }
+      ],
+      "likes": [
+        {
+          "id": 1113846195372.2942,
+          "amount": 1,
+          "size": "m",
+          "product_id": "02-2"
+        },
+        {
+          "id": 265336583075.03403,
+          "amount": 1,
+          "size": "29x30",
+          "product_id": "11-2"
+        },
+        {
+          "id": 416805311285.5755,
+          "amount": 1,
+          "size": "xs",
+          "product_id": "27-3"
+        },
+        {
+          "id": 387050172488.5717,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 535056224571.43475,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        },
+        {
+          "id": 622827540097.2285,
+          "amount": 1,
+          "size": "m",
+          "product_id": "27-3"
+        },
+        {
+          "id": 872203588696.6823,
+          "amount": 1,
+          "size": "xs",
+          "product_id": "27-3"
+        },
+        {
+          "id": 413872237056.2443,
+          "amount": 1,
+          "size": "s",
+          "product_id": "27-3"
+        }
+      ],
+      "order": [
+        {
+          "send": "true",
+          "local": "RUSSIA, Иннополис, блабла, нету",
+          "sum": 49,
+          "products": [
+            {
+              "id": 402247060824.26825,
+              "amount": 1,
+              "size": "xs",
+              "product_id": "02-2"
+            }
+          ],
+          "id": 1041894547013535.9
+        }
+      ],
+      "id": "EnJi-Pa"
+    },
+    {
+      "user_id": "mWpDEd-",
+      "basket": [],
+      "likes": [],
+      "order": [],
+      "id": "IpIwa5z"
+    },
+    {
+      "user_id": "-93cLKX",
+      "basket": [],
+      "likes": [],
+      "order": [
+        {
+          "send": "true",
+          "local": "BELORUSS, sbfgfgnb, sdvb fg, bdfbgfdb",
+          "sum": 49,
+          "products": [
+            {
+              "id": 488300908214.4252,
+              "amount": 1,
+              "size": "m",
+              "product_id": "02-3"
+            }
+          ],
+          "id": 356854074958046.94
+        }
+      ],
+      "id": "lNyrREi"
+    },
+    {
+      "user_id": "baViiNm",
+      "basket": [],
+      "likes": [],
+      "order": [],
+      "id": "LfuQdvc"
+    }
+  ],
+  "basketChange": [],
+  "likesChange": [],
+  "DeleteLikes": [],
+  "DeleteOrder": [],
+  "orderChange": [
+    {
+      "send": true,
+      "num": 44947388967.74547,
+      "local": "russia, Velikiy Novgorod, Kochetova, 23 ",
+      "sum": 4242,
+      "products": [
+        {
+          "product_id": "02-2",
+          "size": 44,
+          "amount": 1,
+          "id": 7
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "userCard": [
+    {
+      "id": "001",
+      "firstName": "Daniil",
+      "lastName": "Osipov",
+      "password": "daniilOsipov",
+      "email": "dan.osipov99@mail.ru",
+      "address": {
+        "city": "Velikiy Novgorod",
+        "street": "Kochetova",
+        "house": "23",
+        "country": "USA"
+      }
+    },
+    {
+      "email": "dan.Petrov@mail.ru",
+      "firstName": ";lsdjgroesd'kfe;g",
+      "lastName": ";rkemgrjmgpkrepgs",
+      "password": "elr,hml'tmeh'mdf'd",
+      "address": {
+        "city": "rdtyujikjutrhytger",
+        "street": "vfgbfhjmkhygdfgtr",
+        "house": "fdg",
+        "country": "beloruss"
+      },
+      "id": "i-4ciMQ"
+    },
+    {
+      "email": "danila@mail.ru",
+      "firstName": "dgfbgdfbgfd",
+      "lastName": "smv;lfm;vlfmld",
+      "password": "danila",
+      "address": {
+        "city": "rf'dpkg",
+        "street": ";ds",
+        "house": "fghyjgtf",
+        "country": "beloruss"
+      },
+      "id": "GJVPYHT"
+    },
+    {
+      "email": "dd44sdg@mail.ru",
+      "firstName": "dfgfdgfgfd",
+      "lastName": "fgdfgdfgfdgsb",
+      "password": "1234",
+      "address": {
+        "city": "rethytjyukuy",
+        "street": "kbuukiln;l",
+        "house": "43w35435",
+        "country": "russia"
+      },
+      "id": "2dfBgAr"
+    },
+    {
+      "email": "katenkadem1denko@yandex.ru",
+      "firstName": "Катенька",
+      "lastName": "Осипова",
+      "password": "люблюданю",
+      "address": {
+        "city": "Иннополис",
+        "street": "блабла",
+        "house": "нету",
+        "country": "russia"
+      },
+      "id": "ME_pJBK"
+    },
+    {
+      "email": "dad@mai.ru",
+      "firstName": "sdfgbhf",
+      "lastName": "dfgfdgddfgfgdfdg",
+      "password": "fsovmfl;mv;dfl",
+      "address": {
+        "city": "Иннополис",
+        "street": "блабла",
+        "house": "нету",
+        "country": "USA"
+      },
+      "id": "mWpDEd-"
+    },
+    {
+      "email": "gfdbdf@vdfb.ere",
+      "firstName": "fdbgbfg",
+      "lastName": "bdfbdfbdf",
+      "password": "dfbgfg",
+      "address": {
+        "city": "sbfgfgnb",
+        "street": "sdvb fg",
+        "house": "bdfbgfdb",
+        "country": "beloruss"
+      },
+      "id": "-93cLKX"
+    },
+    {
+      "email": "oiga.gaponuk@icloud.com",
+      "firstName": "апрапваыв",
+      "lastName": "Osipov",
+      "password": "daniilOsipov",
+      "address": {
+        "city": "Velikiy Novgorod",
+        "street": "Kochetov",
+        "house": "24",
+        "country": "beloruss"
+      },
+      "id": "baViiNm"
+    }
+  ]
+}
