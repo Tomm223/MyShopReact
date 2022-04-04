@@ -51,11 +51,13 @@ function Cataloge() {
       }
    }, [QueryProducts])
    // FILTRES IN CATALOGE
+   const { finishFilter, massFilters } = useContext(PagesContext)
    useEffect(() => {
-      if (!QueryProducts && !QueryCollection) {
-         //dispatch(ProductsFiltered(filterProd))
+      if (finishFilter.length) {
+         console.log("FFFAAALLLLLLSEEEEEEEEEEEE: ", finishFilter);
+         dispatch(ProductsFiltered(finishFilter))
       }
-   }, [])
+   }, [finishFilter])
 
    const [filterCataloge, setFilterCataloge] = useState({
       basic: ['sales', 'news', 'moda'],
@@ -66,12 +68,6 @@ function Cataloge() {
       filterName: ['Куртка', "Штаны", "Футболка", "Обувь"],
       color: ['Черный', 'Синий', 'Зеленый', 'Белый', 'Хаки', 'Multy', 'Серый']
    })
-   const { finishFilter, massFilters } = useContext(PagesContext)
-
-
-   const FilterCataloge = '' //products.filter((item) => item.product_name.toLowerCase().includes(QueryProducts.toLowerCase()))
-   let filterProd = ''// finishFilter.length ? finishFilter : FilterCataloge.length == products.length ? false : FilterCataloge
-
 
 
    const { color, setColor, brand, setBrand, category, setCategory, material, setMaterial, season,
