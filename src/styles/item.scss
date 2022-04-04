@@ -2,88 +2,109 @@
 @import "./vars.scss";
 @import url('https://fonts.googleapis.com/css2?family=Jura&family=Lato&display=swap');
 
-.profile{
+.profile {
    padding-top: 50px;
-   .container{
+
+   .container {
       @include container (900px)
    }
-   &__block{
+
+   &__block {
       display: flex;
       width: 100%;
       height: auto;
       margin-bottom: 100px;
    }
+
    //img
 
-   &__fotos{
+   &__fotos {
       width: 50%;
       position: relative;
-      
 
-      &-supp{
+
+      &-supp {
          width: 100%;
          padding: 10px 10px;
          display: flex;
          justify-content: center;
          position: relative;
 
-         .profile__img-right,.profile__img-left{
+         .profile__img-right,
+         .profile__img-left {
             width: auto;
-            img{
+
+            img {
                width: 30px;
                height: 30px;
             }
          }
       }
-      &-block{
+
+      &-block {
          position: relative;
          margin: 0 5px;
-         img{
+
+         img {
             width: 70px;
-            
+
          }
       }
-      &-opacity{
+
+      &-opacity {
          position: absolute;
          left: 0;
          top: 0;
          bottom: 0;
          right: 0;
-         &.active,&:hover{
+
+         &.active,
+         &:hover {
             background-color: #000;
             opacity: 0.6;
             z-index: 1;
-            
+
          }
-         &:hover{
+
+         &:hover {
             opacity: 0.3;
             cursor: pointer;
-               background-color: #000;
-               z-index: 1;
-                &::before{
-                   content: "";
-                   position: absolute;
-                   left: 50%;
-                   top: 50%;
-                   transform: translate(-50%,-50%);
-                   background: url("/img/page-icon/search.svg") no-repeat center;
-                   width: 30px;
-                   height: 30px;
-                }
-            
+            background-color: #000;
+            z-index: 1;
+
+            &::before {
+               content: "";
+               position: absolute;
+               left: 50%;
+               top: 50%;
+               transform: translate(-50%, -50%);
+               background: url("/img/page-icon/search.svg") no-repeat center;
+               width: 30px;
+               height: 30px;
+            }
+
          }
-         
+
       }
    }
-   &__img{
+
+   &__img {
       position: relative;
       width: 100%;
       height: auto;
-      &-item{
+
+      &-item {
          width: 100%;
          height: auto;
+         padding: 0;
+         margin: 0;
+
+
+
       }
-      &-left,&-right{
+
+      &-left,
+      &-right {
          position: absolute;
          top: 0;
          width: 40%;
@@ -92,39 +113,46 @@
          align-items: center;
          padding: 0 10px;
          cursor: pointer;
-         img{
+
+         img {
             width: 40px;
             height: 40px;
          }
       }
-      &-left{
+
+      &-left {
          left: 0;
          justify-content: start;
-         img{
+
+         img {
             transform: rotate(90deg);
          }
       }
-      &-right{
+
+      &-right {
          right: 0;
          justify-content: end;
-         img{
+
+         img {
             transform: rotate(-90deg);
          }
       }
    }
-   
+
    //buy
 
-   &__buy{
+   &__buy {
       width: 50%;
       color: $black;
       margin: 0 10px;
       padding: 10px;
    }
-   &__list{
+
+   &__list {
       padding-left: 30px;
       padding-top: 30px;
-      &-item{
+
+      &-item {
          display: flex;
          align-items: center;
          margin-bottom: 50px;
@@ -132,82 +160,94 @@
          font-weight: 400;
          font-size: 20px;
       }
-      &-block{
-         
-      }
-      &-form{
-         
-      }
-      &-select{
+
+      &-block {}
+
+      &-form {}
+
+      &-select {
          width: 100%;
-         
+
       }
-      &-sizeP{
+
+      &-sizeP {
          margin-bottom: 10px;
       }
-      &-sellect{
+
+      &-sellect {
          padding: 10px 25px;
          font-size: 20px;
       }
    }
-   &__btn-basket{
+
+   &__btn-basket {
       @include btn-white-black;
       background-color: green;
       position: relative;
       font-size: 20px;
       padding-left: 2em;
-      &:hover{
+
+      &:hover {
          background-color: $rose;
       }
-      img{
+
+      img {
          position: absolute;
          left: .5em;
          top: 50%;
-         transform: translate(0%,-50%);
+         transform: translate(0%, -50%);
          width: 1em;
       }
    }
-   &__like-block{
+
+   &__like-block {
       margin-left: 10px;
    }
-   &__btn-like{
+
+   &__btn-like {
       background-color: transparent;
       border: 0;
       border-radius: 50%;
       cursor: pointer;
       padding: 0;
       margin: 0;
-      &:hover{
+
+      &:hover {
          background-color: rgba($color: #F16D7F, $alpha: 0.6);
          box-shadow: $box-shw-input;
       }
    }
-   &__name{
+
+   &__name {
       font-style: normal;
       font-weight: 400;
       font-size: 30px;
-      
+
    }
-   
+
 
    //info
 
-   &__info{
+   &__info {
       margin-bottom: 50px;
-      &-title{
+
+      &-title {
          font-size: 25px;
          font-weight: normal;
          margin-bottom: 50px;
       }
-      &-list{
+
+      &-list {
          display: grid;
-         grid-template-columns: repeat(4,1fr);
+         grid-template-columns: repeat(4, 1fr);
          list-style-type: circle;
       }
-      &-item{
+
+      &-item {
          margin-bottom: 30px;
       }
-      &-text{
+
+      &-text {
          font-size: 18px;
          font-weight: lighter;
       }
