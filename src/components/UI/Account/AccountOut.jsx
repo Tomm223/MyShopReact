@@ -7,7 +7,7 @@ export function AccountOut() {
    const navigate = useNavigate()
    const from = useSelector(state => state.pageFrom.location.pathname)
    const state = useSelector(state => state.pageFrom.location.state)
-   const to = from ? from.includes("registration") || from.includes("account") ? 2 : from : '/'
+   const to = from ? from.includes("registration") || from.includes("account") ? 2 : from : '/' || '/'
    console.log(to);
    console.log("state: ", state);
    function Handle() {
