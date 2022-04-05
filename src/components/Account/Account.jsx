@@ -92,12 +92,10 @@ function Account() {
       minus100 >= 0 ? proverkaScroll('down') : proverkaScroll('up')
    }
 
-
+   const windSubs = () => window.addEventListener("scroll", scrolling, true);
    useEffect(() => {
-      window.addEventListener("scroll", scrolling, true);
-      return () => {
-         window.removeEventListener("scroll", scrolling, true);
-      }
+      const subs = windSubs()
+      return () => subs
    }, [checkRoute, proverkaScroll])
 
    const styleNavBlock = {

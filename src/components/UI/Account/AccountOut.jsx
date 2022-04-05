@@ -15,13 +15,19 @@ export function AccountOut() {
          if (from == '/product' || state?.from?.state?.product) {
             if ("product" in state) {
                navigate(to, { state: { product: state.product } })
+
+
             }
             else {
+
                navigate(to, { state: { product: state.from.state.product } })
             }
          }
          else if (from == '/cataloge' || state?.from?.state?.FilterSearch) {
             navigate(to)
+         }
+         else {
+            navigate(state.from.pathname)
          }
       }
       else {
