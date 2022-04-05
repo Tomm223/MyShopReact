@@ -13,6 +13,8 @@
 2. React = [ Redux(think,saga), React-Hook-Form, React-Responsive, 
 React-Router-DOM, React-Selector, React-Transition-Group ]
 3. JS ES6+
+4. Webpack
+5. Git
 
 ## Что удалось реализовать:
 
