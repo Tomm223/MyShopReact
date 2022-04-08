@@ -12,7 +12,7 @@ function PagesProvider({ children }) {
    const [color, setColor] = useState([])
    const [season, setSeason] = useState([])
    const [basic, setBasic] = useState([])
-   const massFilters = [brand, category, material, season, basic, color]
+   const massFilters = [category, brand, material, season, basic, color]
    const setMassFilters = [setBrand, setCategory, setMaterial, setSeason, setBasic]
    const [finishFilter, setFinishFilter] = useState([])
    const DELETEFiltresState = (products) => {
@@ -183,6 +183,7 @@ function PagesProvider({ children }) {
          }
       }
    }
+
    const ProductBuild = async (product, size) => {
       const body = {}
       body.id = Math.random() * 1234443254534

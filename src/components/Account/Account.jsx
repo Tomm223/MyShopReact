@@ -24,6 +24,7 @@ function Account() {
    }, [])
    // accOUT
 
+
    const location = useLocation()
    const dispatch = useDispatch()
    useEffect(() => {
@@ -37,7 +38,10 @@ function Account() {
    useEffect(() => {
       fetch("http://localhost:3000/accountNavigate")
          .then(data => data.json())
-         .then(data => setNavigate(data))
+         .then(data => {
+            setNavigate(data)
+         })
+
    }, [])
 
 

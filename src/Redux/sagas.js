@@ -8,6 +8,7 @@ import { ProductsInit } from "./actions/ProductsActions";
 import { UserInit } from "./actions/UserActions";
 import { ParseAccountChange, ParseProducts, ParseUser } from "./GetLocalStorage";
 import { ACC_FULL_CHANGE, INITIALSTATE } from "./Types";
+
 export function* sagaWatcher() {
    yield takeEvery(INITIALSTATE, sagaInitial)
 }
