@@ -1,13 +1,13 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
-import { PagesContext } from "../../Context/PagesProvider";
+import { PagesContext } from "../Context/PagesProvider";
 import { useLocation, useNavigate, Outlet, NavLink, Navigate } from 'react-router-dom'
-import { useWindowSize } from '../../hook/useWindowSize'
+import { useWindowSize } from '../hook/useWindowSize'
 
-import { AuthContext } from "../../Context/AuthProvider";
+import { AuthContext } from "../Context/AuthProvider";
 import { useDispatch } from "react-redux";
-import { LocationFrom } from "../../Redux/actions/PagesActions";
-import AccountOut from "../UI/Account/AccountOut";
-import { AccountOutMini } from "../UI/Account/AccountExitMini";
+import { LocationFrom } from "../Redux/actions/PagesActions";
+import AccountOut from "../components/UI/Account/AccountOut";
+import { AccountOutMini } from "../components/UI/Account/AccountExitMini";
 function Registration() {
    //responsive
    const { minLabTop,

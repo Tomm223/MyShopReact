@@ -1,15 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Moda from "../Moda";
-import ProductSuppImg from "./ProductSuppImg";
-import { PagesContext } from "../../Context/PagesProvider";
-import { AddProduct } from "../../Fetch/Fetching"
+import Moda from "../components/Moda";
+import ProductSuppImg from "../components/Products/ProductSuppImg";
+import { PagesContext } from "../Context/PagesProvider";
+import { AddProduct } from "../Fetch/Fetching"
 import { useForm, Controller } from 'react-hook-form'
-import { SelectReact, BuildOptionsSelect, ParamsForm } from "../UI/Form/Form";
+import { SelectReact, BuildOptionsSelect, ParamsForm } from "../components/UI/Form/Form";
 import { useDispatch, useSelector } from "react-redux";
-import { AlertToAccount } from "../UI/Product/AlertChange";
-import { productImgChange, productToAcc } from "../../Redux/actions/ProductActions";
-import { AlertDefault } from "../UI/Alerts/Alerts";
+import { AlertToAccount } from "../components/UI/Product/AlertChange";
+import { productImgChange, productToAcc } from "../Redux/actions/ProductActions";
+import { AlertDefault } from "../components/UI/Alerts/Alerts";
 
 
 export default function Product() {

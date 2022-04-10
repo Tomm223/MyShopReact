@@ -1,15 +1,14 @@
 import React, { useEffect, useState, useRef, useContext, useCallback } from "react";
 import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import AccountNavigate from "./AccountNavigate";
-import { PagesContext } from "../../Context/PagesProvider";
-import { AuthContext } from "../../Context/AuthProvider";
-import { AccountContext } from "../../Context/AccountProvider";
-import { AccProductGet } from "../../Fetch/Fetching";
+import AccountNavigate from "../components/Account/AccountNavigate";
+import { PagesContext } from "../Context/PagesProvider";
+import { AuthContext } from "../Context/AuthProvider";
+import { AccountContext } from "../Context/AccountProvider";
+import { AccProductGet } from "../Fetch/Fetching";
 import { useDispatch, useSelector } from "react-redux";
-import { LocationFrom } from "../../Redux/actions/PagesActions";
-import AccountOut from "../UI/Account/AccountOut";
-import { useWindowSize } from '../../hook/useWindowSize'
-import { AccountExitMini, AccountOutMini } from "../UI/Account/AccountExitMini";
+import { LocationFrom } from "../Redux/actions/PagesActions";
+import { useWindowSize } from '../hook/useWindowSize'
+import { AccountExitMini, AccountOutMini } from "../components/UI/Account/AccountExitMini";
 
 function Account() {
    //responsive

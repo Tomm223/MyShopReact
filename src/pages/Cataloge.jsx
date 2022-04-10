@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { useWindowSize } from '../../hook/useWindowSize'
+import { useWindowSize } from '../hook/useWindowSize'
 
-import { PagesContext } from "../../Context/PagesProvider";
-import ProductsContext from "../../Context/ProductsContext";
-import { CollectionsFiltered, ProductsFiltered } from "../../Redux/actions/ProductsActions";
-import ProductsList from "../Products/ProductsList";
-import CatalogeFilter from "./CatalogeFilter";
-import { SearchInput } from "../UI/Header/SearchInput";
-import AutoComplite from "../UI/Header/AutoComplite"
+import { PagesContext } from "../Context/PagesProvider";
+import ProductsContext from "../Context/ProductsContext";
+import { CollectionsFiltered, ProductsFiltered } from "../Redux/actions/ProductsActions";
+import ProductsList from "../components/Products/ProductsList";
+import CatalogeFilter from "../components/Cataloge/CatalogeFilter";
+import { SearchInput } from "../components/UI/Header/SearchInput";
+import AutoComplite from "../components/UI/Header/AutoComplite"
 function Cataloge() {
    //responsive
    const { minLabTop,

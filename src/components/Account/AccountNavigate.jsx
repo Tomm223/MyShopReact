@@ -3,7 +3,6 @@ import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AccountContext } from "../../Context/AccountProvider";
 import { AuthContext } from "../../Context/AuthProvider";
-import Account from "./Account";
 import { useWindowSize } from '../../hook/useWindowSize'
 import { useDispatch } from "react-redux";
 import { AccMiniOpen } from "../../Redux/actions/AccountActions";

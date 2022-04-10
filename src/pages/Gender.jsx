@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import Moda from "../Moda"
+import Moda from "../components/Moda"
 import { Outlet } from "react-router-dom";
-import ProductsList from "../Products/ProductsList";
-import GenderGallery from './GenderGallery'
-import { PagesContext } from "../../Context/PagesProvider";
-import ProductsContext from '../../Context/ProductsContext'
+import ProductsList from "../components/Products/ProductsList";
+import GenderGallery from '../components/Gender/GenderGallery'
+import { PagesContext } from "../Context/PagesProvider";
+import ProductsContext from '../Context/ProductsContext'
 
 function Gender() {
    //pageYo
