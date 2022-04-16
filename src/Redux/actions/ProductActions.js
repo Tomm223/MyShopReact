@@ -1,4 +1,4 @@
-import { GetAxios } from "../../Fetch/Fetching";
+import { GetAxios } from "../../Context/Fetching";
 import { PRODUCT_ALERT_FALSE, PRODUCT_ALERT_TRUE, PRODUCT_IMG_CHANGE } from "../Types";
 
 

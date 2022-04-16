@@ -24,7 +24,7 @@ import { rootRedux } from './Redux/rootRedux';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from '@redux-saga/core';
 import { sagaWatcher } from './Redux/sagas';
-import { StateInit } from './Redux/actions/UserActions';
+
 
 const saga = createSagaMiddleware()
 const store = createStore(rootRedux,

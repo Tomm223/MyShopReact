@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AccountContext } from "../../Context/AccountProvider";
 import { AuthContext } from "../../Context/AuthProvider";
 import { useForm } from 'react-hook-form'
-import { GetAxios, PostAxios } from "../../Fetch/Fetching"
+import { GetAxios, PostAxios } from "../../Context/Fetching"
 import { ErrorsMessage } from '../UI/Form/ErrorsMessage'
 import { ParamsForm } from '../UI/Form/Form'
 import { PagesContext } from "../../Context/PagesProvider";

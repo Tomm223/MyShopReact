@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Moda from "../components/Moda";
 import ProductSuppImg from "../components/Products/ProductSuppImg";
 import { PagesContext } from "../Context/PagesProvider";
-import { AddProduct } from "../Fetch/Fetching"
+import { AddProduct } from "../Context/Fetching"
 import { useForm, Controller } from 'react-hook-form'
 import { SelectReact, BuildOptionsSelect, ParamsForm } from "../components/UI/Form/Form";
 import { useDispatch, useSelector } from "react-redux";

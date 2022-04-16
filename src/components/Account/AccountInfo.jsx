@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { useForm, Controller } from 'react-hook-form'
 import { SelectReact, ParamsForm, BuildOptionsSelect } from '../UI/Form/Form'
 import { ErrorsMessage } from "../UI/Form/ErrorsMessage";
-import { GetAxios, PatchAxios, PutAxios } from "../../Fetch/Fetching"
+import { GetAxios, PatchAxios, PutAxios } from "../../Context/Fetching"
 import { useSelector } from "react-redux";
 import { AlertDefault } from "../UI/Alerts/Alerts";
 import AccountOut from "../UI/Account/AccountOut";

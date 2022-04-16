@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { useNavigate } from "react-router-dom";
 import { AccountContext } from "../../Context/AccountProvider";
 import { AuthContext } from "../../Context/AuthProvider";
-import { GetAxios, PostAxios } from "../../Fetch/Fetching"
+import { GetAxios, PostAxios } from "../../Context/Fetching"
 import { useForm, Controller } from 'react-hook-form'
 import ReactSelect from 'react-select'
 import FormInput, { BuildOptionsSelect } from '../UI/Form/Form'

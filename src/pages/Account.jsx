@@ -4,7 +4,7 @@ import AccountNavigate from "../components/Account/AccountNavigate";
 import { PagesContext } from "../Context/PagesProvider";
 import { AuthContext } from "../Context/AuthProvider";
 import { AccountContext } from "../Context/AccountProvider";
-import { AccProductGet } from "../Fetch/Fetching";
+import { AccProductGet } from "../Context/Fetching";
 import { useDispatch, useSelector } from "react-redux";
 import { LocationFrom } from "../Redux/actions/PagesActions";
 import { useWindowSize } from '../hook/useWindowSize'

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../../Context/AccountProvider";
-import { DeleteProduct, ToBasket, AccProductGet } from "../../Fetch/Fetching"
+import { DeleteProduct, ToBasket, AccProductGet } from "../../Context/Fetching"
 import { SelectReact, ParamsForm, BuildOptionsSelect } from '../UI/Form/Form'
 import { useForm, Controller } from "react-hook-form"
 import { PagesContext } from "../../Context/PagesProvider";
