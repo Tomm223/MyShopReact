@@ -5,7 +5,7 @@ import { useNavigateParams } from '../hook/useSearchParams'
 function Moda() {
    const navigateSearch = useNavigateParams()
    function handler(event: SyntheticEvent<HTMLImageElement>) {
-      console.log();
+
       navigateSearch('/cataloge', { collection: event.currentTarget.alt })
    }
    return (

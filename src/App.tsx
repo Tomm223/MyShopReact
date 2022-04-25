@@ -31,6 +31,7 @@ import AccountChange from "./hoc/AccountChange"
 import { StateInit } from "./store/actions/UserActions"
 import { useWindowSize } from './hook/useWindowSize'
 import { IProduct } from "./Types/products-server"
+import { ProductsInit } from "./store/actions/ProductsActions"
 
 function App() {
 
@@ -53,11 +54,13 @@ function App() {
    const StorageProduct = localStorage.getItem('products')
    const getProduct = () => StorageProduct ? StorageProduct : "null"
    const [products, setProducts] = useState(JSON.parse(getProduct()))
-   console.log(products);
    const [compliteLStorage, setCompliteLStorage] = useState('')
    useEffect(() => {
       if (products == null) {
          setProducts(JSON.parse(getProduct()))
+      }
+      else {
+         dispatch(ProductsInit(products))
       }
    }, [products])
    const giveLocalProduct = () => {

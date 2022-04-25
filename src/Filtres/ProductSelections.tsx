@@ -5,8 +5,21 @@ import { IProduct } from '../Types/products-server'
 import { useTypeSelector } from "../hook/useTypeSelector"
 import { resolve } from "path"
 import { rejects } from "assert"
+import { GetAxios } from "../Fetch/Fetching"
 
-export function CheckFilterType(type: string) {
+export async function CheckFilterType(type: string) {
+   if (!products.length) {
+      products = await GetProducts()
+      return GetFilter(type)
+   }
+   else {
+      GetFilter(type)
+   }
+
+
+}
+
+function GetFilter(type: string) {
    if (type === TypesSearch.SEARCH_SALES) {
       return Sales_Selector()
    }
@@ -49,10 +62,18 @@ export function CheckFilterType(type: string) {
 
 }
 
-
 const Luxery_Brand_Mass = ["Tommy Hilfiger", "Fred Perry", "Dr. Martens", "Ellesse"]
 
-const products = JSON.parse(localStorage.getItem('products') || '[]')
+let products = JSON.parse(localStorage.getItem('products') || '[]')
+if (!products.length) {
+   products = GetProducts()
+}
+
+async function GetProducts() {
+   const resp = await GetAxios('products')
+   return resp
+
+}
 
 export const Sales_Selector = () => products.filter((item: IProduct) => item.sales == "true")
 export const Luxery_Brand_Selector = () => products.filter((item: IProduct) =>

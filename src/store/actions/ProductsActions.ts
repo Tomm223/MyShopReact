@@ -26,6 +26,8 @@ export function ProductsFiltered(filterStr: string) {
 export function CollectionsFiltered(filter: string) {
    return async function (dispatch: Dispatch<TypesProductsAction>) {
       const massFilter = await CheckFilterType(filter)
+      console.log("s,mgro[rotjobmtro", massFilter);
+
       dispatch({
          type: TypesProducts.PRODUCTS_FILTER,
          payload: massFilter

@@ -14,6 +14,7 @@ import { useTypeSelector } from "../hook/useTypeSelector";
 import { IProduct } from "../Types/products-server";
 import CatalogeFilterList from "../components/Cataloge/CatalogeFilterList";
 import CatalogeIntro from "../components/Cataloge/CatalogeIntro";
+import { TypesSearch } from "../Types/search/search";
 function Cataloge() {
    //responsive
    const { minLabTop,
@@ -40,11 +41,10 @@ function Cataloge() {
    console.log("QUERYPROD: ", QueryProducts);
    // search in SearchInput in HEADER
    useEffect(() => {
-      console.log('collection', QueryCollection);
+      console.log('collectionAOPFNIEOEO', QueryCollection);
       if (QueryCollection) {
          dispatch(CollectionsFiltered(QueryCollection))
       }
-
    }, [QueryCollection, QueryProducts])
    // search in SearchInput in HEADER
    useEffect(() => {
