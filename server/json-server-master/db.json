@@ -101,6 +101,7 @@
       "brand": "New Look",
       "season": "winter",
       "id_product": 111,
+      "material": "Пух",
       "filter_name": "Куртка",
       "product_name": "Пуховая зимняя куртка",
       "img_product": "/img/jacket/jacket5-1.jpg",
@@ -865,6 +866,20 @@
             }
           ],
           "id": 920394270125182.1
+        },
+        {
+          "send": "true",
+          "local": "RUSSIA, Velikiy Novgorod, Kochetova, 23",
+          "sum": 169,
+          "products": [
+            {
+              "id": 555854571018.0441,
+              "amount": 4,
+              "size": "m",
+              "product_id": "27-4"
+            }
+          ],
+          "id": 326483829815264.25
         }
       ]
     },

@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 const webpack = require('webpack')
 module.exports = {
    entry: {
-      build: "./src/index.js"
+      build: "./src/index.ts"
    },
    output: {
       path: path.resolve(__dirname, "dist"),
@@ -44,6 +44,7 @@ module.exports = {
                {
                   loader: 'sass-loader',
                   options: {
+                     module: true,
                      sourceMap: isDevelopment
                   }
                }
@@ -55,7 +56,11 @@ module.exports = {
             use: [
                isDevelopment ?
                   'style-loader' :
-                  MiniCssExtractPlugin.loader, 'css-loader',
+                  MiniCssExtractPlugin.loader,
+               {
+                  loader: 'css-loader',
+                  options: { module: true }
+               },
                {
                   loader: 'sass-loader',
                   options: {

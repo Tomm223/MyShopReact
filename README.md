@@ -1,4 +1,12 @@
+возмодные ошибки :
 
+#### ОЦЕНИТЬ ЭТОТ ПРОЕКТ НА ЧИСТОТУ И ПРОФЕССИОНАЛЬНОСТЬ КОДА!!!!
+
+1. reactselect ui\form\form func= SelectReact { getValue ... : {} заменить на ""}  
+   + error type + передача в ErrorSelect
+2. productSelect const products = ... + Cataloge str:57
+3. AccOut Styles in cabinet in upp
+4. productPhotos hundle Func Properties
 # My React Shop 
 
 ## Как запустить сайт:
