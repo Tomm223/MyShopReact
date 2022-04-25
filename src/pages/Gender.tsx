@@ -17,7 +17,7 @@ function Gender() {
    return (
       <>
          <Outlet />
-         <GenderGallery gallery={gallery} />
+         <GenderGallery />
          <Moda />
          <div className="feture">
             <div className="container">

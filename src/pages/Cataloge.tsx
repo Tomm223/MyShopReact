@@ -50,7 +50,7 @@ function Cataloge() {
    useEffect(() => {
       const func = async () => {
          if (QueryProducts) {
-            // console.log('АЛОХА');
+            console.log('АЛОХА');
 
             dispatch(ProductsFiltered(QueryProducts))
          }

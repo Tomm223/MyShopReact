@@ -47,7 +47,6 @@ const HeaderNavList: React.FC<NavListProps> = ({ style }) => {
                         <HeaderNavSort category={item.id} />
                      </div>)
                })}
-
             </ul>
          </nav>
       </div>

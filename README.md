@@ -1,6 +1,3 @@
-возмодные ошибки :
-
-#### ОЦЕНИТЬ ЭТОТ ПРОЕКТ НА ЧИСТОТУ И ПРОФЕССИОНАЛЬНОСТЬ КОДА!!!!
 
 1. reactselect ui\form\form func= SelectReact { getValue ... : {} заменить на ""}  
    + error type + передача в ErrorSelect

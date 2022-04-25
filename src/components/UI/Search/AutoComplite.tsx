@@ -24,9 +24,17 @@ const AutoComplite: FC<AutoCompliteProps> = ({ state }) => {
    const [FilterSearch, setFilterSearch] = useState<IProduct[]>()
    const products = useTypeSelector(state => state.products.products)
    useEffect(() => {
+      console.log(products);
+   }, [search])
+
+
+
+   useEffect(() => {
       if (search) {
          products &&
-            setFilterSearch(products.filter((item: IProduct) => item.product_name.toLowerCase().includes(search.toLowerCase()))
+            setFilterSearch(
+               products.filter((item: IProduct) =>
+                  item.product_name.toLowerCase().includes(search.toLowerCase()))
             )
 
       }
@@ -38,7 +46,6 @@ const AutoComplite: FC<AutoCompliteProps> = ({ state }) => {
       width: focusSearch ? search ? 'auto' : "0" : '0',
       display: focusSearch ? search ? 'flex' : "none" : 'none',
    }
-   console.log(focusSearch);
 
    return (
       <ul className="autoComplite" style={stylesAutoComplite}>
