@@ -8,12 +8,12 @@
 
 ## Проект выполнен в учебных целях , в нем присутствуют технологии такие, как:
 1.Typescript
-2. SCSS
-3. React = [ Redux(think,saga), React-Hook-Form, React-Responsive, 
+2.SCSS
+3.React = [ Redux(think,saga), React-Hook-Form, React-Responsive, 
 React-Router-DOM, React-Selector, React-Transition-Group ]
-4. JS ES6+
-5. Webpack
-6. Git
+4.JS ES6+
+5.Webpack
+6.Git
 
 ## Что удалось реализовать:
 
