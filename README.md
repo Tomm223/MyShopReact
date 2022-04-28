@@ -7,7 +7,7 @@
 2. в самом проекте: npm start +согласие на перенапрвление на 3001 хост
 
 ## Проект выполнен в учебных целях , в нем присутствуют технологии такие, как:
-
+0.Typescript
 1. SCSS
 2. React = [ Redux(think,saga), React-Hook-Form, React-Responsive, 
 React-Router-DOM, React-Selector, React-Transition-Group ]
